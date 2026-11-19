@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+const description = 'That page is not on Satsplain. Start with the beginner path or the glossary.';
+---
+<Base title="Page not found · Satsplain" description={description} noindex={true}>
+  <header class="page-header">
+    <p class="kicker">404</p>
+    <h1>That page is not on Satsplain.</h1>
+    <p class="lede">The link may be old, or the guide may not be written yet. Nothing here is a dead end on purpose.</p>
+  </header>
+  <div class="actions">
+    <a class="button button-primary" href="/">Go home</a>
+    <a class="button button-secondary" href="/start-here/">Start here</a>
+  </div>
+  <ul>
+    <li><a href="/glossary/">Glossary</a></li>
+    <li><a href="/articles/what-is-bitcoin/">What is Bitcoin?</a></li>
+    <li><a href="/contact/">Contact the desk</a></li>
+  </ul>
+</Base>

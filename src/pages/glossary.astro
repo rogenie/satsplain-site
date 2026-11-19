@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { glossary } from '../data/glossary';
+import { buildGraph } from '../lib/schema';
+
+const crumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Glossary', href: '/glossary/' },
+];
+const groups = new Map<string, typeof glossary>();
+for (const term of [...glossary].sort((a, b) => a.term.localeCompare(b.term))) {
+  const letter = term.term[0]?.toUpperCase() ?? '#';
+  const list = groups.get(letter) ?? [];
+  list.push(term);
+  groups.set(letter, list);
+}
+const description = 'Short definitions of bitcoin, wallets, keys, and scams, each tied to a regulator or an official document.';
+---
+<Base title="Glossary · Satsplain" description={description} graph={buildGraph({ crumbs })}>
+  <Breadcrumbs items={crumbs} />
+  <header class="page-header">
+    <p class="kicker">Words</p>
+    <h1>Glossary</h1>
+    <p class="lede">Plain definitions. Each one names the page it came from. If a word is not here, we have not checked it yet.</p>
+  </header>
+  <nav class="glossary-jump" aria-label="Glossary letters">
+    {[...groups.keys()].map((letter) => (
+      <a href={`#letter-${letter.toLowerCase()}`}>{letter}</a>
+    ))}
+  </nav>
+  {[...groups.entries()].map(([letter, terms]) => (
+    <section aria-labelledby={`letter-${letter.toLowerCase()}`}>
+      <h2 id={`letter-${letter.toLowerCase()}`}>{letter}</h2>
+      {terms.map((term) => (
+        <article class="glossary-entry" id={term.id}>
+          <h3>{term.term}</h3>
+          <p>{term.definition}</p>
+          <p class="meta">Source: <a href={term.sourceUrl}>{term.sourceTitle}</a></p>
+          {term.related && term.related.length > 0 && (
+            <p>
+              On Satsplain:{' '}
+              {term.related.map((link, index) => (
+                <>
+                  {index > 0 && ', '}
+                  <a href={link.href}>{link.label}</a>
+                </>
+              ))}
+            </p>
+          )}
+        </article>
+      ))}
+    </section>
+  ))}
+</Base>

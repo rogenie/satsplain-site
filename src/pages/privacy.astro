@@ -1,0 +1,38 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { buildGraph } from '../lib/schema';
+import { site } from '../data/site';
+import { formatDate } from '../lib/format';
+
+const crumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Privacy', href: '/privacy/' },
+];
+const updated = new Date(`${site.policiesUpdated}T00:00:00.000Z`);
+const description = 'Satsplain is a static site with no analytics and no accounts. Theme choice stays on your device. Email is optional.';
+---
+<Base title="Privacy policy · Satsplain" description={description} graph={buildGraph({ crumbs })}>
+  <Breadcrumbs items={crumbs} />
+  <header class="page-header">
+    <p class="kicker">Data</p>
+    <h1>Privacy policy</h1>
+    <p class="lede">We publish pages. We do not run accounts, ads, or a tracker.</p>
+    <p class="meta">Updated <time datetime={site.policiesUpdated}>{formatDate(updated)}</time></p>
+  </header>
+  <div class="prose">
+    <h2>Who we are</h2>
+    <p>Satsplain is the site at satsplain.com, described on the <a href="/about/">about page</a>. Contact <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+    <h2>What this site collects</h2>
+    <p>There is no account and no comment form. The only information you send on purpose is an email you choose to write. If you email us, we receive what you put in that message, including the address you send from. Do not include seed phrases, passwords, or government ID images.</p>
+    <p>A theme switch stores the word “light” or “dark” in your browser's localStorage so the next visit matches. That value stays on your device. We do not receive it.</p>
+    <h2>What we do not do</h2>
+    <p>We do not run advertising cookies. We do not sell personal information. We do not load an analytics script. A spot in the page template is reserved so a measurement tag could be added later. If we add one, we will update this policy first, before the script loads. Search Console verification, if the owner adds it, is a meta tag used to prove ownership of the site to Google. It is not a tracker of readers.</p>
+    <h2>Hosting</h2>
+    <p>The site is static and is hosted on GitHub Pages. When your browser requests a page, GitHub's infrastructure may process technical logs such as IP address and browser type as described in the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement">GitHub privacy statement</a>. We do not operate that logging ourselves.</p>
+    <h2>Children</h2>
+    <p>The site is not directed at children under 13, and we do not knowingly collect their personal information.</p>
+    <h2>Changes</h2>
+    <p>If this policy changes, the date at the top changes with it. Continued use of a static public page does not require an account.</p>
+  </div>
+</Base>

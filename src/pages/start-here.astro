@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { buildGraph } from '../lib/schema';
+
+const crumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Start here', href: '/start-here/' },
+];
+const description = 'A short path for crypto beginners: what bitcoin is, which scams to spot, then how a first purchase can go wrong.';
+---
+<Base title="Start here · Satsplain" description={description} graph={buildGraph({ crumbs })}>
+  <Breadcrumbs items={crumbs} />
+  <header class="page-header">
+    <p class="kicker">Learning path</p>
+    <h1>Start here if crypto still feels like a closed door.</h1>
+    <p class="lede">
+      Five stops. You can leave after any of them. None of them tells you to buy.
+    </p>
+  </header>
+  <ol class="path">
+    <li>
+      <span class="path-num">1</span>
+      <div>
+        <h2><a href="/articles/what-is-bitcoin/">What is Bitcoin?</a></h2>
+        <p>About 10 minutes. You will know what a satoshi is, why there is no bank to call, and what US authorities actually call bitcoin.</p>
+      </div>
+    </li>
+    <li>
+      <span class="path-num">2</span>
+      <div>
+        <h2><a href="/articles/crypto-scams-to-avoid/">Crypto scams to avoid</a></h2>
+        <p>Read this before you move money. The FBI's 2025 report puts crypto investment fraud at the top of reported losses. The patterns are recognizable once someone names them.</p>
+      </div>
+    </li>
+    <li>
+      <span class="path-num">3</span>
+      <div>
+        <h2><a href="/articles/how-to-buy-crypto-safely/">How to buy crypto safely for the first time</a></h2>
+        <p>A slow checklist: look up the company, open the real website yourself, turn on a second login check, and decide who keeps the keys.</p>
+      </div>
+    </li>
+    <li>
+      <span class="path-num">4</span>
+      <div>
+        <h2><a href="/pillars/wallets-and-security/">Wallets and security</a></h2>
+        <p>Hot, cold, or a company. The SEC describes how each one fails. A diagram on that page puts the three side by side in words.</p>
+      </div>
+    </li>
+    <li>
+      <span class="path-num">5</span>
+      <div>
+        <h2><a href="/pillars/taxes-and-rules/">Taxes and rules</a></h2>
+        <p>The IRS treats digital assets as property. A first purchase can create records even when you have not sold anything. This is orientation, not a tax return.</p>
+      </div>
+    </li>
+  </ol>
+  <section class="section">
+    <h2>When a word stops you</h2>
+    <p>The <a href="/glossary/">glossary</a> is a short list: satoshi, private key, seed phrase, stablecoin, and the rest, each with the page we took it from.</p>
+    <p>If a headline is shouting, wait. <a href="/pillars/trending-explained/">Trending Explained</a> only runs when we can cite a primary source. We do not cover prices.</p>
+  </section>
+</Base>

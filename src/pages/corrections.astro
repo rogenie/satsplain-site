@@ -1,0 +1,52 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { buildGraph } from '../lib/schema';
+import { site } from '../data/site';
+import { formatDate } from '../lib/format';
+
+const crumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Corrections', href: '/corrections/' },
+];
+const updated = new Date(`${site.policiesUpdated}T00:00:00.000Z`);
+const description = 'How to tell Satsplain a guide is wrong, how we correct it, and the public log of factual corrections.';
+---
+<Base title="Corrections policy · Satsplain" description={description} graph={buildGraph({ crumbs })}>
+  <Breadcrumbs items={crumbs} />
+  <header class="page-header">
+    <p class="kicker">Mistakes</p>
+    <h1>Corrections policy</h1>
+    <p class="lede">If a sentence is wrong, we would rather fix it in public than defend it.</p>
+    <p class="meta">Updated <time datetime={site.policiesUpdated}>{formatDate(updated)}</time></p>
+  </header>
+  <div class="prose">
+    <h2>How to tell us</h2>
+    <p>
+      Email <a href={`mailto:${site.email}`}>{site.email}</a> or open an issue on <a href={`${site.repo}/issues`}>GitHub</a>. Include the page address, the sentence you think is wrong, and a source that supports the correction. Please do not include account numbers or seed phrases.
+    </p>
+    <h2>What we do next</h2>
+    <p>We read the challenge against the cited source and against the source you sent. If the guide is wrong or misleading, we edit it, update the date on the page, and add a row to the log below. The note says what changed and why.</p>
+    <p>Typos, broken links replaced with the same document, and formatting fixes may be made without a log entry. A change to a number, a definition, or a description of a rule gets an entry.</p>
+    <p>If we disagree, we will say why when we reply. We do not promise a deadline. We do promise the log stays public.</p>
+    <h2>Corrections log</h2>
+    <div class="table-wrap">
+      <table>
+        <caption class="visually-hidden">Published factual corrections</caption>
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Page</th>
+            <th scope="col">Change</th>
+            <th scope="col">Why</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="4">No factual corrections have been published yet.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</Base>

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="980" viewBox="0 0 440 980" role="img">
+  <title>Crypto scam red flags</title>
+  <desc>Eight warning signs from FBI and CFTC alerts: a stranger steering the trade, pressure, a promise you cannot lose, a fee to withdraw, a recovery pitch, crypto-only payment, a link or QR code, and a request for remote access.</desc>
+  <rect width="440" height="980" rx="28" fill="#FAF8F3"/>
+  <rect width="440" height="8" fill="#C2410C"/>
+  <text x="32" y="52" fill="#14213D" font-family="Georgia, serif" font-size="26">Pause on any of these</text>
+  <text x="32" y="80" fill="#475569" font-family="Georgia, serif" font-size="15">If one is true, do not send the money.</text>
+  <g font-family="Georgia, serif" font-size="16" fill="#0F172A">
+    <g>
+      <rect x="28" y="108" width="384" height="86" rx="16" fill="#FFFFFF" stroke="#14213D"/>
+      <circle cx="64" cy="151" r="16" fill="#FFF1EB" stroke="#C2410C" stroke-width="2"/>
+      <text x="64" y="157" text-anchor="middle" fill="#C2410C" font-size="18" font-weight="700">!</text>
+      <text x="96" y="146">A stranger tells you what to buy.</text>
+      <text x="96" y="170" fill="#475569" font-size="14">Text, dating app, or social message.</text>
+    </g>
+    <g>
+      <rect x="28" y="206" width="384" height="72" rx="16" fill="#FFFFFF" stroke="#14213D"/>
+      <circle cx="64" cy="242" r="16" fill="#FFF1EB" stroke="#C2410C" stroke-width="2"/>
+      <text x="64" y="248" text-anchor="middle" fill="#C2410C" font-size="18">!</text>
+      <text x="96" y="248">They push you to decide on the spot.</text>
+    </g>
+    <g>
+      <rect x="28" y="290" width="384" height="72" rx="16" fill="#FFFFFF" stroke="#14213D"/>
+      <circle cx="64" cy="326" r="16" fill="#FFF1EB" stroke="#C2410C" stroke-width="2"/>
+      <text x="64" y="332" text-anchor="middle" fill="#C2410C" font-size="18">!</text>
+      <text x="96" y="332">They say you cannot lose money.</text>
+    </g>
+    <g>
+      <rect x="28" y="374" width="384" height="86" rx="16" fill="#FFFFFF" stroke="#14213D"/>
+      <circle cx="64" cy="417" r="16" fill="#FFF1EB" stroke="#C2410C" stroke-width="2"/>
+      <text x="64" y="423" text-anchor="middle" fill="#C2410C" font-size="18">!</text>
+      <text x="96" y="412">A fee appears when you try to withdraw.</text>
+      <text x="96" y="436" fill="#475569" font-size="14">Often dressed up as a tax.</text>
+    </g>
+    <g>
+      <rect x="28" y="472" width="384" height="86" rx="16" fill="#FFFFFF" stroke="#14213D"/>
+      <circle cx="64" cy="515" r="16" fill="#FFF1EB" stroke="#C2410C" stroke-width="2"/>
+      <text x="64" y="521" text-anchor="middle" fill="#C2410C" font-size="18">!</text>
+      <text x="96" y="510">Someone offers to recover the loss</text>
+      <text x="96" y="534">if you pay them first.</text>
+    </g>
+    <g>
+      <rect x="28" y="570" width="384" height="72" rx="16" fill="#FFFFFF" stroke="#14213D"/>
+      <circle cx="64" cy="606" r="16" fill="#FFF1EB" stroke="#C2410C" stroke-width="2"/>
+      <text x="64" y="612" text-anchor="middle" fill="#C2410C" font-size="18">!</text>
+      <text x="96" y="612">They will only take crypto.</text>
+    </g>
+    <g>
+      <rect x="28" y="654" width="384" height="86" rx="16" fill="#FFFFFF" stroke="#14213D"/>
+      <circle cx="64" cy="697" r="16" fill="#FFF1EB" stroke="#C2410C" stroke-width="2"/>
+      <text x="64" y="703" text-anchor="middle" fill="#C2410C" font-size="18">!</text>
+      <text x="96" y="692">A link or QR code arrives in a message.</text>
+      <text x="96" y="716" fill="#475569" font-size="14">Look the site up yourself instead.</text>
+    </g>
+    <g>
+      <rect x="28" y="752" width="384" height="86" rx="16" fill="#FFFFFF" stroke="#14213D"/>
+      <circle cx="64" cy="795" r="16" fill="#FFF1EB" stroke="#C2410C" stroke-width="2"/>
+      <text x="64" y="801" text-anchor="middle" fill="#C2410C" font-size="18">!</text>
+      <text x="96" y="790">They want remote access to your device,</text>
+      <text x="96" y="814">or they tell you to keep it secret.</text>
+    </g>
+  </g>
+  <rect x="28" y="858" width="384" height="88" rx="16" fill="#E7F6F3" stroke="#1F756A"/>
+  <text x="48" y="892" fill="#14213D" font-family="Georgia, serif" font-size="16">Instead: hang up, type the real web</text>
+  <text x="48" y="916" fill="#14213D" font-family="Georgia, serif" font-size="16">address yourself, and tell someone you trust.</text>
+</svg>

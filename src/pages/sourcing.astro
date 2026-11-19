@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { buildGraph } from '../lib/schema';
+import { site } from '../data/site';
+import { formatDate } from '../lib/format';
+
+const crumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Sourcing', href: '/sourcing/' },
+];
+const updated = new Date(`${site.policiesUpdated}T00:00:00.000Z`);
+const description = 'Which sources Satsplain trusts first, how inline links work, and what we will not use as the only support for a fact.';
+---
+<Base title="Sourcing and fact-checking · Satsplain" description={description} graph={buildGraph({ crumbs })}>
+  <Breadcrumbs items={crumbs} />
+  <header class="page-header">
+    <p class="kicker">Evidence</p>
+    <h1>Sourcing and fact-checking</h1>
+    <p class="lede">We would rather link a dry government page than sound certain without one.</p>
+    <p class="meta">Updated <time datetime={site.policiesUpdated}>{formatDate(updated)}</time></p>
+  </header>
+  <div class="prose">
+    <h2>What we trust first</h2>
+    <ol>
+      <li>Statutes, rules, and regulators. In the US that includes the SEC, CFTC, FTC, IRS, FDIC, FinCEN, and the FBI's IC3.</li>
+      <li>Official project documents, such as Bitcoin.org and the bitcoin paper, for how a protocol says it works.</li>
+      <li>Peer-reviewed research when it answers a question a regulator page does not.</li>
+      <li>A company's own help docs, for how that company's product works, not for whether you should use it.</li>
+      <li>Reputable news, for what happened and when, paired with a primary document when the fact will stay on the page.</li>
+    </ol>
+    <h2>What cannot be the only source</h2>
+    <p>An anonymous social post. A price call. A token issuer's marketing paper with no primary document behind it. A screenshot we cannot trace. If those materials alert us to a topic, we still have to find a better source before we publish the claim.</p>
+    <h2>How citations appear</h2>
+    <p>The sentence links to the page. The bottom of the guide repeats the source with the publisher and the date we opened it. If two good sources disagree, the guide says so and links both. We do not smooth the disagreement into a single confident line.</p>
+    <h2>Checking before merge</h2>
+    <p>The editor opens the links. The claim in our sentence has to be a fair reading of the page, not a stretch. Numbers are copied carefully and dated, because crime statistics and tax forms change. Prices are left out so the page does not rot.</p>
+    <p>The automated gate, described in the repository's quality-gate notes, blocks a merge when the file is missing sources, a section has no link, or the language trips a hype rule. The gate cannot judge whether we understood the source. A person does that.</p>
+  </div>
+</Base>

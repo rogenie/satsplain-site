@@ -1,0 +1,132 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import HeroIllustration from '../components/illustrations/HeroIllustration.astro';
+import PillarArt from '../components/illustrations/PillarArt.astro';
+import NewsletterPlaceholder from '../components/NewsletterPlaceholder.astro';
+import { pillars } from '../data/pillars';
+import { site } from '../data/site';
+import { buildGraph } from '../lib/schema';
+import { formatDate } from '../lib/format';
+
+const articles = (await getCollection('articles'))
+  .filter((entry) => !entry.data.draft)
+  .sort((a, b) => b.data.updatedDate.valueOf() - a.data.updatedDate.valueOf());
+
+const description = 'Plain-English crypto guides for beginners. We cite regulators and official docs, and we do not tell you to buy.';
+---
+<Base
+  title="Satsplain — Crypto, explained calmly for beginners"
+  description={description}
+  graph={buildGraph({})}
+>
+  <section class="hero">
+    <div>
+      <p class="kicker">Independent research desk</p>
+      <h1>Crypto, explained calmly.</h1>
+      <p class="lede">
+        You do not need a trading screen. You need a clear explanation, with the source sitting next to the sentence.
+      </p>
+      <p>
+        {site.name} reads regulators, official project docs, and primary research, then explains them for people who are brand new.
+        Every factual claim in a guide links to the page we used.
+      </p>
+      <div class="actions">
+        <a class="button button-primary" href="/start-here/">Start here</a>
+        <a class="button button-secondary" href="/sourcing/">How we check facts</a>
+      </div>
+    </div>
+    <figure class="hero-art">
+      <HeroIllustration />
+    </figure>
+  </section>
+
+  <section class="trust-row" aria-label="How Satsplain works">
+    <article>
+      <h2>A source on the claim</h2>
+      <p>If we state a fact, the sentence links to the document.</p>
+    </article>
+    <article>
+      <h2>No price calls</h2>
+      <p>We do not predict what a coin will be worth next month.</p>
+    </article>
+    <article>
+      <h2>Not a recommendation</h2>
+      <p>Reading a guide does not mean you should buy anything.</p>
+    </article>
+    <article>
+      <h2>A person merges it</h2>
+      <p>Guides ship as pull requests. Nothing publishes itself.</p>
+    </article>
+  </section>
+
+  <section class="section" id="path" aria-labelledby="path-heading">
+    <h2 id="path-heading">Start with three pages</h2>
+    <p class="section-intro">The order matters. Learn the thing, learn the trap, then look at a buy button.</p>
+    <ol class="path">
+      <li>
+        <span class="path-num">1</span>
+        <div>
+          <h3><a href="/articles/what-is-bitcoin/">What is Bitcoin?</a></h3>
+          <p>What you actually hold, what a satoshi is, and why a payment is hard to undo.</p>
+        </div>
+      </li>
+      <li>
+        <span class="path-num">2</span>
+        <div>
+          <h3><a href="/articles/crypto-scams-to-avoid/">Crypto scams to avoid</a></h3>
+          <p>The friendly message, the fake profit, and the fee that shows up when you try to leave.</p>
+        </div>
+      </li>
+      <li>
+        <span class="path-num">3</span>
+        <div>
+          <h3><a href="/articles/how-to-buy-crypto-safely/">How to buy more safely</a></h3>
+          <p>Check the company, the fee, and who holds the key before any money moves.</p>
+        </div>
+      </li>
+    </ol>
+    <p><a href="/start-here/">See the full path</a>, including wallets and taxes.</p>
+  </section>
+
+  <section class="section" id="topics" aria-labelledby="topics-heading">
+    <h2 id="topics-heading">Six topics</h2>
+    <p class="section-intro">Each hub explains the question in plain language and points at the guides we have finished.</p>
+    <div class="pillar-grid">
+      {pillars.map((pillar) => (
+        <a class="pillar-card" href={`/pillars/${pillar.id}/`}>
+          <PillarArt id={pillar.id} size={72} />
+          <div>
+            <h3>{pillar.title}</h3>
+            <p>{pillar.summary}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="latest-heading">
+    <h2 id="latest-heading">Latest guides</h2>
+    <div class="card-grid">
+      {articles.map((article) => (
+        <article class="card">
+          <p class="kicker">{pillars.find((item) => item.id === article.data.pillar)?.title}</p>
+          <h3><a href={`/articles/${article.data.slug}/`}>{article.data.title}</a></h3>
+          <p>{article.data.description}</p>
+          <p class="meta">Updated {formatDate(article.data.updatedDate)}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="navy-band" aria-labelledby="desk-heading">
+    <h2 id="desk-heading">We explain the document. We do not play expert.</h2>
+    <p>
+      Satsplain is a research desk, not a fund, an exchange, or an advice firm.
+      The <a href="/editorial-policy/">editorial policy</a> says what we will not publish.
+      The <a href="/corrections/">corrections log</a> is where we show our mistakes.
+    </p>
+  </section>
+
+  <NewsletterPlaceholder />
+</Base>

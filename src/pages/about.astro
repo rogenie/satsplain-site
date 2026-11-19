@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { buildGraph } from '../lib/schema';
+import { site } from '../data/site';
+import { formatDate } from '../lib/format';
+
+const crumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about/' },
+];
+const updated = new Date(`${site.policiesUpdated}T00:00:00.000Z`);
+const description = 'Satsplain is an independent research desk. We explain what trusted public sources say, and we do not claim personal investing expertise.';
+---
+<Base title="About · Satsplain" description={description} graph={buildGraph({ crumbs })}>
+  <Breadcrumbs items={crumbs} />
+  <header class="page-header">
+    <p class="kicker">The desk</p>
+    <h1>About Satsplain</h1>
+    <p class="lede">We explain crypto for people who are new to it. We do not pretend to be the expert in the room.</p>
+    <p class="meta">Updated <time datetime={site.policiesUpdated}>{formatDate(updated)}</time></p>
+  </header>
+  <div class="prose">
+    <h2 id="research-desk">Who runs this</h2>
+    <p>
+      Satsplain is an independent editorial project. The name joins “sats,” the smallest unit of bitcoin, with “explain.” The audience is a complete beginner who wants to understand the topic before moving any money.
+    </p>
+    <p>
+      The Satsplain Research Desk writes and edits the guides. The desk is not a registered investment adviser, broker-dealer, law firm, or tax practice. It does not hold customer funds and it does not place trades. Reading a page does not create a client relationship.
+    </p>
+    <p>
+      Guides are files in a public repository. A draft opens as a pull request. An automated check rejects missing sources, hype language, and broken internal links. A human reviewer reads the draft against the cited pages and merges it only after that review. Nothing auto-publishes. Software may help organize notes. Software does not approve a guide.
+    </p>
+    <p>
+      The domain owner is responsible for what is published at satsplain.com. A named legal publisher can be added on this page when the owner wants that stated. Until then, write to <a href={`mailto:${site.email}`}>{site.email}</a>. Please do not send account numbers, seed phrases, or copies of an ID.
+    </p>
+    <h2 id="funding">How we are funded</h2>
+    <p>
+      No crypto company, exchange, or token project pays for coverage. We do not sell ads. We do not use affiliate links. Operating costs are paid by the publisher, not by the products we explain.
+    </p>
+    <p>
+      If a financial relationship ever exists, the <a href="/affiliate-disclosure/">affiliate disclosure</a> will name it before any related link goes live, and the guide will say so next to the link. Compensation would not change the sourcing standard.
+    </p>
+    <h2>What we will not do</h2>
+    <p>We will not predict a price. We will not tell you that you should buy, sell, or hold a specific asset. We will not publish a guide that makes factual claims without links. We will not hide a correction.</p>
+    <p>The <a href="/editorial-policy/">editorial policy</a> is the longer version of those rules. The <a href="/sourcing/">sourcing page</a> lists which documents we trust first.</p>
+  </div>
+</Base>

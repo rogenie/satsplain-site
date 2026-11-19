@@ -1,0 +1,27 @@
+---
+import { getCollection, render } from 'astro:content';
+import ArticleLayout from '../../layouts/Article.astro';
+
+export async function getStaticPaths() {
+  const articles = (await getCollection('articles')).filter((entry) => !entry.data.draft);
+  return articles.map((article) => ({
+    params: { slug: article.data.slug },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content, headings } = await render(article);
+const all = (await getCollection('articles'))
+  .filter((entry) => !entry.data.draft)
+  .sort((a, b) => a.data.publishDate.valueOf() - b.data.publishDate.valueOf());
+const related = all.filter(
+  (entry) => entry.data.pillar === article.data.pillar && entry.data.slug !== article.data.slug,
+);
+const more = all
+  .filter((entry) => entry.data.slug !== article.data.slug && entry.data.pillar !== article.data.pillar)
+  .slice(0, 2);
+---
+<ArticleLayout article={article} headings={headings} related={related} more={more}>
+  <Content />
+</ArticleLayout>
