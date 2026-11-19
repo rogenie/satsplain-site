@@ -48,7 +48,7 @@ A second pass checks the draft against the primary sources it cites. Continuous 
 
 ## 6. Publish
 
-After the fact-check and a green quality gate, the guide is published. The deploy build writes an Open Graph PNG from the article title, rewrites `llms.txt` and `llms-full.txt`, and GitHub Actions updates the site.
+After the fact-check and a green quality gate, the guide is published. The deploy build writes an Open Graph PNG from the article title, rewrites `llms.txt` and `llms-full.txt`, adds a short URL at `/<slug>/` that points at `/articles/<slug>/`, and GitHub Actions updates the site. A slug that matches a top-level page such as `about` or `glossary` fails the build instead of replacing that page.
 
 ## 7. After publication
 

@@ -39,8 +39,9 @@ On every pull request, and on every push to `main`:
 2. `npm run check:articles`
 3. `npm run build`
 4. `npm run check:articles -- --dist`
+5. `npm run check:redirects` confirms each published article has a noindex short URL at `/<slug>/` pointing at `/articles/<slug>/`, and that those stubs are absent from the sitemap and from `llms.txt`. A slug that matches an existing top-level route fails this check and is not given a redirect.
 
-The deploy workflow on `main` repeats the gate and then publishes `dist` to GitHub Pages. Nothing merges automatically.
+The deploy workflow on `main` repeats these checks and then publishes `dist` to GitHub Pages.
 
 ## Human checks
 

@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "python3 scripts/generate-og.py && node scripts/generate-llms.mjs && astro build",
+    "build": "python3 scripts/generate-og.py && node scripts/generate-llms.mjs && astro build && node scripts/generate-redirects.mjs",
+    "check:redirects": "node scripts/check-redirects.mjs",
     "preview": "astro preview --host 127.0.0.1",
     "check:articles": "node scripts/check-articles.mjs",
     "check:links": "node scripts/check-articles.mjs --dist",
