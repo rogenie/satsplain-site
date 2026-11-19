@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="760" viewBox="0 0 440 760" role="img">
+  <title>How a bitcoin payment moves</title>
+  <desc>Four steps: you sign with a private key, the payment is broadcast, mining adds it to a block, and later blocks build on that record.</desc>
+  <rect width="440" height="760" rx="28" fill="#FAF8F3"/>
+  <rect x="0" y="0" width="440" height="8" fill="#F2A541"/>
+  <text x="32" y="52" fill="#14213D" font-family="Georgia, serif" font-size="26">How a payment moves</text>
+  <text x="32" y="80" fill="#475569" font-family="Georgia, serif" font-size="15">Sign it. Broadcast it. Wait for a block.</text>
+  <g>
+    <rect x="28" y="108" width="384" height="128" rx="18" fill="#FFFFFF" stroke="#14213D" stroke-width="1.5"/>
+    <circle cx="64" cy="148" r="18" fill="#F2A541" stroke="#14213D" stroke-width="1.5"/>
+    <text x="64" y="154" text-anchor="middle" fill="#14213D" font-family="Georgia, serif" font-size="18" font-weight="700">1</text>
+    <text x="96" y="146" fill="#14213D" font-family="Georgia, serif" font-size="20">You sign it</text>
+    <text x="96" y="176" fill="#0F172A" font-family="Georgia, serif" font-size="15">A private key signs the payment.</text>
+    <text x="96" y="198" fill="#0F172A" font-family="Georgia, serif" font-size="15">That signature is the proof it is yours.</text>
+  </g>
+  <path d="M220 244 v16" stroke="#1F756A" stroke-width="3" fill="none"/>
+  <path d="M212 256 l8 10 8-10" fill="#1F756A"/>
+  <g>
+    <rect x="28" y="272" width="384" height="128" rx="18" fill="#FFFFFF" stroke="#14213D" stroke-width="1.5"/>
+    <circle cx="64" cy="312" r="18" fill="#F2A541" stroke="#14213D" stroke-width="1.5"/>
+    <text x="64" y="318" text-anchor="middle" fill="#14213D" font-family="Georgia, serif" font-size="18" font-weight="700">2</text>
+    <text x="96" y="310" fill="#14213D" font-family="Georgia, serif" font-size="20">The network hears it</text>
+    <text x="96" y="340" fill="#0F172A" font-family="Georgia, serif" font-size="15">The signed payment is broadcast.</text>
+    <text x="96" y="362" fill="#0F172A" font-family="Georgia, serif" font-size="15">After that, other people cannot edit it.</text>
+  </g>
+  <path d="M220 408 v16" stroke="#1F756A" stroke-width="3" fill="none"/>
+  <path d="M212 420 l8 10 8-10" fill="#1F756A"/>
+  <g>
+    <rect x="28" y="436" width="384" height="140" rx="18" fill="#FFFFFF" stroke="#14213D" stroke-width="1.5"/>
+    <circle cx="64" cy="480" r="18" fill="#F2A541" stroke="#14213D" stroke-width="1.5"/>
+    <text x="64" y="486" text-anchor="middle" fill="#14213D" font-family="Georgia, serif" font-size="18" font-weight="700">3</text>
+    <text x="96" y="474" fill="#14213D" font-family="Georgia, serif" font-size="20">A block records it</text>
+    <text x="96" y="506" fill="#0F172A" font-family="Georgia, serif" font-size="15">Mining packs the payment into a block.</text>
+    <text x="96" y="528" fill="#0F172A" font-family="Georgia, serif" font-size="15">The first confirmation often takes</text>
+    <text x="96" y="550" fill="#0F172A" font-family="Georgia, serif" font-size="15">about 10 to 60 minutes.</text>
+  </g>
+  <path d="M220 584 v16" stroke="#1F756A" stroke-width="3" fill="none"/>
+  <path d="M212 596 l8 10 8-10" fill="#1F756A"/>
+  <g>
+    <rect x="28" y="612" width="384" height="116" rx="18" fill="#FFFFFF" stroke="#14213D" stroke-width="1.5"/>
+    <circle cx="64" cy="654" r="18" fill="#F2A541" stroke="#14213D" stroke-width="1.5"/>
+    <text x="64" y="660" text-anchor="middle" fill="#14213D" font-family="Georgia, serif" font-size="18" font-weight="700">4</text>
+    <text x="96" y="648" fill="#14213D" font-family="Georgia, serif" font-size="20">Later blocks pile on</text>
+    <text x="96" y="678" fill="#0F172A" font-family="Georgia, serif" font-size="15">New blocks build on the old ones.</text>
+    <text x="96" y="700" fill="#0F172A" font-family="Georgia, serif" font-size="15">That makes the history harder to rewrite.</text>
+  </g>
+</svg>

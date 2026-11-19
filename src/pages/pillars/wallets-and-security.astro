@@ -1,0 +1,25 @@
+---
+import Hub from '../../layouts/Hub.astro';
+import Figure from '../../components/Figure.astro';
+---
+<Hub pillarId="wallets-and-security">
+  <p>
+    A crypto wallet stores the secret, not the coin. The <a href="https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/crypto-asset-custody-basics-retail-investors-investor-bulletin-0">SEC's custody bulletin</a> says the private key authorizes transfers. If you lose that key, you permanently lose access. It cannot be reset.
+  </p>
+  <p>
+    The same bulletin splits wallets into hot and cold, and it describes a third path: a company holds the keys for you. Hot wallets are online and convenient, and more exposed to cyberattacks. Cold wallets stay offline and are generally harder to hack remotely. A custodian can be hacked, shut down, or go bankrupt.
+  </p>
+  <Figure
+    src="/diagrams/hot-cold-wallet.svg"
+    width={440}
+    height={860}
+    alt="Diagram comparing a hot wallet connected to the internet, a cold wallet kept offline, and a company that holds the private key. Each option can fail differently: hacking, a lost device, or a firm that shuts down."
+    caption="Three places a key can live, drawn from the SEC's description of hot wallets, cold wallets, and third-party custody."
+  />
+  <p>
+    A seed phrase is a word list that can recreate a wallet. <a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki">Bitcoin Improvement Proposal 39</a> describes that mnemonic. Anyone with the words has the secret. Do not read them aloud to a caller, and do not type them into a site someone texted you.
+  </p>
+  <p>
+    The SEC also says to use a strong password and multi-factor authentication, and to keep the size of your holdings private. A longer buying checklist is in <a href="/articles/how-to-buy-crypto-safely/">How to buy crypto safely for the first time</a>.
+  </p>
+</Hub>

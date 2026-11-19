@@ -1,0 +1,65 @@
+---
+interface Props {
+  id: string;
+  size?: number;
+}
+const { id, size = 128 } = Astro.props;
+const title: Record<string, string> = {
+  'crypto-basics': 'Three linked blocks and a small coin, for crypto basics',
+  'buying-and-apps': 'A phone with a check mark, for buying on an app',
+  'wallets-and-security': 'A key and a lock, for wallets and security',
+  'scams-and-safety': 'A shield, for scam warnings',
+  'taxes-and-rules': 'A record sheet with a seal, for taxes and rules',
+  'trending-explained': 'A page with a question mark, for news explained calmly',
+};
+---
+<svg viewBox="0 0 128 128" width={size} height={size} role="img" aria-label={title[id] ?? 'Topic illustration'}>
+  <rect width="128" height="128" rx="28" fill="var(--soft)" />
+  {id === 'crypto-basics' && (
+    <g fill="none" stroke="var(--navy)" stroke-width="2.5">
+      <rect x="18" y="46" width="26" height="26" rx="6" fill="var(--surface)" />
+      <rect x="51" y="46" width="26" height="26" rx="6" fill="var(--surface)" />
+      <rect x="84" y="46" width="26" height="26" rx="6" fill="var(--amber)" />
+      <path d="M44 59 h7 M77 59 h7" stroke="var(--link)" />
+      <circle cx="97" cy="59" r="5" fill="var(--navy)" stroke="none" />
+    </g>
+  )}
+  {id === 'buying-and-apps' && (
+    <g>
+      <rect x="40" y="22" width="48" height="84" rx="10" fill="var(--surface)" stroke="var(--navy)" stroke-width="2.5" />
+      <rect x="48" y="34" width="32" height="40" rx="4" fill="var(--teal-bg)" />
+      <circle cx="64" cy="90" r="8" fill="var(--amber)" stroke="var(--navy)" stroke-width="1.5" />
+      <path d="M60 90 l3 3 6-7" fill="none" stroke="var(--navy)" stroke-width="2" />
+    </g>
+  )}
+  {id === 'wallets-and-security' && (
+    <g fill="none" stroke="var(--navy)" stroke-width="2.5">
+      <circle cx="46" cy="58" r="16" fill="var(--amber)" />
+      <path d="M62 58 h28" />
+      <path d="M80 58 v8 M90 58 v8" />
+      <rect x="70" y="78" width="28" height="22" rx="4" fill="var(--surface)" />
+      <path d="M84 78 v-6 a6 6 0 0 1 12 0 v6" stroke="var(--link)" />
+    </g>
+  )}
+  {id === 'scams-and-safety' && (
+    <g>
+      <path d="M64 22 l28 12 v26 c0 22-12 34-28 42-16-8-28-20-28-42 V34 z" fill="var(--surface)" stroke="var(--navy)" stroke-width="2.5" />
+      <path d="M64 46 v24" stroke="var(--warn)" stroke-width="4" stroke-linecap="round" />
+      <circle cx="64" cy="82" r="3.5" fill="var(--warn)" />
+    </g>
+  )}
+  {id === 'taxes-and-rules' && (
+    <g>
+      <rect x="34" y="24" width="60" height="80" rx="8" fill="var(--surface)" stroke="var(--navy)" stroke-width="2.5" />
+      <path d="M46 46 h36 M46 60 h36 M46 74 h22" stroke="var(--link)" stroke-width="2.5" stroke-linecap="round" />
+      <circle cx="84" cy="86" r="12" fill="var(--amber)" stroke="var(--navy)" stroke-width="1.5" />
+    </g>
+  )}
+  {id === 'trending-explained' && (
+    <g>
+      <rect x="28" y="30" width="72" height="68" rx="8" fill="var(--surface)" stroke="var(--navy)" stroke-width="2.5" />
+      <path d="M40 48 h48 M40 62 h36" stroke="var(--link)" stroke-width="2.5" stroke-linecap="round" />
+      <text x="64" y="92" text-anchor="middle" fill="var(--navy)" font-family="Georgia, serif" font-size="28">?</text>
+    </g>
+  )}
+</svg>

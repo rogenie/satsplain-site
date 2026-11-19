@@ -1,0 +1,59 @@
+---
+import { pillars } from '../data/pillars';
+const learn = [
+  ['Start here', '/start-here/'],
+  ['Glossary', '/glossary/'],
+  ['What is Bitcoin?', '/articles/what-is-bitcoin/'],
+  ['Scams to avoid', '/articles/crypto-scams-to-avoid/'],
+  ['Buy more safely', '/articles/how-to-buy-crypto-safely/'],
+];
+const policies = [
+  ['About', '/about/'],
+  ['Editorial policy', '/editorial-policy/'],
+  ['Sourcing', '/sourcing/'],
+  ['Corrections', '/corrections/'],
+  ['Disclaimer', '/disclaimer/'],
+  ['Affiliate disclosure', '/affiliate-disclosure/'],
+  ['Privacy', '/privacy/'],
+  ['Contact', '/contact/'],
+];
+---
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="wordmark" href="/">Sats<span>plain</span></a>
+      <p>An independent research desk. Plain English. A source on every factual claim.</p>
+    </div>
+    <div>
+      <h2>Learn</h2>
+      <ul>
+        {learn.map(([label, href]) => (
+          <li><a href={href}>{label}</a></li>
+        ))}
+      </ul>
+    </div>
+    <div>
+      <h2>Topics</h2>
+      <ul>
+        {pillars.map((pillar) => (
+          <li><a href={`/pillars/${pillar.id}/`}>{pillar.title}</a></li>
+        ))}
+      </ul>
+    </div>
+    <div>
+      <h2>The desk</h2>
+      <ul>
+        {policies.map(([label, href]) => (
+          <li><a href={href}>{label}</a></li>
+        ))}
+        <li><a href="/rss.xml">RSS</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-note">
+    <p>
+      Education, not a recommendation. Crypto can fall in value, and sent transfers are hard to undo.
+      Read the <a href="/disclaimer/">disclaimer</a>.
+    </p>
+  </div>
+</footer>

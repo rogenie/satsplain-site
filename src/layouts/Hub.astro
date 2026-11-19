@@ -1,0 +1,59 @@
+---
+import { getCollection } from 'astro:content';
+import Base from './Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PillarArt from '../components/illustrations/PillarArt.astro';
+import { pillarById } from '../data/pillars';
+import { buildGraph } from '../lib/schema';
+import { formatDate } from '../lib/format';
+
+interface Props {
+  pillarId: string;
+}
+const { pillarId } = Astro.props;
+const pillar = pillarById(pillarId);
+const articles = (await getCollection('articles'))
+  .filter((entry) => !entry.data.draft && entry.data.pillar === pillarId)
+  .sort((a, b) => b.data.updatedDate.valueOf() - a.data.updatedDate.valueOf());
+const crumbs = [
+  { label: 'Home', href: '/' },
+  { label: pillar.title, href: `/pillars/${pillar.id}/` },
+];
+---
+<Base
+  title={`${pillar.title} · Satsplain`}
+  description={pillar.description}
+  graph={buildGraph({ crumbs })}
+>
+  <Breadcrumbs items={crumbs} />
+  <div class="hub-hero">
+    <PillarArt id={pillar.id} size={200} />
+    <header class="page-header">
+      <p class="kicker">Topic</p>
+      <h1>{pillar.title}</h1>
+      <p class="lede">{pillar.summary}</p>
+    </header>
+  </div>
+  <div class="prose">
+    <slot />
+  </div>
+  <section class="section" id="guides" aria-labelledby="guides-heading">
+    <h2 id="guides-heading">Guides in this topic</h2>
+    {articles.length === 0 ? (
+      <p class="empty-note">
+        A full guide for this topic is still being written. Nothing below is filler.
+        Use the sources in the introduction, then follow the <a href="/start-here/">start-here path</a>.
+      </p>
+    ) : (
+      <div class="card-grid">
+        {articles.map((article) => (
+          <article class="card">
+            <h3><a href={`/articles/${article.data.slug}/`}>{article.data.title}</a></h3>
+            <p>{article.data.description}</p>
+            <p class="meta">Updated {formatDate(article.data.updatedDate)}</p>
+          </article>
+        ))}
+      </div>
+    )}
+  </section>
+</Base>

@@ -1,0 +1,156 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Base from './Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import NewsletterPlaceholder from '../components/NewsletterPlaceholder.astro';
+import { pillarById } from '../data/pillars';
+import { formatDate, readingMinutes } from '../lib/format';
+import { buildGraph } from '../lib/schema';
+
+interface Props {
+  article: CollectionEntry<'articles'>;
+  headings: { depth: number; slug: string; text: string }[];
+  related: CollectionEntry<'articles'>[];
+  more: CollectionEntry<'articles'>[];
+}
+
+const { article, headings, related, more } = Astro.props;
+const data = article.data;
+const pillar = pillarById(data.pillar);
+const minutes = readingMinutes(article.body ?? '');
+const crumbs = [
+  { label: 'Home', href: '/' },
+  { label: pillar.title, href: `/pillars/${pillar.id}/` },
+  { label: data.title, href: `/articles/${data.slug}/` },
+];
+const image = `/og/${data.slug}.png`;
+const toc = [
+  { depth: 2, slug: 'key-takeaways', text: 'Key takeaways' },
+  ...headings.filter((heading) => heading.depth === 2 || heading.depth === 3),
+  { depth: 2, slug: 'sources', text: 'Sources' },
+  ...(data.faq?.length ? [{ depth: 2, slug: 'common-questions', text: 'Common questions' }] : []),
+];
+const graph = buildGraph({
+  crumbs,
+  article: {
+    title: data.title,
+    description: data.description,
+    path: `/articles/${data.slug}/`,
+    published: data.publishDate,
+    updated: data.updatedDate,
+    author: data.author,
+    image,
+    tags: data.tags,
+    reviewedBy: data.reviewedBy,
+  },
+  faq: data.faq,
+});
+---
+<Base
+  title={`${data.title} · Satsplain`}
+  description={data.description}
+  ogType="article"
+  image={image}
+  imageAlt={`${data.title}. Satsplain.`}
+  published={data.publishDate}
+  updated={data.updatedDate}
+  graph={graph}
+>
+  <article>
+    <Breadcrumbs items={crumbs} />
+    <header class="page-header">
+      <p class="kicker"><a href={`/pillars/${pillar.id}/`}>{pillar.title}</a></p>
+      <h1>{data.title}</h1>
+      <p class="dek">{data.description}</p>
+      <p class="byline">
+        By the <a href="/about/#research-desk">{data.author}</a>.
+        Published under our <a href="/editorial-policy/">editorial policy</a>.
+        Updated <time datetime={data.updatedDate.toISOString()}>{formatDate(data.updatedDate)}</time>.
+        {data.readingLevel === 'beginner' ? 'Beginner' : 'Intermediate'}.
+        {minutes} min read.
+        {data.reviewedBy && <> Reviewed by {data.reviewedBy}.</>}
+      </p>
+    </header>
+    <div class="article-grid">
+      <div class="article-main">
+        <details class="toc toc-mobile">
+          <summary>On this page</summary>
+          <ol>
+            {toc.map((item) => (
+              <li style={item.depth === 3 ? 'margin-left:1rem' : undefined}>
+                <a href={`#${item.slug}`}>{item.text}</a>
+              </li>
+            ))}
+          </ol>
+        </details>
+        <section class="takeaways" id="key-takeaways">
+          <h2>Key takeaways</h2>
+          <ul>
+            {data.keyTakeaways.map((item) => <li>{item}</li>)}
+          </ul>
+        </section>
+        <div class="prose">
+          <slot />
+        </div>
+        <section class="sources" id="sources">
+          <h2>Sources</h2>
+          <p class="meta">We opened these pages on the access date below. Pages can change.</p>
+          <ol>
+            {data.sources.map((source) => (
+              <li>
+                <a href={source.url}>{source.title}</a>. {source.publisher}. Accessed {source.accessed}.
+              </li>
+            ))}
+          </ol>
+        </section>
+        {data.faq && data.faq.length > 0 && (
+          <section class="faq" id="common-questions">
+            <h2>Common questions</h2>
+            {data.faq.map((item) => (
+              <details>
+                <summary>{item.question}</summary>
+                <p>{item.answer}</p>
+              </details>
+            ))}
+          </section>
+        )}
+        <section id="related-reading">
+          <h2>More in {pillar.title}</h2>
+          {related.length === 0 ? (
+            <p class="empty-note">
+              This is the first guide in {pillar.title}. More will land in this topic after the same checks.
+              The rest of the path is on <a href="/start-here/">Start here</a>.
+            </p>
+          ) : (
+            <ul>
+              {related.map((item) => (
+                <li><a href={`/articles/${item.data.slug}/`}>{item.data.title}</a></li>
+              ))}
+            </ul>
+          )}
+          {more.length > 0 && (
+            <>
+              <h3>From the start-here path</h3>
+              <ul>
+                {more.map((item) => (
+                  <li><a href={`/articles/${item.data.slug}/`}>{item.data.title}</a></li>
+                ))}
+              </ul>
+            </>
+          )}
+        </section>
+        <NewsletterPlaceholder />
+      </div>
+      <nav class="toc toc-desktop" aria-label="On this page">
+        <p class="kicker">On this page</p>
+        <ol>
+          {toc.map((item) => (
+            <li style={item.depth === 3 ? 'margin-left:1rem' : undefined}>
+              <a href={`#${item.slug}`}>{item.text}</a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+    </div>
+  </article>
+</Base>

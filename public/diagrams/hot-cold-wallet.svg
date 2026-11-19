@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="860" viewBox="0 0 440 860" role="img">
+  <title>Hot wallet, cold wallet, and a company holding the keys</title>
+  <desc>Three ways a crypto key can be held: online, offline, or by a company. Each can fail in a different way.</desc>
+  <rect width="440" height="860" rx="28" fill="#FAF8F3"/>
+  <rect width="440" height="8" fill="#2A9D8F"/>
+  <text x="32" y="52" fill="#14213D" font-family="Georgia, serif" font-size="26">Who holds the key?</text>
+  <text x="32" y="80" fill="#475569" font-family="Georgia, serif" font-size="15">Three places. Three ways it can go wrong.</text>
+  <g>
+    <rect x="28" y="108" width="384" height="210" rx="18" fill="#FFFFFF" stroke="#14213D" stroke-width="1.5"/>
+    <rect x="48" y="132" width="36" height="64" rx="6" fill="#FFFFFF" stroke="#1F756A" stroke-width="2"/>
+    <path d="M56 148 h20 M56 160 h14 M56 172 h18" stroke="#14213D" stroke-width="2"/>
+    <path d="M96 150 q18 -16 36 0" fill="none" stroke="#2A9D8F" stroke-width="2"/>
+    <path d="M104 166 q14 -12 28 0" fill="none" stroke="#2A9D8F" stroke-width="2"/>
+    <text x="168" y="156" fill="#14213D" font-family="Georgia, serif" font-size="22">Hot wallet</text>
+    <text x="48" y="220" fill="#0F172A" font-family="Georgia, serif" font-size="16">Connected to the internet.</text>
+    <text x="48" y="246" fill="#0F172A" font-family="Georgia, serif" font-size="16">Easier when you want to send.</text>
+    <text x="48" y="272" fill="#0F172A" font-family="Georgia, serif" font-size="16">More exposed to hacks and phishing.</text>
+  </g>
+  <g>
+    <rect x="28" y="338" width="384" height="210" rx="18" fill="#FFFFFF" stroke="#14213D" stroke-width="1.5"/>
+    <rect x="48" y="362" width="52" height="40" rx="6" fill="#14213D"/>
+    <circle cx="74" cy="382" r="6" fill="#F2A541" stroke="#14213D"/>
+    <text x="120" y="390" fill="#14213D" font-family="Georgia, serif" font-size="22">Cold wallet</text>
+    <text x="48" y="450" fill="#0F172A" font-family="Georgia, serif" font-size="16">Kept off the internet.</text>
+    <text x="48" y="476" fill="#0F172A" font-family="Georgia, serif" font-size="16">Less handy for a quick payment.</text>
+    <text x="48" y="502" fill="#0F172A" font-family="Georgia, serif" font-size="16">You can still lose the device or backup.</text>
+  </g>
+  <g>
+    <rect x="28" y="568" width="384" height="230" rx="18" fill="#FFFFFF" stroke="#14213D" stroke-width="1.5"/>
+    <rect x="48" y="592" width="56" height="44" rx="8" fill="#FFF6E8" stroke="#14213D" stroke-width="1.5"/>
+    <text x="76" y="620" text-anchor="middle" fill="#14213D" font-family="Georgia, serif" font-size="18">Co</text>
+    <text x="120" y="622" fill="#14213D" font-family="Georgia, serif" font-size="22">A company holds it</text>
+    <text x="48" y="680" fill="#0F172A" font-family="Georgia, serif" font-size="16">The platform keeps the private key.</text>
+    <text x="48" y="706" fill="#0F172A" font-family="Georgia, serif" font-size="16">If it is hacked, shuts down, or</text>
+    <text x="48" y="732" fill="#0F172A" font-family="Georgia, serif" font-size="16">goes bankrupt, access can disappear.</text>
+    <text x="48" y="768" fill="#475569" font-family="Georgia, serif" font-size="14">The SEC describes all three failure modes.</text>
+  </g>
+</svg>

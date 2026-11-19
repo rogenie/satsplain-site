@@ -1,0 +1,26 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { buildGraph } from '../lib/schema';
+import { site } from '../data/site';
+
+const crumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Contact', href: '/contact/' },
+];
+const description = 'Email the Satsplain research desk about a correction or a source. We cannot recover stolen crypto or access your account.';
+---
+<Base title="Contact · Satsplain" description={description} graph={buildGraph({ crumbs })}>
+  <Breadcrumbs items={crumbs} />
+  <header class="page-header">
+    <p class="kicker">Write to us</p>
+    <h1>Contact</h1>
+    <p class="lede">There is no form, because a form would need a server that stores what you type. Email keeps that choice in your mail app.</p>
+  </header>
+  <div class="prose">
+    <p>Email <a href={`mailto:${site.email}`}>{site.email}</a>. The mailbox has to be created by the domain owner. Until it is, you can also open an issue on <a href={`${site.repo}/issues`}>GitHub</a>.</p>
+    <p>For a correction, include the page URL, the sentence, and a better source. The process is on the <a href="/corrections/">corrections page</a>.</p>
+    <p>We cannot recover stolen crypto, trace a wallet, or unlock an exchange account. If you already sent money to a scam, use the reporting steps in <a href="/articles/crypto-scams-to-avoid/">Crypto scams to avoid</a>. Do not send us your seed phrase, passwords, or photos of identification.</p>
+    <p>We read messages when we can. This inbox is not a help desk for a financial company, and a reply is not advice about your money.</p>
+  </div>
+</Base>

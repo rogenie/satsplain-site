@@ -1,0 +1,45 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { buildGraph } from '../lib/schema';
+import { site } from '../data/site';
+import { formatDate } from '../lib/format';
+
+const crumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Editorial policy', href: '/editorial-policy/' },
+];
+const updated = new Date(`${site.policiesUpdated}T00:00:00.000Z`);
+const description = 'How Satsplain chooses topics, writes in plain English, cites sources, and refuses hype, price targets, and undisclosed relationships.';
+---
+<Base title="Editorial policy · Satsplain" description={description} graph={buildGraph({ crumbs })}>
+  <Breadcrumbs items={crumbs} />
+  <header class="page-header">
+    <p class="kicker">Rules</p>
+    <h1>Editorial policy</h1>
+    <p class="lede">The voice can be direct. The evidence standard does not bend to make a page more exciting.</p>
+    <p class="meta">Updated <time datetime={site.policiesUpdated}>{formatDate(updated)}</time></p>
+  </header>
+  <div class="prose">
+    <h2>Who the guides are for</h2>
+    <p>Beginners. People who have heard the words and do not yet know which ones matter. We write in short sentences, often to “you,” because this topic is easier to follow that way. The direct tone is a teaching choice. It is not a pitch.</p>
+    <h2>What a guide is allowed to do</h2>
+    <p>Explain a mechanism. Define a word. Summarize what a regulator, a statute, or an official document says. Show the tradeoff between two choices, including how each one fails. Point to the next page on the learning path.</p>
+    <h2>What a guide is not allowed to do</h2>
+    <ul>
+      <li>Predict a price or a return.</li>
+      <li>Tell a reader to buy, sell, or hold a named asset.</li>
+      <li>Invent urgency, scarcity, or a countdown.</li>
+      <li>Use hype lines such as promises that money cannot be lost, or slogans about getting rich.</li>
+      <li>State a fact without a link to the source.</li>
+      <li>Hide a material relationship with a company mentioned on the page.</li>
+    </ul>
+    <h2>How a guide gets published</h2>
+    <p>Someone opens a pull request with a new file. Continuous integration runs the quality gate. A human editor checks the draft against the sources, including whether a beginner would actually be helped and whether the page adds explanation beyond a pile of quotes. The editor merges the request. GitHub Actions then builds the site. There is no auto-merge.</p>
+    <p>Software may help gather notes or shape a first draft. A human still has to compare the sentences with the linked documents. If that review does not happen, the file does not ship.</p>
+    <h2>Updates and mistakes</h2>
+    <p>When a fact changes, we change the sentence and the updated date. When we are wrong, we follow the <a href="/corrections/">corrections policy</a>. Small typos may be fixed without a log entry. Factual changes get a log entry.</p>
+    <h2>Conflicts</h2>
+    <p>Writers do not accept payment from a project to cover it. If the desk ever has a financial tie, it will be disclosed as described on the <a href="/affiliate-disclosure/">affiliate page</a> before the link exists.</p>
+  </div>
+</Base>
