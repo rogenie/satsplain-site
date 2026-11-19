@@ -26,7 +26,7 @@ const llms = [
   '',
   '> Plain-English crypto guides for beginners. Every factual claim links to a regulator, an official document, or another primary source. This is education, not financial advice, and the site does not predict prices.',
   '',
-  'Satsplain is an independent research desk. Guides are files in the repository and are published only after a human merges a pull request.',
+  'Satsplain is an independent research desk. Articles are researched and drafted with automated tools, fact-checked in a second pass against primary sources, and must pass an automated quality gate before publishing. Corrections are welcome at https://satsplain.com/contact/.',
   '',
   '## Guides',
   '',
@@ -48,7 +48,7 @@ const llms = [
 const full = [
   '# Satsplain, full guide summaries',
   '',
-  '> Use these summaries with the linked pages. The pages, not this file, are the source of truth. Updated dates are on each page.',
+  '> Use these summaries with the linked pages. The pages, not this file, are the source of truth. Updated dates are on each page. Articles are researched and drafted with automated tools, fact-checked in a second pass against primary sources, and must pass an automated quality gate before publishing. Corrections are welcome at https://satsplain.com/contact/.',
   '',
   ...articles.flatMap((article) => {
     const takeaways = Array.isArray(article.keyTakeaways)

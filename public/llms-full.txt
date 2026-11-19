@@ -1,6 +1,6 @@
 # Satsplain, full guide summaries
 
-> Use these summaries with the linked pages. The pages, not this file, are the source of truth. Updated dates are on each page.
+> Use these summaries with the linked pages. The pages, not this file, are the source of truth. Updated dates are on each page. Articles are researched and drafted with automated tools, fact-checked in a second pass against primary sources, and must pass an automated quality gate before publishing. Corrections are welcome at https://satsplain.com/contact/.
 
 ## Crypto scams to avoid (and how to spot them)
 
