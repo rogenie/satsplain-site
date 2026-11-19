@@ -1,0 +1,25 @@
+# Satsplain
+
+> Plain-English crypto guides for beginners. Every factual claim links to a regulator, an official document, or another primary source. This is education, not financial advice, and the site does not predict prices.
+
+Satsplain is an independent research desk. Guides are files in the repository and are published only after a human merges a pull request.
+
+## Guides
+
+- [Crypto scams to avoid (and how to spot them)](https://satsplain.com/articles/crypto-scams-to-avoid/): It starts as a friendly message. How crypto scams work, the flags in FBI and CFTC alerts, and where to report.
+- [How to buy crypto safely for the first time](https://satsplain.com/articles/how-to-buy-crypto-safely/): The buy button is not the decision. Check the company, the fee, and who holds the keys before you pay.
+- [What is Bitcoin? A plain‑English guide for beginners](https://satsplain.com/articles/what-is-bitcoin/): A friend says to just buy bitcoin. Here is what you hold, what a satoshi is, and the risks regulators name.
+
+## Site
+
+- [Start here](https://satsplain.com/start-here/): The beginner path, in order.
+- [Glossary](https://satsplain.com/glossary/): Short definitions with the source for each word.
+- [Editorial policy](https://satsplain.com/editorial-policy/): What a guide is allowed to say.
+- [Sourcing](https://satsplain.com/sourcing/): Which documents we trust first.
+- [Corrections](https://satsplain.com/corrections/): How to challenge a sentence, and the public log.
+- [Disclaimer](https://satsplain.com/disclaimer/): Education, not financial advice.
+
+## Optional
+
+- [Full text summaries](https://satsplain.com/llms-full.txt): key takeaways and sources for each guide.
+

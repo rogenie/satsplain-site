@@ -11,7 +11,9 @@ Use this shape for every article:
 3. **Problem.** Name what is confusing or risky before you teach the mechanism.
 4. **Agitate.** Make the cost of guessing concrete, using a cited fact. A transfer that cannot be undone. A fee that appears when they try to leave. A key that cannot be reset. Do not invent a named victim, a dollar loss, or a fake countdown.
 5. **Solution.** Give the explanation or the checklist in short paragraphs and one-line punches. Curiosity-driven subheads should pull the reader down the page and still tell the truth. A subhead may not manufacture scarcity or fear of missing a price move.
-6. **One call to action.** End with a single next step on the [start-here path](../src/pages/start-here.astro). That is the only button. Do not add a second offer.
+6. **Question headings.** Every `##` except “A note on advice” is a question. The first sentence is the answer. Key takeaways stay in the box above the story.
+7. **Pictures.** A featured image at the top, plus at least two diagrams that teach a fact the prose also states. Original SVG. Descriptive alt text. No glowing coins, no rockets, no hotlinked stock.
+8. **One call to action.** End with a single next step on the start-here path. That is the only button. Do not add a second offer.
 
 Paragraphs are very short. One idea, then a break. A one-line sentence is allowed when it carries the point: "Sent is not the same word as settled."
 

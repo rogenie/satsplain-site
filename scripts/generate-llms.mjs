@@ -1,0 +1,81 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import matter from 'gray-matter';
+
+const root = process.cwd();
+const site = 'https://satsplain.com';
+const dir = path.join(root, 'src/content/articles');
+const articles = fs
+  .readdirSync(dir)
+  .filter((name) => /\.mdx?$/.test(name))
+  .map((name) => matter(fs.readFileSync(path.join(dir, name), 'utf8')).data)
+  .filter((data) => !data.draft)
+  .sort((a, b) => String(a.publishDate).localeCompare(String(b.publishDate)));
+
+const pages = [
+  ['Start here', '/start-here/', 'The beginner path, in order.'],
+  ['Glossary', '/glossary/', 'Short definitions with the source for each word.'],
+  ['Editorial policy', '/editorial-policy/', 'What a guide is allowed to say.'],
+  ['Sourcing', '/sourcing/', 'Which documents we trust first.'],
+  ['Corrections', '/corrections/', 'How to challenge a sentence, and the public log.'],
+  ['Disclaimer', '/disclaimer/', 'Education, not financial advice.'],
+];
+
+const llms = [
+  '# Satsplain',
+  '',
+  '> Plain-English crypto guides for beginners. Every factual claim links to a regulator, an official document, or another primary source. This is education, not financial advice, and the site does not predict prices.',
+  '',
+  'Satsplain is an independent research desk. Guides are files in the repository and are published only after a human merges a pull request.',
+  '',
+  '## Guides',
+  '',
+  ...articles.map(
+    (article) =>
+      `- [${article.title}](${site}/articles/${article.slug}/): ${article.description}`,
+  ),
+  '',
+  '## Site',
+  '',
+  ...pages.map(([title, href, text]) => `- [${title}](${site}${href}): ${text}`),
+  '',
+  '## Optional',
+  '',
+  `- [Full text summaries](${site}/llms-full.txt): key takeaways and sources for each guide.`,
+  '',
+];
+
+const full = [
+  '# Satsplain, full guide summaries',
+  '',
+  '> Use these summaries with the linked pages. The pages, not this file, are the source of truth. Updated dates are on each page.',
+  '',
+  ...articles.flatMap((article) => {
+    const takeaways = Array.isArray(article.keyTakeaways)
+      ? article.keyTakeaways.map((item) => `- ${item}`).join('\n')
+      : '';
+    const sources = Array.isArray(article.sources)
+      ? article.sources.map((source) => `- ${source.title} (${source.publisher}): ${source.url}`).join('\n')
+      : '';
+    return [
+      `## ${article.title}`,
+      '',
+      `${site}/articles/${article.slug}/`,
+      '',
+      article.description,
+      '',
+      'Key takeaways:',
+      '',
+      takeaways,
+      '',
+      'Sources:',
+      '',
+      sources,
+      '',
+    ];
+  }),
+];
+
+fs.writeFileSync(path.join(root, 'public/llms.txt'), `${llms.join('\n')}\n`);
+fs.writeFileSync(path.join(root, 'public/llms-full.txt'), `${full.join('\n')}\n`);
+console.log(`Wrote llms.txt and llms-full.txt for ${articles.length} guides.`);

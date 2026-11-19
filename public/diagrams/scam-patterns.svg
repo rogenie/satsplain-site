@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="700" viewBox="0 0 440 700" role="img">
+  <title>How a crypto investment scam usually unfolds</title>
+  <desc>Four beats from FBI descriptions: a friendly first contact, a move to a private chat, a fake trading app that shows profits, then a fee when the person tries to withdraw.</desc>
+  <rect width="440" height="700" rx="28" fill="#FAF8F3"/>
+  <rect width="440" height="8" fill="#C2410C"/>
+  <text x="28" y="48" fill="#14213D" font-family="Georgia, serif" font-size="24">How the long scam unfolds</text>
+  <text x="28" y="76" fill="#475569" font-family="Georgia, serif" font-size="15">The FBI describes this sequence in its 2025 report.</text>
+  <g font-family="Georgia, serif" fill="#0F172A" font-size="16">
+    <g>
+      <rect x="28" y="100" width="384" height="110" rx="16" fill="#FFFFFF" stroke="#14213D"/>
+      <text x="48" y="136" fill="#C2410C" font-size="14">BEAT 1</text>
+      <text x="48" y="164" fill="#14213D" font-size="20">A friendly opening</text>
+      <text x="48" y="190">Text, a dating app, an ad, or social media.</text>
+    </g>
+    <path d="M220 218 v16" stroke="#1F756A" stroke-width="3"/>
+    <path d="M212 230 l8 10 8-10" fill="#1F756A"/>
+    <g>
+      <rect x="28" y="248" width="384" height="100" rx="16" fill="#FFFFFF" stroke="#14213D"/>
+      <text x="48" y="284" fill="#C2410C" font-size="14">BEAT 2</text>
+      <text x="48" y="312" fill="#14213D" font-size="20">The chat moves</text>
+      <text x="48" y="336">Often into a private group of “experts.”</text>
+    </g>
+    <path d="M220 356 v16" stroke="#1F756A" stroke-width="3"/>
+    <path d="M212 368 l8 10 8-10" fill="#1F756A"/>
+    <g>
+      <rect x="28" y="384" width="384" height="110" rx="16" fill="#FFFFFF" stroke="#14213D"/>
+      <text x="48" y="420" fill="#C2410C" font-size="14">BEAT 3</text>
+      <text x="48" y="448" fill="#14213D" font-size="20">A fake app shows a profit</text>
+      <text x="48" y="474">You send crypto. The gain is on their screen.</text>
+    </g>
+    <path d="M220 502 v16" stroke="#1F756A" stroke-width="3"/>
+    <path d="M212 514 l8 10 8-10" fill="#1F756A"/>
+    <g>
+      <rect x="28" y="532" width="384" height="120" rx="16" fill="#FFF1EB" stroke="#C2410C"/>
+      <text x="48" y="568" fill="#C2410C" font-size="14">BEAT 4</text>
+      <text x="48" y="596" fill="#14213D" font-size="20">A fee to withdraw</text>
+      <text x="48" y="622">They ask for more money, then disappear.</text>
+    </g>
+  </g>
+</svg>

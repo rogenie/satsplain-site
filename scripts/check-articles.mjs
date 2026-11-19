@@ -114,7 +114,29 @@ function extractInternal(body) {
   return urls;
 }
 
-function validateArticle(fileName, raw) {
+function answerText(content) {
+  const cleaned = content.replace(/import\s+.+from\s+['"].+['"];?/g, '');
+  const lines = [];
+  for (const line of cleaned.split('\n')) {
+    if (!line.trim()) {
+      if (lines.length) break;
+      continue;
+    }
+    lines.push(line.trim());
+  }
+  return lines.join(' ');
+}
+
+function figureAlts(body) {
+  const alts = [];
+  for (const match of body.matchAll(/\balt=["']([^"']+)["']/g)) alts.push(match[1]);
+  for (const match of body.matchAll(/!\[([^\]]*)\]\([^)]+\)/g)) alts.push(match[1]);
+  return alts;
+}
+
+const genericAlt = /^(image|photo|picture|illustration|diagram|graphic|hero)$/i;
+
+function validateArticle(fileName, raw, options = {}) {
   const errors = [];
   let parsed;
   try {
@@ -230,6 +252,36 @@ function validateArticle(fileName, raw) {
     if (!hasInlineLink(section.content)) {
       errors.push(`section "${section.heading}" has no inline link`);
     }
+    const isDisclaimer = /^a note on advice\b/i.test(section.heading);
+    if (section.heading !== '(introduction)' && !isDisclaimer) {
+      if (!section.heading.trim().endsWith('?')) {
+        errors.push(`heading "${section.heading}" must be a question ending in ?`);
+      }
+      const answer = answerText(section.content);
+      if (/^<(Figure|img)\b/i.test(answer)) {
+        errors.push(`section "${section.heading}" starts with a diagram; answer the question in a sentence first`);
+      } else if ([...answer].length < 40) {
+        errors.push(`section "${section.heading}" must answer the question in the opening sentence`);
+      }
+    }
+  }
+
+  const alts = figureAlts(body).filter((alt) => [...alt].length >= 24 && !genericAlt.test(alt.trim()));
+  if (alts.length < 2) {
+    errors.push(`need at least 2 explanatory diagrams with descriptive alt text (found ${alts.length})`);
+  }
+
+  if (typeof data.featuredImage !== 'string' || !/^\/images\/.+\.(svg|webp|avif|png)$/.test(data.featuredImage)) {
+    errors.push('featuredImage must be a path like /images/articles/slug.svg');
+  } else if (options.checkAssets) {
+    const asset = path.join(root, 'public', data.featuredImage.replace(/^\//, ''));
+    if (!fs.existsSync(asset)) errors.push(`featured image file is missing: ${data.featuredImage}`);
+  }
+  if (typeof data.featuredImageAlt !== 'string' || [...data.featuredImageAlt].length < 40 || genericAlt.test(data.featuredImageAlt.trim())) {
+    errors.push('featuredImageAlt must be a descriptive sentence of at least 40 characters');
+  }
+  for (const field of ['featuredImageWidth', 'featuredImageHeight']) {
+    if (typeof data[field] !== 'number' || data[field] <= 0) errors.push(`${field} must be a positive number`);
   }
 
   const prose = [
@@ -261,6 +313,10 @@ tags:
 publishDate: 2026-11-01
 updatedDate: 2026-11-19
 readingLevel: beginner
+featuredImage: "/images/articles/what-is-bitcoin.svg"
+featuredImageAlt: "A descriptive featured image alt text that explains the picture for someone who cannot see it."
+featuredImageWidth: 800
+featuredImageHeight: 450
 keyTakeaways:
   - "One idea."
 sources:
@@ -280,9 +336,12 @@ sources:
 
 See the [FAQ](https://bitcoin.org/en/faq).
 
-## A real section
+## What does this section explain?
 
 The [how it works page](https://bitcoin.org/en/how-it-works) explains the ledger. [Investor.gov](https://www.investor.gov/additional-resources/spotlight/crypto-assets) names the category.
+
+<img alt="A ledger diagram showing one block pointing at the block before it so the chain can be checked." src="/diagrams/blockchain-links.svg" width="440" height="640" />
+<img alt="A second diagram showing a private key beside the public record it can spend." src="/diagrams/transaction-flow.svg" width="440" height="760" />
 
 ## A note on advice
 
@@ -299,7 +358,7 @@ This page is general education, not financial advice. Read the [disclaimer](/dis
   if (!validateArticle('fine-title.md', hype).some((error) => error.includes('guaranteed'))) {
     failures.push('did not catch hype language');
   }
-  const noLink = base.replace('## A real section\n\nThe [how it works page](https://bitcoin.org/en/how-it-works) explains the ledger. [Investor.gov](https://www.investor.gov/additional-resources/spotlight/crypto-assets) names the category.', '## A real section\n\nNo source in this section at all, just a claim.');
+  const noLink = base.replace('## What does this section explain?\n\nThe [how it works page](https://bitcoin.org/en/how-it-works) explains the ledger. [Investor.gov](https://www.investor.gov/additional-resources/spotlight/crypto-assets) names the category.', '## What does this section explain?\n\nNo source in this section at all, just a long enough claim without any link here.');
   if (!validateArticle('fine-title.md', noLink).some((error) => error.includes('no inline link'))) {
     failures.push('did not catch a section without a link');
   }
@@ -502,7 +561,7 @@ function main() {
 
   for (const file of files) {
     const raw = fs.readFileSync(path.join(articlesDir, file), 'utf8');
-    const errors = validateArticle(file, raw);
+    const errors = validateArticle(file, raw, { checkAssets: true });
     const data = matter(raw).data;
     if (typeof data.title === 'string') {
       const key = data.title.trim().toLowerCase();

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Generate flat branded PNG images. No stock art. Pillow is a local tool, not a site dependency."""
+"""Generate flat branded Open Graph PNGs from article frontmatter. Pillow is installed in CI."""
 
+import re
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
@@ -86,11 +87,38 @@ def mark(size, dest, radius):
     print(dest.name, dest.stat().st_size)
 
 
+PILLARS = {
+    "crypto-basics": "Crypto basics",
+    "buying-and-apps": "Buying and apps",
+    "wallets-and-security": "Wallets and security",
+    "scams-and-safety": "Scams and safety",
+    "taxes-and-rules": "Taxes and rules",
+    "trending-explained": "Trending explained",
+}
+
+
+def articles():
+    folder = ROOT / "src/content/articles"
+    found = []
+    for path in sorted(folder.glob("*.md*")):
+        text = path.read_text(encoding="utf-8")
+        if re.search(r"(?m)^draft:\s*true\s*$", text):
+            continue
+        title = re.search(r'(?m)^title:\s*"(.*)"\s*$', text)
+        slug = re.search(r"(?m)^slug:\s*([A-Za-z0-9-]+)\s*$", text)
+        pillar = re.search(r"(?m)^pillar:\s*([A-Za-z0-9-]+)\s*$", text)
+        if not title or not slug:
+            continue
+        clean = title.group(1).replace("\u2011", "-")
+        label = PILLARS.get(pillar.group(1) if pillar else "", "Guide")
+        found.append((clean, slug.group(1), label))
+    return found
+
+
 def main():
     card("Crypto, explained calmly.", "For complete beginners", OG / "default.png")
-    card("What is Bitcoin? A plain-English guide for beginners", "Crypto basics", OG / "what-is-bitcoin.png")
-    card("How to buy crypto safely for the first time", "Buying and apps", OG / "how-to-buy-crypto-safely.png")
-    card("Crypto scams to avoid (and how to spot them)", "Scams and safety", OG / "crypto-scams-to-avoid.png")
+    for title, slug, pillar in articles():
+        card(title, pillar, OG / f"{slug}.png")
     public = ROOT / "public"
     mark(512, public / "logo.png", 8)
     mark(180, public / "apple-touch-icon.png", 6)

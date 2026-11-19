@@ -24,6 +24,7 @@ const crumbs = [
   { label: data.title, href: `/articles/${data.slug}/` },
 ];
 const image = `/og/${data.slug}.png`;
+const featured = data.featuredImage;
 const toc = [
   { depth: 2, slug: 'key-takeaways', text: 'Key takeaways' },
   ...headings.filter((heading) => heading.depth === 2 || heading.depth === 3),
@@ -40,10 +41,13 @@ const graph = buildGraph({
     updated: data.updatedDate,
     author: data.author,
     image,
+    imageAlt: data.featuredImageAlt,
     tags: data.tags,
     reviewedBy: data.reviewedBy,
+    sources: data.sources,
   },
   faq: data.faq,
+  howTo: data.howTo,
 });
 ---
 <Base
@@ -51,11 +55,18 @@ const graph = buildGraph({
   description={data.description}
   ogType="article"
   image={image}
-  imageAlt={`${data.title}. Satsplain.`}
+  imageAlt={data.featuredImageAlt}
   published={data.publishDate}
   updated={data.updatedDate}
   graph={graph}
 >
+  <link
+    slot="head"
+    rel="preload"
+    as="image"
+    href={featured}
+    type={featured.endsWith('.svg') ? 'image/svg+xml' : undefined}
+  />
   <article>
     <Breadcrumbs items={crumbs} />
     <header class="page-header">
@@ -70,6 +81,16 @@ const graph = buildGraph({
         {minutes} min read.
         {data.reviewedBy && <> Reviewed by {data.reviewedBy}.</>}
       </p>
+      <figure class="featured">
+        <img
+          src={featured}
+          alt={data.featuredImageAlt}
+          width={data.featuredImageWidth}
+          height={data.featuredImageHeight}
+          fetchpriority="high"
+          decoding="async"
+        />
+      </figure>
     </header>
     <div class="article-grid">
       <div class="article-main">
