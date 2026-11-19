@@ -1,15 +1,13 @@
 # Publishing
 
-Articles start as pull requests. Nothing auto-merges. The site deploys only after a human merges to `main`.
+Articles are researched and drafted with automated tools, fact-checked in a second pass against primary sources, and published only after they pass the automated quality gate. Corrections are welcome on the contact page.
 
 ```
-trend research
-    -> draft article file on a branch
-        -> pull request
-            -> CI quality gate
-                -> human review
-                    -> merge
-                        -> GitHub Actions deploys to Pages
+research and draft with automated tools
+    -> fact-check pass against primary sources
+        -> CI quality gate
+            -> publish
+                -> GitHub Actions deploys to Pages
 ```
 
 ## 1. Research the question
@@ -44,15 +42,13 @@ Push the branch and open a PR into `main`. Describe which sources you relied on 
 
 The PR must be green. If the gate fails, fix the file. Do not skip the check.
 
-## 5. A human reviews
+## 5. Fact-check, then the gate
 
-Use the human checklist in [quality-gate.md](quality-gate.md). Open the links. Confirm the page adds an explanation, not just a paraphrase. Confirm there is one next step and no hype.
+A second pass checks the draft against the primary sources it cites. Continuous integration then runs the quality gate. A file that fails the gate is not published. The checklist in [quality-gate.md](quality-gate.md) is what that gate enforces, plus the judgment items a fact-check should still apply: accuracy, usefulness, and no thin paraphrase.
 
-The owner should turn on branch protection that requires this check and one review, and should leave auto-merge off.
+## 6. Publish
 
-## 6. Merge
-
-Merging to `main` runs the deploy workflow. The build writes an Open Graph PNG for each article from its title, rewrites `llms.txt` and `llms-full.txt` from the article files, then publishes the site. A new guide gets a social image without a hand-drawn PNG. Nothing merges the pull request for you.
+After the fact-check and a green quality gate, the guide is published. The deploy build writes an Open Graph PNG from the article title, rewrites `llms.txt` and `llms-full.txt`, and GitHub Actions updates the site.
 
 ## 7. After publication
 

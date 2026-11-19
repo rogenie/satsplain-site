@@ -43,7 +43,7 @@ The deploy workflow is `.github/workflows/deploy.yml`. It runs on every push to 
 
 `public/CNAME` contains `satsplain.com`, so the custom domain is part of the built site. After the first deploy, confirm the domain in **Settings > Pages**. Turn on **Enforce HTTPS** only after GitHub finishes issuing the certificate.
 
-Branch protection is your choice, and it should stay strict: require the CI workflow, require a human review, and do not enable auto-merge. Articles are not published by a bot.
+Branch protection can still require the CI workflow. Articles are researched and drafted with automated tools, fact-checked in a second pass against primary sources, and published only after they pass that quality gate.
 
 ## Custom domain and DNS
 
