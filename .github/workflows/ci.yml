@@ -31,3 +31,5 @@ jobs:
           PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ vars.PUBLIC_GOOGLE_SITE_VERIFICATION }}
       - name: Check built internal links
         run: npm run check:articles -- --dist
+      - name: Check short URL redirects
+        run: npm run check:redirects
