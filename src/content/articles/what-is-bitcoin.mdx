@@ -11,6 +11,10 @@ publishDate: 2026-11-19
 updatedDate: 2026-11-19
 author: Satsplain Research Desk
 readingLevel: beginner
+featuredImage: "/images/articles/what-is-bitcoin.svg"
+featuredImageAlt: "Three blocks in a chain on a public ledger, with a private key beside them. The key signs a payment. Each block points at the one before it."
+featuredImageWidth: 800
+featuredImageHeight: 450
 keyTakeaways:
   - "Bitcoin is a record on a public ledger. A wallet holds the secret that can move it."
   - "One bitcoin is 100,000,000 satoshis. You do not have to buy a whole one."
@@ -84,9 +88,9 @@ It is one item in a wider bucket. [Investor.gov](https://www.investor.gov/additi
 
 This page stays with bitcoin. It will not tell you to buy.
 
-## The app makes it look like a file
+## What do you actually hold?
 
-People say the bitcoin is "in the phone."
+You hold a secret that can spend bitcoin, not a coin saved like a photo. People say the bitcoin is "in the phone."
 
 It is not a photo you can save to the camera roll.
 
@@ -100,9 +104,9 @@ The public key receives. It does not reveal the private key, and it cannot spend
 
 An app can hold the secret for you. Or it can help you hold it. Those are different failures. The buying guide covers the choice when you are ready. [How to buy crypto safely](/articles/how-to-buy-crypto-safely/).
 
-## The original paper is shorter than the pitch
+## What did the original paper propose?
 
-The [original bitcoin paper](https://bitcoin.org/bitcoin.pdf) describes a payment from one person to another without a financial institution in the middle.
+A payment from one person to another, without a bank in the middle. The [original bitcoin paper](https://bitcoin.org/bitcoin.pdf) describes that idea.
 
 The method is a shared chain of records. Computers do work so the network can agree which payment came first.
 
@@ -110,9 +114,9 @@ You do not need the math.
 
 You need the consequence. There is no teller who can pull the payment back because you tapped the wrong name. [Bitcoin.org's FAQ](https://bitcoin.org/en/faq) says the software is published in the open, and any developer can review it.
 
-## You do not have to buy a whole coin
+## Do you have to buy a whole bitcoin?
 
-This is the line that lets people exhale.
+No. One bitcoin splits into 100,000,000 smaller units called satoshis. This is the line that lets people exhale.
 
 The [Bitcoin FAQ](https://bitcoin.org/en/faq) says only 21 million bitcoins will be created. It also says that cap is not a wall against small payments, because a bitcoin breaks into smaller units.
 
@@ -122,9 +126,9 @@ Eight decimal places. One satoshi is 0.00000001 bitcoin.
 
 Satsplain is named for that unit. "Sats" is the short word. We do not print a dollar price here. Prices move, and a stale number would lie later. The useful fact is smaller than a price. You can transfer a fraction.
 
-## What actually happens after you tap send
+## What happens after you tap send?
 
-"Sent" is not the same word as "settled."
+The payment is not finished when the screen says sent. It still has to be written into a block. "Sent" is not the same word as "settled."
 
 [Bitcoin.org's how-it-works page](https://bitcoin.org/en/how-it-works) is the plain version. A wallet makes an address you can show someone. The page says an address should be used only once. A bit like email, except you do not reuse it.
 
@@ -146,9 +150,21 @@ Mining packs pending payments into a block. The rules make it so changing an old
 
 So give the payment time. A green check on your screen can be ahead of the ledger.
 
-## There is no headquarters to call
+## How does a blockchain stay linked?
 
-Bitcoin is not a company.
+Each new block stores a fingerprint of the block before it, so editing an old block breaks the chain. [Bitcoin.org](https://bitcoin.org/en/how-it-works) says the rules make a changed earlier block invalidate every block that comes after it.
+
+<Figure
+  src="/diagrams/blockchain-links.svg"
+  width={440}
+  height={640}
+  alt="Diagram of two linked blocks. Block B stores the fingerprint of block A. If block A is edited, that fingerprint changes and block B no longer matches."
+  caption="A later block keeps a fingerprint of the earlier one. That is the link in the chain."
+/>
+
+## Who runs bitcoin?
+
+No company does. There is no headquarters that can reset a mistake. Bitcoin is not a company.
 
 There is no support desk that "runs bitcoin" the way a bank runs a checking account.
 
@@ -158,9 +174,9 @@ Open is not the same as unbreakable.
 
 The FAQ says the rules and the cryptography have kept working since 2009. It also says flaws have been found and fixed in the software people use to reach the network. As with other software, safety depends on problems being found and patched.
 
-## Officials do not use one label
+## What do US authorities call bitcoin?
 
-A label is not a safety score.
+They do not share one label, and a label is not a safety score.
 
 The [CFTC's advisory on virtual currency](https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/understand_risks_of_virtual_currency.html) says bitcoin and other virtual currencies have been determined to be commodities under the Commodity Exchange Act. The CFTC says it mainly regulates derivatives such as futures, its watch over the cash market is limited, and it still goes after fraud in that cash market.
 
@@ -174,9 +190,9 @@ Insurance gets mixed up with all of the above.
 
 The [FDIC's list of products that are not insured](https://www.fdic.gov/resources/deposit-insurance/financial-products-not-insured) includes crypto assets. They are not FDIC-insured, even if you bought them at an FDIC-insured bank. Deposit insurance covers deposits. It does not cover a drop in the price.
 
-## The ordinary ways a first try goes wrong
+## What can go wrong on a first try?
 
-The [CFTC advisory](https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/understand_risks_of_virtual_currency.html) names risks of buying on the cash market. Many platforms are not supervised like a bank. Systems may lack the protections you expect. Prices can swing hard. Markets can be manipulated. People will phish or hack. Some platforms trade for themselves while they also serve you.
+You can lose the secret, send coins to the wrong place, or watch the value fall, and a platform can fail too. The [CFTC advisory](https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/understand_risks_of_virtual_currency.html) names risks of buying on the cash market. Many platforms are not supervised like a bank. Systems may lack the protections you expect. Prices can swing hard. Markets can be manipulated. People will phish or hack. Some platforms trade for themselves while they also serve you.
 
 Then there is the secret.
 
@@ -192,17 +208,17 @@ The [Bitcoin FAQ](https://bitcoin.org/en/faq) says new bitcoin is issued more sl
 
 We will not guess a price either.
 
-## There is more than one doorway
+## Is buying the coin the only way in?
 
-Buying bitcoin on a crypto app is not the only structure [Investor.gov](https://www.investor.gov/additional-resources/spotlight/crypto-assets) describes. Some people buy the asset. Some buy shares of public companies in related work. Some buy funds or exchange-traded products tied to crypto.
+No. Buying bitcoin on an app is not the only structure [Investor.gov](https://www.investor.gov/additional-resources/spotlight/crypto-assets) describes. Some people buy the asset. Some buy shares of public companies in related work. Some buy funds or exchange-traded products tied to crypto.
 
 Those are different legal things. Different fees. Different ways to lose money.
 
 This page does not rank them. If you go further, read that SEC page and the documents for the specific product.
 
-## The next page is the one to read before you send money
+## What should you read before you send money?
 
-You do not need another definition.
+The scam guide. You do not need another definition first.
 
 You need the patterns people use to take the money.
 

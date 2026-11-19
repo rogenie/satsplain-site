@@ -23,6 +23,8 @@ jobs:
         run: npm ci
       - name: Article quality gate
         run: npm run check:articles
+      - name: Install image tool
+        run: pip install pillow
       - name: Build
         run: npm run build
         env:

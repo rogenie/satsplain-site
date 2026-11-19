@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="640" viewBox="0 0 440 640" role="img">
+  <title>How blocks stay linked</title>
+  <desc>Each new block stores a fingerprint of the previous block. Changing an older block breaks every fingerprint after it.</desc>
+  <rect width="440" height="640" rx="28" fill="#FAF8F3"/>
+  <rect width="440" height="8" fill="#F2A541"/>
+  <text x="28" y="48" fill="#14213D" font-family="Georgia, serif" font-size="26">How blocks stay linked</text>
+  <text x="28" y="76" fill="#475569" font-family="Georgia, serif" font-size="15">Change an old block and the later ones no longer fit.</text>
+  <g font-family="Georgia, serif">
+    <rect x="28" y="104" width="384" height="140" rx="16" fill="#FFFFFF" stroke="#14213D" stroke-width="1.5"/>
+    <text x="48" y="140" fill="#14213D" font-size="20">Block A</text>
+    <text x="48" y="170" fill="#0F172A" font-size="16">Payments packed into this block.</text>
+    <text x="48" y="198" fill="#1F756A" font-size="16">Fingerprint: 8f3a…</text>
+    <text x="48" y="224" fill="#475569" font-size="14">No earlier block to point at.</text>
+    <path d="M220 252 v18" stroke="#1F756A" stroke-width="3"/>
+    <path d="M212 266 l8 10 8-10" fill="#1F756A"/>
+    <rect x="28" y="284" width="384" height="150" rx="16" fill="#FFFFFF" stroke="#14213D" stroke-width="1.5"/>
+    <text x="48" y="320" fill="#14213D" font-size="20">Block B</text>
+    <text x="48" y="350" fill="#0F172A" font-size="16">Stores the fingerprint of block A.</text>
+    <text x="48" y="378" fill="#1F756A" font-size="16">Previous: 8f3a…</text>
+    <text x="48" y="406" fill="#475569" font-size="14">Its own fingerprint: 1c90…</text>
+    <path d="M220 442 v18" stroke="#1F756A" stroke-width="3"/>
+    <path d="M212 456 l8 10 8-10" fill="#1F756A"/>
+    <rect x="28" y="474" width="384" height="130" rx="16" fill="#FFF6E8" stroke="#14213D" stroke-width="1.5"/>
+    <text x="48" y="510" fill="#14213D" font-size="20">If block A is edited</text>
+    <text x="48" y="540" fill="#0F172A" font-size="16">Its fingerprint changes.</text>
+    <text x="48" y="568" fill="#0F172A" font-size="16">Block B’s “previous” no longer matches.</text>
+  </g>
+</svg>

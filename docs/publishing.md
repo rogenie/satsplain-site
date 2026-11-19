@@ -22,7 +22,11 @@ Copy [article-template.md](article-template.md) to `src/content/articles/<slug>.
 
 - One topic. Beginner reading level unless the editor agrees otherwise.
 - Frontmatter matches the template. `slug` matches the filename.
+- Add `public/images/articles/<slug>.svg` (or webp, avif, or png) and set `featuredImage` plus a descriptive `featuredImageAlt`. This is the picture at the top of the guide. Width and height must match the file.
+- Add at least two inline diagrams with alt text. Put the answer sentence first, then the picture. Original SVG is the default. Do not hotlink, and do not use stock art of glowing coins or rockets.
+- Write `##` headings as questions, except the closing “A note on advice.” The first sentence under each question is the answer.
 - Voice: hook, problem, agitate, solution, one next step.
+- If the guide is a procedure, add optional `howTo` steps that match the visible list. The page emits HowTo structured data only then.
 - At least three real https sources, each linked in the body.
 - Every `##` section has an inline link.
 - End with “not financial advice” and a link to `/disclaimer/`.
@@ -48,7 +52,7 @@ The owner should turn on branch protection that requires this check and one revi
 
 ## 6. Merge
 
-Merging to `main` runs the deploy workflow. GitHub Pages publishes the built site. There is no separate publish button in the app, and no bot merges the PR.
+Merging to `main` runs the deploy workflow. The build writes an Open Graph PNG for each article from its title, rewrites `llms.txt` and `llms-full.txt` from the article files, then publishes the site. A new guide gets a social image without a hand-drawn PNG. Nothing merges the pull request for you.
 
 ## 7. After publication
 

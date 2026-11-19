@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="720" viewBox="0 0 440 720" role="img">
+  <title>A slow first crypto purchase</title>
+  <desc>Six checks in order: how much you can lose, which asset, the company register, the real website, the account lock, and the fee on the confirm screen.</desc>
+  <rect width="440" height="720" rx="28" fill="#FAF8F3"/>
+  <rect width="440" height="8" fill="#2A9D8F"/>
+  <text x="28" y="48" fill="#14213D" font-family="Georgia, serif" font-size="26">A slow first purchase</text>
+  <text x="28" y="76" fill="#475569" font-family="Georgia, serif" font-size="15">Do these in order. Skip one and you are guessing.</text>
+  <g font-family="Georgia, serif" font-size="16" fill="#0F172A">
+    <g>
+      <rect x="28" y="100" width="384" height="80" rx="16" fill="#FFFFFF" stroke="#14213D"/>
+      <circle cx="64" cy="140" r="16" fill="#F2A541" stroke="#14213D"/>
+      <text x="64" y="146" text-anchor="middle" fill="#14213D" font-size="16">1</text>
+      <text x="96" y="136">Write what you can lose</text>
+      <text x="96" y="160" fill="#475569" font-size="14">Rent and food are not the budget.</text>
+    </g>
+    <g>
+      <rect x="28" y="192" width="384" height="72" rx="16" fill="#FFFFFF" stroke="#14213D"/>
+      <circle cx="64" cy="228" r="16" fill="#F2A541" stroke="#14213D"/>
+      <text x="64" y="234" text-anchor="middle" fill="#14213D" font-size="16">2</text>
+      <text x="96" y="234">Name the asset</text>
+    </g>
+    <g>
+      <rect x="28" y="276" width="384" height="80" rx="16" fill="#FFFFFF" stroke="#14213D"/>
+      <circle cx="64" cy="316" r="16" fill="#F2A541" stroke="#14213D"/>
+      <text x="64" y="322" text-anchor="middle" fill="#14213D" font-size="16">3</text>
+      <text x="96" y="312">Look up the company</text>
+      <text x="96" y="336" fill="#475569" font-size="14">A register listing is not a seal of safety.</text>
+    </g>
+    <g>
+      <rect x="28" y="368" width="384" height="72" rx="16" fill="#FFFFFF" stroke="#14213D"/>
+      <circle cx="64" cy="404" r="16" fill="#F2A541" stroke="#14213D"/>
+      <text x="64" y="410" text-anchor="middle" fill="#14213D" font-size="16">4</text>
+      <text x="96" y="410">Type the website yourself</text>
+    </g>
+    <g>
+      <rect x="28" y="452" width="384" height="72" rx="16" fill="#FFFFFF" stroke="#14213D"/>
+      <circle cx="64" cy="488" r="16" fill="#F2A541" stroke="#14213D"/>
+      <text x="64" y="494" text-anchor="middle" fill="#14213D" font-size="16">5</text>
+      <text x="96" y="494">Turn on the second sign-in</text>
+    </g>
+    <g>
+      <rect x="28" y="536" width="384" height="80" rx="16" fill="#FFF6E8" stroke="#14213D"/>
+      <circle cx="64" cy="576" r="16" fill="#F2A541" stroke="#14213D"/>
+      <text x="64" y="582" text-anchor="middle" fill="#14213D" font-size="16">6</text>
+      <text x="96" y="572">Read the fee, then decide</text>
+      <text x="96" y="596" fill="#475569" font-size="14">Also decide who will hold the key.</text>
+    </g>
+  </g>
+  <text x="28" y="680" fill="#475569" font-family="Georgia, serif" font-size="14">Stop if a stranger is telling you which buttons to press.</text>
+</svg>

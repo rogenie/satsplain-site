@@ -4,11 +4,9 @@ import fs from 'node:fs';
 const port = 9333;
 const shots = [
   { name: 'home-desktop', url: 'http://localhost:4321/', width: 1440, height: 1100 },
-  { name: 'home-dark', url: 'http://localhost:4321/', width: 1440, height: 900, theme: 'dark' },
-  { name: 'article-desktop', url: 'http://localhost:4321/articles/what-is-bitcoin/', width: 1440, height: 1200 },
-  { name: 'article-diagram', url: 'http://localhost:4321/articles/what-is-bitcoin/', width: 1100, height: 980, selector: '.diagram' },
+  { name: 'home-mobile', url: 'http://localhost:4321/', width: 390, height: 844, mobile: true },
+  { name: 'article-desktop', url: 'http://localhost:4321/articles/what-is-bitcoin/', width: 1440, height: 1300 },
   { name: 'article-mobile', url: 'http://localhost:4321/articles/what-is-bitcoin/', width: 390, height: 844, mobile: true },
-  { name: 'hub-desktop', url: 'http://localhost:4321/pillars/scams-and-safety/', width: 1440, height: 1200 },
 ];
 
 fs.rmSync('/tmp/chrome-shoot', { recursive: true, force: true });

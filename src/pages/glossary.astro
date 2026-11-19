@@ -16,8 +16,16 @@ for (const term of [...glossary].sort((a, b) => a.term.localeCompare(b.term))) {
   groups.set(letter, list);
 }
 const description = 'Short definitions of bitcoin, wallets, keys, and scams, each tied to a regulator or an official document.';
+const graph = buildGraph({
+  crumbs,
+  definedTerms: glossary.map((term) => ({
+    id: term.id,
+    term: term.term,
+    definition: term.definition,
+  })),
+});
 ---
-<Base title="Glossary · Satsplain" description={description} graph={buildGraph({ crumbs })}>
+<Base title="Glossary · Satsplain" description={description} graph={graph}>
   <Breadcrumbs items={crumbs} />
   <header class="page-header">
     <p class="kicker">Words</p>

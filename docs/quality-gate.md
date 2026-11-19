@@ -12,6 +12,9 @@ The script fails if an article:
 - Has a `description` longer than 160 characters.
 - Has a `slug` that is not lowercase kebab-case or does not match the filename.
 - Uses a `pillar` outside the six hubs.
+- Is missing `featuredImage`, `featuredImageAlt`, `featuredImageWidth`, or `featuredImageHeight`. The image must be a file under `public/images/` (svg, webp, avif, or png). The alt text must be a real description of at least 40 characters, not a word like “image” or “diagram” on its own.
+- Has fewer than two inline diagrams or figures with descriptive alt text of at least 24 characters. The answer to a section comes before the picture.
+- Has an `##` heading, other than “A note on advice,” that is not a question, or whose opening sentence does not answer that question in plain words.
 - Has fewer than 3 sources, or a source missing `title`, `url`, `publisher`, or `accessed`.
 - Has a source URL that is not https, is not a real URL, or is not linked in the body.
 - Links to an external URL that is not in the sources list.
@@ -48,7 +51,9 @@ An editor does these before merging. The script cannot.
 - **Useful to a beginner.** A newcomer should know what to do next, including when the answer is to stop.
 - **Not scaled thin content.** Do not publish a page that only rewords a source, swaps a coin name, or exists to catch a search query.
 - **Voice.** Hook, short lines, one next step on the start-here path. No second pitch. No invented victim. See [style-guide.md](style-guide.md).
-- **Diagrams.** If the page includes one, it should teach the same fact as the prose, with alt text a person could understand with the image turned off.
+- **Diagrams.** Each picture should teach the same fact as the prose. Alt text should make sense with the image turned off.
+- **Answer first.** A question heading’s first sentence should be the answer, not a warm-up. Key takeaways stay near the top.
+- **AI search files.** `robots.txt` allows the named search and answer-engine crawlers. `llms.txt` and `llms-full.txt` are regenerated at build time from the article files.
 - **Links still resolve.** Click the external sources. The gate only checks internal links, because outside sites fail open and closed for reasons that are not our bug.
 
 ## Fixing a failure

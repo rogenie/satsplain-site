@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" role="img">
+  <title>Three common crypto scam patterns</title>
+  <rect width="800" height="450" rx="28" fill="#FAF8F3"/>
+  <rect width="800" height="10" fill="#C2410C"/>
+  <text x="40" y="64" fill="#14213D" font-family="Georgia, serif" font-size="32">Three patterns, one ending</text>
+  <text x="40" y="98" fill="#475569" font-family="Georgia, serif" font-size="18">A stranger steers the money. Then it will not come back.</text>
+  <g font-family="Georgia, serif">
+    <g>
+      <rect x="40" y="130" width="230" height="270" rx="18" fill="#FFFFFF" stroke="#14213D" stroke-width="2"/>
+      <circle cx="78" cy="172" r="16" fill="#FFF1EB" stroke="#C2410C" stroke-width="2"/>
+      <text x="78" y="178" text-anchor="middle" fill="#C2410C" font-size="18">1</text>
+      <text x="108" y="178" fill="#14213D" font-size="20">Friendship</text>
+      <text x="60" y="230" fill="#0F172A" font-size="16">A kind message.</text>
+      <text x="60" y="258" fill="#0F172A" font-size="16">Then a trading app.</text>
+      <text x="60" y="286" fill="#0F172A" font-size="16">The profit is a picture.</text>
+    </g>
+    <g>
+      <rect x="286" y="130" width="230" height="270" rx="18" fill="#FFFFFF" stroke="#14213D" stroke-width="2"/>
+      <circle cx="324" cy="172" r="16" fill="#FFF1EB" stroke="#C2410C" stroke-width="2"/>
+      <text x="324" y="178" text-anchor="middle" fill="#C2410C" font-size="18">2</text>
+      <text x="354" y="178" fill="#14213D" font-size="20">Look-alike</text>
+      <text x="306" y="230" fill="#0F172A" font-size="16">A link or a QR code.</text>
+      <text x="306" y="258" fill="#0F172A" font-size="16">The logo looks real.</text>
+      <text x="306" y="286" fill="#0F172A" font-size="16">The site is a copy.</text>
+    </g>
+    <g>
+      <rect x="532" y="130" width="230" height="270" rx="18" fill="#FFFFFF" stroke="#14213D" stroke-width="2"/>
+      <circle cx="570" cy="172" r="16" fill="#FFF1EB" stroke="#C2410C" stroke-width="2"/>
+      <text x="570" y="178" text-anchor="middle" fill="#C2410C" font-size="18">3</text>
+      <text x="600" y="178" fill="#14213D" font-size="20">Recovery</text>
+      <text x="552" y="230" fill="#0F172A" font-size="16">You already lost money.</text>
+      <text x="552" y="258" fill="#0F172A" font-size="16">Someone offers to</text>
+      <text x="552" y="286" fill="#0F172A" font-size="16">get it back, for a fee.</text>
+    </g>
+  </g>
+</svg>

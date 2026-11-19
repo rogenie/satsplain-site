@@ -14,6 +14,10 @@ publishDate: YYYY-MM-DD
 updatedDate: YYYY-MM-DD
 author: Satsplain Research Desk
 readingLevel: beginner
+featuredImage: "/images/articles/replace-me.svg"
+featuredImageAlt: "REPLACE_ME with a sentence that describes the picture for someone who cannot see it."
+featuredImageWidth: 800
+featuredImageHeight: 450
 keyTakeaways:
   - "REPLACE_ME"
   - "REPLACE_ME"
@@ -40,33 +44,43 @@ Say why that moment is uncomfortable.
 
 This guide will show one thing. It will not tell you to buy. Link the first source here.
 
-## Name the problem in the reader's words
+## What is the problem, in the reader's words?
 
-Short paragraphs. One idea each.
+Answer that question in this first sentence, with a source link in the section.
 
 A one-line punch is fine.
 
 Put an inline link in this section: [source](https://example.com/replace-me).
 
-## Make the cost of guessing concrete
+## What does guessing cost?
 
-Use a fact from a regulator or an official document. Do not invent a person or a loss amount.
+Answer in the first sentence. Use a fact from a regulator or an official document. Do not invent a person or a loss amount.
 
 Link it: [source](https://example.com/replace-me-2).
 
 No countdown. No scarcity. If a scammer pressures people, describe that pressure and cite it. Do not add your own.
 
-## Give them the move
+## What should the reader do?
 
-Steps or an explanation. Plain words.
+Answer in the first sentence. Then give the steps.
 
-If a diagram helps, add an original SVG with alt text, width, height, and loading="lazy".
+Add at least two diagrams. Original SVG, with alt text, width, and height. The layout lazy-loads figures that use the Figure component.
+
+```md
+<Figure
+  src="/diagrams/replace-me.svg"
+  width={440}
+  height={640}
+  alt="REPLACE_ME with a sentence a person can understand without the picture."
+  caption="One line on what the picture adds."
+/>
+```
 
 Link the third source: [source](https://example.com/replace-me-3).
 
-## The single next step
+## What should you read next?
 
-One action. The next page on the start-here path. No second offer. No email signup here. The layout already reserves a newsletter slot that is turned off.
+One action, named in the first sentence. The next page on the start-here path. No second offer. No email signup here. The layout already reserves a newsletter slot that is turned off.
 
 <p class="next-step"><a href="/start-here/">Next: start here</a></p>
 

@@ -53,11 +53,13 @@ export function articleNode(article: {
   updated: Date;
   author: string;
   image: string;
+  imageAlt?: string;
   tags: string[];
   reviewedBy?: string;
+  sources?: { title: string; url: string; publisher: string; accessed: string }[];
 }) {
   return {
-    '@type': 'Article',
+    '@type': 'BlogPosting',
     headline: article.title,
     description: article.description,
     datePublished: isoDate(article.published),
@@ -72,9 +74,43 @@ export function articleNode(article: {
       : {}),
     publisher: { '@id': orgId },
     mainEntityOfPage: absoluteUrl(article.path),
-    image: [absoluteUrl(article.image)],
+    image: {
+      '@type': 'ImageObject',
+      url: absoluteUrl(article.image),
+      ...(article.imageAlt ? { caption: article.imageAlt } : {}),
+    },
     keywords: article.tags.join(', '),
     inLanguage: site.locale,
+    isAccessibleForFree: true,
+    ...(article.sources?.length
+      ? {
+          citation: article.sources.map((source) => ({
+            '@type': 'CreativeWork',
+            name: source.title,
+            url: source.url,
+            publisher: { '@type': 'Organization', name: source.publisher },
+            dateAccessed: source.accessed,
+          })),
+        }
+      : {}),
+  };
+}
+
+export function howToNode(howTo: {
+  name: string;
+  description: string;
+  steps: { name: string; text: string }[];
+}) {
+  return {
+    '@type': 'HowTo',
+    name: howTo.name,
+    description: howTo.description,
+    step: howTo.steps.map((step, index) => ({
+      '@type': 'HowToStep',
+      position: index + 1,
+      name: step.name,
+      text: step.text,
+    })),
   };
 }
 
@@ -96,11 +132,27 @@ export function buildGraph(options: {
   crumbs?: Crumb[];
   article?: Parameters<typeof articleNode>[0];
   faq?: { question: string; answer: string }[];
+  howTo?: Parameters<typeof howToNode>[0];
+  definedTerms?: { id: string; term: string; definition: string }[];
 }) {
   const graph: Record<string, unknown>[] = [organization(), website()];
   if (options.crumbs?.length) graph.push(breadcrumbList(options.crumbs));
   if (options.article) graph.push(articleNode(options.article));
   if (options.faq?.length) graph.push(faqNode(options.faq));
+  if (options.howTo) graph.push(howToNode(options.howTo));
+  if (options.definedTerms?.length) {
+    graph.push({
+      '@type': 'DefinedTermSet',
+      name: 'Satsplain glossary',
+      url: absoluteUrl('/glossary/'),
+      hasDefinedTerm: options.definedTerms.map((term) => ({
+        '@type': 'DefinedTerm',
+        name: term.term,
+        description: term.definition,
+        url: absoluteUrl(`/glossary/#${term.id}`),
+      })),
+    });
+  }
   return graph;
 }
 

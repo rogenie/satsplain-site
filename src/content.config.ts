@@ -42,6 +42,24 @@ const articles = defineCollection({
       .optional(),
     readingLevel: z.enum(['beginner', 'intermediate']),
     keyTakeaways: z.array(z.string().min(1)).min(1),
+    featuredImage: z.string().regex(/^\/images\/.+\.(svg|webp|avif|png)$/),
+    featuredImageAlt: z.string().min(40),
+    featuredImageWidth: z.number().int().positive(),
+    featuredImageHeight: z.number().int().positive(),
+    howTo: z
+      .object({
+        name: z.string().min(1),
+        description: z.string().min(1),
+        steps: z
+          .array(
+            z.object({
+              name: z.string().min(1),
+              text: z.string().min(1),
+            }),
+          )
+          .min(2),
+      })
+      .optional(),
   }),
 });
 

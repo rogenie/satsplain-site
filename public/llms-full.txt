@@ -1,0 +1,93 @@
+# Satsplain, full guide summaries
+
+> Use these summaries with the linked pages. The pages, not this file, are the source of truth. Updated dates are on each page.
+
+## Crypto scams to avoid (and how to spot them)
+
+https://satsplain.com/articles/crypto-scams-to-avoid/
+
+It starts as a friendly message. How crypto scams work, the flags in FBI and CFTC alerts, and where to report.
+
+Key takeaways:
+
+- In the FBI's 2025 report, crypto investment fraud was the largest category of reported losses, at $7.2 billion.
+- The usual script is a friendly stranger, a fake trading app, a profit you cannot withdraw, then a fee.
+- A second stranger who offers to recover the money for a fee is another scam.
+- Crypto transfers are hard to reverse. Links, QR codes, and crypto ATMs are common tools.
+- Report what happened to the FBI IC3 and the FTC, and stop sending more money.
+
+Sources:
+
+- 2025 Internet Crime Report (FBI Internet Crime Complaint Center): https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf
+- IC3 complaint submission (FBI Internet Crime Complaint Center): https://complaint.ic3.gov/
+- Crypto Assets (U.S. Securities and Exchange Commission, Investor.gov): https://www.investor.gov/additional-resources/spotlight/crypto-assets
+- Digital Asset Frauds (U.S. Commodity Futures Trading Commission): https://www.cftc.gov/LearnAndProtect/digitalassetfrauds
+- Cryptocurrency infographic (U.S. Commodity Futures Trading Commission): https://www.cftc.gov/sites/default/files/LearnandProtect/OCEO_Cryptocurrency_Infographic.pdf
+- Investor Alert: Watch Out for Fraudulent Digital Asset and Crypto Trading Websites (SEC and CFTC): https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/watch_out_for_digital_fraud.html
+- Pause Before You Pay (U.S. Commodity Futures Trading Commission): https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/ATM.html
+- Curious About Crypto? Watch Out for Red Flags (U.S. Commodity Futures Trading Commission): https://www.cftc.gov/sites/default/files/LearnandProtect/DigitalAssetRedFlags.pdf
+- Customer Advisory: Beware Virtual Currency Pump-and-Dump Schemes (U.S. Commodity Futures Trading Commission): https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/beware_virtual_currency_pump_dump.html
+- ReportFraud.ftc.gov (Federal Trade Commission): https://reportfraud.ftc.gov/
+- File a tip or complaint (U.S. Commodity Futures Trading Commission): https://www.cftc.gov/complaint
+- Contact Us (Investor.gov): https://www.investor.gov/contact-us
+- Submit a complaint (Consumer Financial Protection Bureau): https://www.consumerfinance.gov/complaint/
+- 988 Suicide and Crisis Lifeline (Substance Abuse and Mental Health Services Administration): https://www.samhsa.gov/mental-health/988
+
+## How to buy crypto safely for the first time
+
+https://satsplain.com/articles/how-to-buy-crypto-safely/
+
+The buy button is not the decision. Check the company, the fee, and who holds the keys before you pay.
+
+Key takeaways:
+
+- Name the asset and the most you can lose before you open an app.
+- Look the company up on FinCEN's MSB search. A listing is not a seal of safety.
+- Type the web address yourself. Do not use a link or QR code from a message.
+- Turn on multi-factor sign-in, and never share a seed phrase with support.
+- Crypto is not FDIC-insured. Save the date, amount, dollar value, and fees for your records.
+
+Sources:
+
+- Customer Advisory: Understand the Risks of Virtual Currency Trading (U.S. Commodity Futures Trading Commission): https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/understand_risks_of_virtual_currency.html
+- Financial Products That Are Not Insured by the FDIC (Federal Deposit Insurance Corporation): https://www.fdic.gov/resources/deposit-insurance/financial-products-not-insured
+- Crypto Assets (U.S. Securities and Exchange Commission, Investor.gov): https://www.investor.gov/additional-resources/spotlight/crypto-assets
+- MSB Registrant Search (Financial Crimes Enforcement Network): https://msb.fincen.gov/
+- Curious About Crypto? Watch Out for Red Flags (U.S. Commodity Futures Trading Commission): https://www.cftc.gov/sites/default/files/LearnandProtect/DigitalAssetRedFlags.pdf
+- Digital Asset Frauds (U.S. Commodity Futures Trading Commission): https://www.cftc.gov/LearnAndProtect/digitalassetfrauds
+- Contact Your Regulator (North American Securities Administrators Association): https://www.nasaa.org/contact-your-regulator/
+- Investment Adviser Public Disclosure (U.S. Securities and Exchange Commission): https://adviserinfo.sec.gov/
+- BrokerCheck (FINRA): https://brokercheck.finra.org/
+- BASIC (National Futures Association): https://www.nfa.futures.org/basicnet/
+- Crypto Asset Custody Basics for Retail Investors (SEC Office of Investor Education): https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/crypto-asset-custody-basics-retail-investors-investor-bulletin-0
+- Digital assets (Internal Revenue Service): https://www.irs.gov/filing/digital-assets
+- About Form 1099-DA (Internal Revenue Service): https://www.irs.gov/forms-pubs/about-form-1099-da
+- Pause Before You Pay (U.S. Commodity Futures Trading Commission): https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/ATM.html
+
+## What is Bitcoin? A plain‑English guide for beginners
+
+https://satsplain.com/articles/what-is-bitcoin/
+
+A friend says to just buy bitcoin. Here is what you hold, what a satoshi is, and the risks regulators name.
+
+Key takeaways:
+
+- Bitcoin is a record on a public ledger. A wallet holds the secret that can move it.
+- One bitcoin is 100,000,000 satoshis. You do not have to buy a whole one.
+- New bitcoin is issued on a schedule that stops at 21 million. That cap does not keep the price still.
+- The CFTC calls bitcoin a commodity. The IRS treats digital assets as property. The FDIC does not insure crypto.
+- A bitcoin payment is generally final, and the value can fall far below what you paid.
+
+Sources:
+
+- Bitcoin FAQ (Bitcoin.org): https://bitcoin.org/en/faq
+- Bitcoin: A Peer-to-Peer Electronic Cash System (Satoshi Nakamoto, via Bitcoin.org): https://bitcoin.org/bitcoin.pdf
+- How does Bitcoin work? (Bitcoin.org): https://bitcoin.org/en/how-it-works
+- Crypto Assets (U.S. Securities and Exchange Commission, Investor.gov): https://www.investor.gov/additional-resources/spotlight/crypto-assets
+- Crypto Asset Custody Basics for Retail Investors (SEC Office of Investor Education): https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/crypto-asset-custody-basics-retail-investors-investor-bulletin-0
+- Customer Advisory: Understand the Risks of Virtual Currency Trading (U.S. Commodity Futures Trading Commission): https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/understand_risks_of_virtual_currency.html
+- Digital assets (Internal Revenue Service): https://www.irs.gov/filing/digital-assets
+- Crypto Assets and the Federal Securities Laws (U.S. Securities and Exchange Commission): https://www.sec.gov/resources-small-businesses/capital-raising-building-blocks/crypto-assets-federal-securities-laws
+- Financial Products That Are Not Insured by the FDIC (Federal Deposit Insurance Corporation): https://www.fdic.gov/resources/deposit-insurance/financial-products-not-insured
+- Curious About Crypto? Watch Out for Red Flags (U.S. Commodity Futures Trading Commission): https://www.cftc.gov/sites/default/files/LearnandProtect/DigitalAssetRedFlags.pdf
+
