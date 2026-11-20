@@ -80,7 +80,7 @@ Link the third source: [source](https://example.com/replace-me-3).
 
 ## What should you read next?
 
-One action, named in the first sentence. The next page on the start-here path. No second offer. No email signup here. The layout already reserves a newsletter slot that is turned off.
+One action, named in the first sentence. The next page on the start-here path. No email signup here. The layout already reserves a newsletter slot that is turned off. The optional Safety Kit aside, when `safetyKitCta` is true, goes after this step and before the advice note. It is not a second path button.
 
 <p class="next-step"><a href="/start-here/">Next: start here</a></p>
 
@@ -100,6 +100,21 @@ reviewedBy: "A real person's name"
 faq:
   - question: "REPLACE_ME"
     answer: "Only restate a fact already cited in the body."
+safetyKitCta: false
 ```
+
+Set `safetyKitCta: true` only when the guide is about storage, wallets, or scams and a reader could use a written seed phrase. Then import the component and place it immediately before `## A note on advice`:
+
+```md
+import SafetyKitCTA from '../../components/SafetyKitCTA.astro';
+
+<SafetyKitCTA />
+
+## A note on advice
+```
+
+The callout is one short paragraph, one link, and the product disclosure. It does not replace the path button. While `safetyKit.amazonUrl` in `src/data/site.ts` is empty, `safetyKit.status` is `waitlist` and the link goes to `/safety-kit/`. Set `safetyKit.amazonUrl` to the https Amazon product URL when the listing exists. `status` becomes `amazon`, and the page and the callout switch to “View on Amazon” with `rel="sponsored nofollow"`. The disclosure stays. Do not add a price, a rating, a fire or flood claim, or a comparison in that swap.
+
+There are no affiliate links today. If a guide ever has one, place `<AffiliateDisclosure />` (optional `subject` for the company named in the link) beside that link. Our own Safety Kit uses `safetyKitDisclosure`, not the affiliate notice.
 
 Do not put a banned hype phrase in the file, even to say you are avoiding it. The gate matches the word itself. The list is in [quality-gate.md](quality-gate.md).

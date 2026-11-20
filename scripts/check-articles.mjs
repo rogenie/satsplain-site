@@ -136,6 +136,34 @@ function figureAlts(body) {
 
 const genericAlt = /^(image|photo|picture|illustration|diagram|graphic|hero)$/i;
 
+const disclosureBits = ['financial interest', 'never require buying anything', 'paper backup'];
+
+function readSiteSource() {
+  return fs.readFileSync(path.join(root, 'src/data/site.ts'), 'utf8');
+}
+
+function safetyKitDisclosureText() {
+  const match = readSiteSource().match(/export const safetyKitDisclosure =\s*'([^']*)'/);
+  return match ? match[1] : '';
+}
+
+function safetyKitAmazonUrl() {
+  const match = readSiteSource().match(/const safetyKitAmazonUrl: string = '([^']*)'/);
+  return match ? match[1] : '';
+}
+
+function disclosureProblems() {
+  const disclosure = safetyKitDisclosureText();
+  const problems = [];
+  if (!disclosure) problems.push('safetyKitDisclosure must be a single-quoted string in src/data/site.ts');
+  for (const bit of disclosureBits) {
+    if (!disclosure.toLowerCase().includes(bit.toLowerCase())) {
+      problems.push(`safetyKitDisclosure is missing "${bit}"`);
+    }
+  }
+  return problems;
+}
+
 function validateArticle(fileName, raw, options = {}) {
   const errors = [];
   let parsed;
@@ -240,6 +268,26 @@ function validateArticle(fileName, raw, options = {}) {
 
   if (!/not financial advice/i.test(body)) {
     errors.push('missing the disclaimer phrase "not financial advice"');
+  }
+
+  if (data.safetyKitCta != null && data.safetyKitCta !== true && data.safetyKitCta !== false) {
+    errors.push('safetyKitCta must be true or false');
+  }
+  const ctaTag = body.search(/<SafetyKitCTA\b/);
+  const noteHeading = body.search(/^## A note on advice\s*$/m);
+  if (data.safetyKitCta === true) {
+    if (ctaTag === -1) errors.push('safetyKitCta is true but the article does not include <SafetyKitCTA />');
+    else if (noteHeading === -1 || ctaTag > noteHeading) {
+      errors.push('SafetyKitCTA must appear before the "A note on advice" section');
+    }
+    const ctaPath = path.join(root, 'src/components/SafetyKitCTA.astro');
+    const ctaSource = fs.existsSync(ctaPath) ? fs.readFileSync(ctaPath, 'utf8') : '';
+    if (!ctaSource.includes('safetyKitDisclosure')) {
+      errors.push('SafetyKitCTA must render safetyKitDisclosure');
+    }
+    errors.push(...disclosureProblems());
+  } else if (ctaTag !== -1) {
+    errors.push('SafetyKitCTA is included but safetyKitCta is not true');
   }
 
   for (const section of sectionsOf(body)) {
@@ -361,6 +409,26 @@ This page is general education, not financial advice. Read the [disclaimer](/dis
   const noLink = base.replace('## What does this section explain?\n\nThe [how it works page](https://bitcoin.org/en/how-it-works) explains the ledger. [Investor.gov](https://www.investor.gov/additional-resources/spotlight/crypto-assets) names the category.', '## What does this section explain?\n\nNo source in this section at all, just a long enough claim without any link here.');
   if (!validateArticle('fine-title.md', noLink).some((error) => error.includes('no inline link'))) {
     failures.push('did not catch a section without a link');
+  }
+  const optedIn = base.replace('readingLevel: beginner', 'readingLevel: beginner\nsafetyKitCta: true');
+  if (!validateArticle('fine-title.md', optedIn).some((error) => error.includes('<SafetyKitCTA />'))) {
+    failures.push('did not catch safetyKitCta without the component');
+  }
+  const optedInWithCta = optedIn.replace('## A note on advice', '<SafetyKitCTA />\n\n## A note on advice');
+  const ctaErrors = validateArticle('fine-title.md', optedInWithCta);
+  if (ctaErrors.some((error) => /SafetyKitCTA|safetyKitDisclosure|financial interest/.test(error))) {
+    failures.push(`valid safety kit fixture failed: ${ctaErrors.join('; ')}`);
+  }
+  const lateCta = optedIn.replace(
+    '## A note on advice\n\nThis page is general education, not financial advice. Read the [disclaimer](/disclaimer/).',
+    '## A note on advice\n\nThis page is general education, not financial advice. Read the [disclaimer](/disclaimer/).\n\n<SafetyKitCTA />',
+  );
+  if (!validateArticle('fine-title.md', lateCta).some((error) => error.includes('before the "A note on advice"'))) {
+    failures.push('did not catch a Safety Kit callout after the advice note');
+  }
+  const strayCta = base.replace('## A note on advice', '<SafetyKitCTA />\n\n## A note on advice');
+  if (!validateArticle('fine-title.md', strayCta).some((error) => error.includes('safetyKitCta is not true'))) {
+    failures.push('did not catch a Safety Kit callout without opt-in');
   }
   if (failures.length) {
     console.error('Self-test failed:');
@@ -552,6 +620,134 @@ function checkBuiltHtml() {
   return errors;
 }
 
+function checkSafetyKitPage() {
+  const errors = [];
+  const pagePath = path.join(root, 'src/pages/safety-kit.astro');
+  if (!fs.existsSync(pagePath)) {
+    errors.push('src/pages/safety-kit.astro is missing');
+    return errors;
+  }
+  const page = fs.readFileSync(pagePath, 'utf8');
+  if (!page.includes('safetyKitDisclosure')) errors.push('safety-kit page must show safetyKitDisclosure');
+  if (/@type['"]?\s*:\s*['"]Product['"]/.test(page) || /@type['"]?\s*:\s*['"]Offer['"]/.test(page)) {
+    errors.push('safety-kit page must not use Product or Offer schema');
+  }
+  if (!/not yet for sale/i.test(page)) errors.push('safety-kit page must include a not-yet-for-sale note');
+  if (!/coming soon/i.test(page)) errors.push('safety-kit page must include a coming-soon note');
+  errors.push(...disclosureProblems());
+
+  const formPath = path.join(root, 'src/components/WaitlistForm.astro');
+  const form = fs.existsSync(formPath) ? fs.readFileSync(formPath, 'utf8') : '';
+  if (!form.includes('The waitlist opens soon')) {
+    errors.push('WaitlistForm must show "The waitlist opens soon" when no endpoint is set');
+  }
+  if (!form.includes('formAction')) errors.push('WaitlistForm must use waitlist.formAction');
+  if (!form.includes('emailField')) errors.push('WaitlistForm must use waitlist.emailField');
+  if (!form.includes('honeypotField')) errors.push('WaitlistForm must include a honeypot field');
+
+  const ctaPath = path.join(root, 'src/components/SafetyKitCTA.astro');
+  const cta = fs.existsSync(ctaPath) ? fs.readFileSync(ctaPath, 'utf8') : '';
+  if (!cta.includes('/safety-kit/')) errors.push('SafetyKitCTA must link to /safety-kit/');
+  if (!cta.includes('View on Amazon')) errors.push('SafetyKitCTA must be able to show "View on Amazon"');
+  if (!cta.includes('sponsored') || !cta.includes('nofollow')) {
+    errors.push('the Amazon link must use rel="sponsored nofollow"');
+  }
+  if (!cta.includes('safetyKitDisclosure')) errors.push('SafetyKitCTA must render safetyKitDisclosure');
+
+  const footer = fs.readFileSync(path.join(root, 'src/components/Footer.astro'), 'utf8');
+  const header = fs.readFileSync(path.join(root, 'src/components/Header.astro'), 'utf8');
+  if (!footer.includes('/safety-kit/') && !header.includes('/safety-kit/')) {
+    errors.push('Safety Kit must be linked from the site nav or the footer');
+  }
+
+  const privacy = fs.readFileSync(path.join(root, 'src/pages/privacy.astro'), 'utf8');
+  if (!/waitlist/i.test(privacy)) errors.push('privacy page must describe the Safety Kit waitlist');
+  if (/mailchimp|buttondown|convertkit|formspree|beehiiv|kit\.com/i.test(privacy)) {
+    errors.push('privacy page must not name a waitlist provider yet');
+  }
+
+  for (const rel of ['src/pages/about.astro', 'src/pages/affiliate-disclosure.astro', 'src/pages/editorial-policy.astro']) {
+    const text = fs.readFileSync(path.join(root, rel), 'utf8');
+    if (!text.includes('Safety Kit')) errors.push(`${rel} must disclose the Safety Kit`);
+  }
+
+  const siteSource = readSiteSource();
+  if (!siteSource.includes('PUBLIC_WAITLIST_FORM_ACTION')) {
+    errors.push('waitlist.formAction must read PUBLIC_WAITLIST_FORM_ACTION');
+  }
+  if (!siteSource.includes("emailField: 'email'")) errors.push("waitlist.emailField must be 'email'");
+  if (!/amazonUrl:/.test(siteSource) || !/status:/.test(siteSource)) {
+    errors.push('safetyKit must include amazonUrl and status');
+  }
+  return errors;
+}
+
+function checkSafetyKitDist() {
+  const errors = [];
+  const disclosure = safetyKitDisclosureText();
+  const amazonUrl = safetyKitAmazonUrl();
+  const listed = amazonUrl.startsWith('https://');
+  const dist = path.join(root, 'dist');
+  const kitFile = path.join(dist, 'safety-kit/index.html');
+  if (!fs.existsSync(kitFile)) {
+    errors.push('dist/safety-kit/index.html is missing');
+  } else {
+    const html = fs.readFileSync(kitFile, 'utf8');
+    if (disclosure && !html.includes(disclosure)) errors.push('built safety-kit page is missing the product disclosure');
+    if (/"@type"\s*:\s*"Product"/.test(html) || /"@type"\s*:\s*"Offer"/.test(html)) {
+      errors.push('built safety-kit page uses Product or Offer schema');
+    }
+    if (listed) {
+      if (!html.includes('View on Amazon')) errors.push('built safety-kit page is missing the Amazon link');
+      if (!/rel="[^"]*sponsored[^"]*"/.test(html) || !/rel="[^"]*nofollow[^"]*"/.test(html)) {
+        errors.push('built Amazon link is missing rel="sponsored nofollow"');
+      }
+    } else {
+      if (!/not yet for sale/i.test(html)) errors.push('built safety-kit page is missing the not-yet-for-sale note');
+      if (!/coming soon/i.test(html)) errors.push('built safety-kit page is missing the coming-soon note');
+      if (!html.includes('The waitlist opens soon') && !html.includes('<form')) {
+        errors.push('built safety-kit page should show the waitlist message or a form');
+      }
+      if (html.includes('View on Amazon')) errors.push('built safety-kit page shows an Amazon link before amazonUrl is set');
+    }
+  }
+
+  const sitemap = walk(dist)
+    .filter((file) => file.endsWith('.xml') && path.basename(file).includes('sitemap'))
+    .map((file) => fs.readFileSync(file, 'utf8'))
+    .join('\n');
+  if (!sitemap.includes('https://satsplain.com/safety-kit/')) errors.push('sitemap is missing /safety-kit/');
+
+  const llmsPath = path.join(dist, 'llms.txt');
+  if (!fs.existsSync(llmsPath) || !fs.readFileSync(llmsPath, 'utf8').includes('https://satsplain.com/safety-kit/')) {
+    errors.push('llms.txt is missing the Safety Kit page');
+  }
+
+  for (const file of fs.readdirSync(articlesDir).filter((name) => /\.mdx?$/.test(name))) {
+    const parsed = matter(fs.readFileSync(path.join(articlesDir, file), 'utf8'));
+    if (parsed.data.safetyKitCta !== true || parsed.data.draft) continue;
+    const htmlPath = path.join(dist, 'articles', parsed.data.slug, 'index.html');
+    if (!fs.existsSync(htmlPath)) {
+      errors.push(`${file} safetyKitCta page was not built`);
+      continue;
+    }
+    const html = fs.readFileSync(htmlPath, 'utf8');
+    if (!html.includes('safety-kit-cta')) errors.push(`${file} built page is missing the Safety Kit callout`);
+    if (disclosure && !html.includes(disclosure)) errors.push(`${file} built page is missing the Safety Kit disclosure`);
+    const ctaAt = html.indexOf('class="safety-kit-cta"');
+    const noteAt = html.indexOf('id="a-note-on-advice"');
+    if (noteAt === -1) errors.push(`${file} built page is missing the advice-note heading`);
+    else if (ctaAt === -1 || ctaAt > noteAt) errors.push(`${file} Safety Kit callout renders after the advice note`);
+    if (!listed && !html.includes('href="/safety-kit/"')) {
+      errors.push(`${file} Safety Kit callout should link to /safety-kit/ while amazonUrl is empty`);
+    }
+    if (listed && !html.includes('View on Amazon')) {
+      errors.push(`${file} Safety Kit callout should show View on Amazon once amazonUrl is set`);
+    }
+  }
+  return errors;
+}
+
 function main() {
   selfTest();
   const files = fs.readdirSync(articlesDir).filter((name) => /\.mdx?$/.test(name));
@@ -578,9 +774,14 @@ function main() {
   const linkErrors = checkInternalLinks();
   if (linkErrors.length) problems.push({ file: 'internal links', errors: linkErrors });
 
+  const kitErrors = checkSafetyKitPage();
+  if (kitErrors.length) problems.push({ file: 'safety kit', errors: kitErrors });
+
   if (checkDist) {
     const built = checkBuiltHtml();
     if (built.length) problems.push({ file: 'built HTML', errors: built });
+    const kitBuilt = checkSafetyKitDist();
+    if (kitBuilt.length) problems.push({ file: 'safety kit build', errors: kitBuilt });
   }
 
   if (problems.length) {

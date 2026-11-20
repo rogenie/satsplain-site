@@ -13,7 +13,7 @@ Use this shape for every article:
 5. **Solution.** Give the explanation or the checklist in short paragraphs and one-line punches. Curiosity-driven subheads should pull the reader down the page and still tell the truth. A subhead may not manufacture scarcity or fear of missing a price move.
 6. **Question headings.** Every `##` except “A note on advice” is a question. The first sentence is the answer. Key takeaways stay in the box above the story.
 7. **Pictures.** A featured image at the top, plus at least two diagrams that teach a fact the prose also states. Original SVG. Descriptive alt text. No glowing coins, no rockets, no hotlinked stock.
-8. **One call to action.** End with a single next step on the start-here path. That is the only button. Do not add a second offer.
+8. **One call to action.** End with a single next step on the start-here path. That is the only button. A storage, wallet, or scam guide may also set `safetyKitCta: true` and place the Safety Kit aside immediately before “A note on advice.” That aside is one short paragraph, one link, and the product disclosure. It does not replace the path step, and it does not claim the kit is required.
 
 Paragraphs are very short. One idea, then a break. A one-line sentence is allowed when it carries the point: "Sent is not the same word as settled."
 
@@ -29,7 +29,7 @@ These rules outrank the style. If a punchy line needs a banned phrase to land, r
 - Every factual claim still has an inline link. Every `##` section needs one. The sources list repeats those links with the day we opened them.
 - The page includes the sentence "not financial advice."
 - Stories are patterns from a cited source, told in the second person. Do not invent a person, a city, or a loss amount.
-- The newsletter block is a placeholder. It is not a call to action, and it does not collect an address.
+- The newsletter block is a placeholder. It is not a call to action, and it does not collect an address. The Safety Kit waitlist is a separate form, and only on the Safety Kit page.
 
 Home, hub, glossary, and policy pages stay a little quieter than the guides. They can still be warm and direct. They do not use a sales-letter arc.
 
@@ -57,6 +57,6 @@ Illustrations are original inline SVG or flat SVG files we drew. No stock photos
 
 - The hook is a real beginner moment, not a fabricated case study.
 - Subheads are honest.
-- There is one next step, and it is the next page on the path.
+- There is one next step, and it is the next page on the path. The Safety Kit aside, if present, is disclosed and does not replace that step.
 - The diagram, if any, matches the cited source and can be understood without the surrounding paragraph.
 - Alt text describes the diagram, not "image" or "chart."

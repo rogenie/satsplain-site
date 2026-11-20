@@ -1,0 +1,98 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import WaitlistForm from '../components/WaitlistForm.astro';
+import { buildGraph } from '../lib/schema';
+import { safetyKit, safetyKitDisclosure } from '../data/site';
+import { formatDate } from '../lib/format';
+
+const crumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Safety Kit', href: '/safety-kit/' },
+];
+const description =
+  'A blank 316L steel plate you stamp with a seed phrase, plus a punch, a pouch, and a setup card. Not for sale yet.';
+const pageName = 'Satsplain Safety Kit';
+const updated = '2026-11-20';
+const amazonUrl = safetyKit.amazonUrl.trim();
+const listed = safetyKit.status === 'amazon' && amazonUrl.startsWith('https://');
+const secCustody =
+  'https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/crypto-asset-custody-basics-retail-investors-investor-bulletin-0';
+const cafc =
+  'https://fcnb.ca/en/news-alerts/cafc-bulletin-cryptocurrency-wallet-fraud';
+---
+<Base
+  title={`${pageName} · Satsplain`}
+  description={description}
+  graph={buildGraph({
+    crumbs,
+    page: { name: pageName, description, path: '/safety-kit/' },
+  })}
+>
+  <Breadcrumbs items={crumbs} />
+  <header class="page-header">
+    <p class="kicker">{listed ? 'Our product' : 'Coming soon'}</p>
+    <h1>{pageName}</h1>
+    <p class="lede">
+      A blank plate you stamp yourself, a punch, a tamper-evident pouch, and a setup card. The plate does not hold crypto.
+    </p>
+    <p class="meta">Updated <time datetime={updated}>{formatDate(new Date(`${updated}T00:00:00.000Z`))}</time></p>
+  </header>
+  <div class="prose">
+    <div class="product-disclosure" id="disclosure" role="note">
+      <p>{safetyKitDisclosure}</p>
+    </div>
+    <p>
+      How we keep that interest separate from the guides is on the <a href="/about/#funding">about page</a> and the <a href="/affiliate-disclosure/">affiliate disclosure</a>.
+    </p>
+
+    <h2 id="contents">What the kit will contain</h2>
+    <p>The kit will contain four things:</p>
+    <ol>
+      <li>A blank 316L stainless steel plate. You stamp your own seed phrase into it. It arrives blank.</li>
+      <li>A punch, so you can stamp that plate yourself.</li>
+      <li>A tamper-evident pouch.</li>
+      <li>A setup card with a QR code.</li>
+    </ol>
+
+    <h2 id="why-a-written-copy">Why a written copy matters</h2>
+    <p>
+      A written copy is how you restore a self-custody wallet if the device is gone. <a href="/articles/what-is-a-seed-phrase/">What is a seed phrase?</a> explains the words.
+      The <a href={secCustody}>SEC's custody bulletin</a> says a seed phrase lets you restore a wallet if you lose it, lose its private key, or the hardware or software is damaged.
+    </p>
+    <p>
+      The <a href={cafc}>Canadian Anti-Fraud Centre</a> says to keep the recovery phrase in a private, secure place, and not in an email, a cloud account, an online document, or a photograph.
+      The seed-phrase guide starts that routine on paper. Paper is enough. This kit is another way to keep a written copy.
+    </p>
+    <p>
+      The setup card's QR code is in the box. It is not a code that arrives in a text or an email.
+      The same bulletin says not to scan QR codes in unexpected messages. That advice still stands.
+    </p>
+
+    <h2 id="availability">{listed ? 'Where the kit is listed' : 'Availability'}</h2>
+    {listed ? (
+      <>
+        <p>The kit is listed on Amazon. This page does not show a price.</p>
+        <p>
+          <a href={amazonUrl} rel="sponsored nofollow noopener noreferrer">View on Amazon</a>
+        </p>
+      </>
+    ) : (
+      <>
+        <p>This kit is coming soon, and it is not yet for sale. This page has no price and no buy link.</p>
+        <p>
+          If you want an email when it is available, you can join the waitlist. We use the address only to announce the kit.
+          You can unsubscribe at any time. The <a href="/privacy/#safety-kit-waitlist">privacy policy</a> describes that list.
+          Do not type a seed phrase into a form.
+        </p>
+        <WaitlistForm consent="We will email this address only to announce the Safety Kit. You can unsubscribe at any time." />
+      </>
+    )}
+
+    <h2 id="a-note-on-advice">A note on advice</h2>
+    <p>
+      This page describes a physical backup kit. It is general education about that kit, not financial advice, and it is not a recommendation to hold crypto yourself.
+      Read the <a href="/disclaimer/">disclaimer</a>.
+    </p>
+  </div>
+</Base>

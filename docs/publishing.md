@@ -28,7 +28,7 @@ Copy [article-template.md](article-template.md) to `src/content/articles/<slug>.
 - At least three real https sources, each linked in the body.
 - Every `##` section has an inline link.
 - End with “not financial advice” and a link to `/disclaimer/`.
-- One call to action: the next page on the start-here path.
+- One call to action: the next page on the start-here path. A storage, wallet, or scam guide may also set `safetyKitCta: true` and place `<SafetyKitCTA />` before the advice note. That aside is disclosed and does not replace the path step.
 - Diagrams, if you add one, are original SVG with alt text, width, and height. Lazy-load anything below the fold.
 - `draft: true` still has to pass the gate. Use it only when the file is complete and you want it held back from the site.
 
@@ -53,6 +53,16 @@ After the fact-check and a green quality gate, the guide is published. The deplo
 ## 7. After publication
 
 If a fact was wrong, follow the corrections policy on the site and add a row to the corrections log in the same pull request as the fix. Update `updatedDate`.
+
+## Safety Kit waitlist and the Amazon link
+
+`src/data/site.ts` holds the switch.
+
+- `safetyKit.amazonUrl` is the Amazon product URL. Leave it empty (`''`) until the listing exists. `safetyKit.status` is `waitlist` while that string is empty, and `amazon` when it is an https URL.
+- While the URL is empty, `/safety-kit/` says the kit is coming soon and not yet for sale, and article callouts link to `/safety-kit/`.
+- When you set `safetyKit.amazonUrl` to the https listing, the page and every `SafetyKitCTA` switch to a “View on Amazon” link with `rel="sponsored nofollow"`. Keep `safetyKitDisclosure` on the page and in the callout. Do not add a price, a durability rating, or a certification in that change.
+- `waitlist.formAction` reads the environment variable `PUBLIC_WAITLIST_FORM_ACTION`. `waitlist.emailField` is `email`. The honeypot field name is `waitlist.honeypotField`.
+- Leave `PUBLIC_WAITLIST_FORM_ACTION` empty until a form host is chosen. An empty value renders no form. The page shows “The waitlist opens soon.” Set the same name as a GitHub Actions repository variable, the way `PUBLIC_GOOGLE_SITE_VERIFICATION` is set, when an https endpoint exists. In the same change, name that company in the privacy policy. Do not name a provider before one is chosen.
 
 ## Suggested branch name
 

@@ -1,0 +1,39 @@
+---
+import { waitlist } from '../data/site';
+
+interface Props {
+  consent?: string;
+}
+
+const { consent } = Astro.props;
+const action = waitlist.formAction;
+---
+{action ? (
+  <form class="waitlist-form" method="post" action={action} accept-charset="UTF-8">
+    <label for="safety-kit-email">Email address</label>
+    <input
+      id="safety-kit-email"
+      type="email"
+      name={waitlist.emailField}
+      required
+      autocomplete="email"
+      inputmode="email"
+      autocapitalize="none"
+      spellcheck="false"
+    />
+    {consent && <p class="waitlist-consent">{consent}</p>}
+    <div class="visually-hidden" aria-hidden="true">
+      <label for="safety-kit-leave-blank">Leave blank</label>
+      <input
+        id="safety-kit-leave-blank"
+        type="text"
+        name={waitlist.honeypotField}
+        tabindex="-1"
+        autocomplete="off"
+      />
+    </div>
+    <button class="button button-primary" type="submit">Notify me</button>
+  </form>
+) : (
+  <p class="waitlist-soon">The waitlist opens soon.</p>
+)}

@@ -8,7 +8,7 @@ The gate is mechanical. It cannot tell whether a sentence fairly represents its 
 
 The script fails if an article:
 
-- Is missing required frontmatter: `title`, `description`, `slug`, `pillar`, `tags`, `publishDate`, `updatedDate`, `sources`, `readingLevel`, `keyTakeaways`. `author` may be omitted and defaults to “Satsplain Research Desk.” `draft` defaults to false. `faq` and `reviewedBy` are optional.
+- Is missing required frontmatter: `title`, `description`, `slug`, `pillar`, `tags`, `publishDate`, `updatedDate`, `sources`, `readingLevel`, `keyTakeaways`. `author` may be omitted and defaults to “Satsplain Research Desk.” `draft` defaults to false. `faq`, `reviewedBy`, and `safetyKitCta` are optional. `safetyKitCta` defaults to false.
 - Has a `description` longer than 160 characters.
 - Has a `slug` that is not lowercase kebab-case or does not match the filename.
 - Uses a `pillar` outside the six hubs.
@@ -20,6 +20,8 @@ The script fails if an article:
 - Links to an external URL that is not in the sources list.
 - Has an introduction or `##` section with no inline link (a markdown link or an HTML link). Diagrams do not count as citations.
 - Is missing the phrase “not financial advice.”
+- Sets `safetyKitCta: true` without including `<SafetyKitCTA />` before the “A note on advice” section, or includes that component without the flag. The component must render `safetyKitDisclosure` from `src/data/site.ts`. That sentence has to say we have a financial interest, that articles never require buying anything, and that a paper backup is fine. The built-page check (`--dist`) fails if an opted-in guide’s HTML does not contain that disclosure before the advice note.
+- The Safety Kit page is missing its disclosure, uses Product or Offer schema, drops the coming-soon / not-yet-for-sale note, or is absent from the footer (or header), the sitemap, or `llms.txt`. `WaitlistForm` must keep the empty-endpoint message “The waitlist opens soon,” post `waitlist.emailField`, and include the honeypot. The privacy page must describe the waitlist without naming a provider. About, the affiliate disclosure, and the editorial policy must mention the Safety Kit.
 - Has a missing, impossible, or future `updatedDate`, or an `updatedDate` before `publishDate`. Dates must be `YYYY-MM-DD`.
 - Contains a banned hype phrase, including inside a negation: `guaranteed`, `to the moon`, `get rich`, `100x`, `risk-free`, `risk free`.
 - Contains fake-urgency language: `act now`, `limited time`, `last chance`, `don't miss out`, `before it's too late`.
@@ -51,7 +53,7 @@ An editor does these before merging. The script cannot.
 - **Original value.** The page should explain, sequence, or translate. A stack of quotes with no beginner framing is not enough.
 - **Useful to a beginner.** A newcomer should know what to do next, including when the answer is to stop.
 - **Not scaled thin content.** Do not publish a page that only rewords a source, swaps a coin name, or exists to catch a search query.
-- **Voice.** Hook, short lines, one next step on the start-here path. No second pitch. No invented victim. See [style-guide.md](style-guide.md).
+- **Voice.** Hook, short lines, one next step on the start-here path. The Safety Kit aside, if the article opts in, is disclosed and does not replace that step. No invented victim. See [style-guide.md](style-guide.md).
 - **Diagrams.** Each picture should teach the same fact as the prose. Alt text should make sense with the image turned off.
 - **Answer first.** A question heading’s first sentence should be the answer, not a warm-up. Key takeaways stay near the top.
 - **AI search files.** `robots.txt` allows the named search and answer-engine crawlers. `llms.txt` and `llms-full.txt` are regenerated at build time from the article files.

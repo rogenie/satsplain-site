@@ -19,6 +19,11 @@ const pages = [
   ['Sourcing', '/sourcing/', 'Which documents we trust first.'],
   ['Corrections', '/corrections/', 'How to challenge a sentence, and the public log.'],
   ['Disclaimer', '/disclaimer/', 'Education, not financial advice.'],
+  [
+    'Safety Kit',
+    '/safety-kit/',
+    'A blank steel seed-phrase plate, a punch, a pouch, and a setup card. Not for sale yet. Satsplain will sell it and says so on the page. A paper backup is enough.',
+  ],
 ];
 
 const llms = [
