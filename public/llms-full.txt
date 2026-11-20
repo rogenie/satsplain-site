@@ -2,6 +2,30 @@
 
 > Use these summaries with the linked pages. The pages, not this file, are the source of truth. Updated dates are on each page. Articles are researched and drafted with automated tools, fact-checked in a second pass against primary sources, and must pass an automated quality gate before publishing. Corrections are welcome at https://satsplain.com/contact/.
 
+## What is a seed phrase? The words that control your crypto
+
+https://satsplain.com/articles/what-is-a-seed-phrase/
+
+A seed phrase is the list of words that can rebuild a crypto wallet. What it does, why losing it is permanent, and why nobody legitimate will ask for it.
+
+Key takeaways:
+
+- A seed phrase is a list of words, often 12 or 24, that can restore a crypto wallet.
+- The wallet holds keys, not coins. The words can rebuild those keys on any compatible device.
+- Anyone who gets the words may be able to move the crypto without your phone or device.
+- No real support desk, bank, police service, or regulator will ask for the words.
+- Write the words on paper. Do not keep them in email, the cloud, or a photo.
+
+Sources:
+
+- Crypto Asset Custody Basics for Retail Investors (SEC Office of Investor Education and Assistance): https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/crypto-asset-custody-basics-retail-investors-investor-bulletin-0
+- BIP 39: Mnemonic code for generating deterministic keys (Bitcoin Improvement Proposals repository): https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki
+- BIP 39 English wordlist (Bitcoin Improvement Proposals repository): https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt
+- CAFC Bulletin: Cryptocurrency Wallet Fraud (Canadian Anti-Fraud Centre, published by the Financial and Consumer Services Commission (New Brunswick)): https://fcnb.ca/en/news-alerts/cafc-bulletin-cryptocurrency-wallet-fraud
+- Imposter Frauds (U.S. Commodity Futures Trading Commission): https://www.cftc.gov/LearnAndProtect/imposterfrauds
+- Beware Imposters Posing as CFTC Officials (U.S. Commodity Futures Trading Commission): https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/Beware_Imposters
+- Increase in Companies Falsely Claiming an Ability to Recover Funds Lost in Cryptocurrency Investment Scams (FBI Internet Crime Complaint Center): https://www.ic3.gov/PSA/2023/PSA230811
+
 ## Crypto scams to avoid (and how to spot them)
 
 https://satsplain.com/articles/crypto-scams-to-avoid/

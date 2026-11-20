@@ -6,6 +6,7 @@ Satsplain is an independent research desk. Articles are researched and drafted w
 
 ## Guides
 
+- [What is a seed phrase? The words that control your crypto](https://satsplain.com/articles/what-is-a-seed-phrase/): A seed phrase is the list of words that can rebuild a crypto wallet. What it does, why losing it is permanent, and why nobody legitimate will ask for it.
 - [Crypto scams to avoid (and how to spot them)](https://satsplain.com/articles/crypto-scams-to-avoid/): It starts as a friendly message. How crypto scams work, the flags in FBI and CFTC alerts, and where to report.
 - [How to buy crypto safely for the first time](https://satsplain.com/articles/how-to-buy-crypto-safely/): The buy button is not the decision. Check the company, the fee, and who holds the keys before you pay.
 - [What is Bitcoin? A plain‑English guide for beginners](https://satsplain.com/articles/what-is-bitcoin/): A friend says to just buy bitcoin. Here is what you hold, what a satoshi is, and the risks regulators name.
