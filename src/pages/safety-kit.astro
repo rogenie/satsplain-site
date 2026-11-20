@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import WaitlistForm from '../components/WaitlistForm.astro';
 import { buildGraph } from '../lib/schema';
-import { safetyKit, safetyKitDisclosure } from '../data/site';
+import { cardStatementNote, companyLine, safetyKit, safetyKitDisclosure } from '../data/site';
 import { formatDate } from '../lib/format';
 
 const crumbs = [
@@ -36,11 +36,13 @@ const cafc =
     <p class="lede">
       A blank plate you stamp yourself, a punch, a tamper-evident pouch, and a setup card. The plate does not hold crypto.
     </p>
+    <p>{companyLine}</p>
     <p class="meta">Updated <time datetime={updated}>{formatDate(new Date(`${updated}T00:00:00.000Z`))}</time></p>
   </header>
   <div class="prose">
     <div class="product-disclosure" id="disclosure" role="note">
       <p>{safetyKitDisclosure}</p>
+      <p>{cardStatementNote}</p>
     </div>
     <p>
       How we keep that interest separate from the guides is on the <a href="/about/#funding">about page</a> and the <a href="/affiliate-disclosure/">affiliate disclosure</a>.

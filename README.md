@@ -72,7 +72,7 @@ Remove any old A or CNAME records that point the apex or `www` somewhere else. D
 - Safety Kit on Amazon: this is not an environment variable. Set `safetyKit.amazonUrl` in `src/data/site.ts` to the https listing. `safetyKit.status` switches to `amazon`, and the page and article callouts show “View on Amazon.” See [docs/publishing.md](docs/publishing.md).
 - Analytics: nothing is installed. When you want a tag, add it in `src/components/AnalyticsSlot.astro` and update the privacy policy in the same change, before the script ships.
 - Email: the site names `hello@satsplain.com`. Create that mailbox, or change the address in `src/data/site.ts` and the pages that use it.
-- About page: add a legal publisher name if you want one stated. The page does not invent one.
+- About page: Satsplain is published by 9nth Dimension. The company name is `company` in `src/data/site.ts`.
 - Newsletter: the placeholder does not collect addresses. Wiring it up is a later project, and it needs a privacy-policy edit first.
 
 ## What you still do by hand

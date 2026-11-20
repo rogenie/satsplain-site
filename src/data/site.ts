@@ -1,5 +1,7 @@
 export const site = {
   name: 'Satsplain',
+  company: '9nth Dimension',
+  cardStatement: '9NTH DIMENSION',
   url: 'https://satsplain.com',
   tagline: 'Crypto, explained calmly.',
   description:
@@ -13,6 +15,10 @@ export const site = {
 } as const;
 
 export const defaultAuthor = 'Satsplain Research Desk';
+
+export const companyLine = `${site.name}, a ${site.company} company`;
+export const publisherLine = `${site.name} is published by ${site.company}`;
+export const cardStatementNote = `When the kit goes on sale, charges will appear on your card statement as ${site.cardStatement}.`;
 
 /**
  * Amazon product URL for the Safety Kit.

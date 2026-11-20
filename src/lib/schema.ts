@@ -18,6 +18,10 @@ export function organization() {
     },
     email: site.email,
     description: site.description,
+    parentOrganization: {
+      '@type': 'Organization',
+      name: site.company,
+    },
   };
 }
 
