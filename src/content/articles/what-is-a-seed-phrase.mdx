@@ -1,0 +1,206 @@
+---
+title: "What is a seed phrase? The words that control your crypto"
+description: "A seed phrase is the list of words that can rebuild a crypto wallet. What it does, why losing it is permanent, and why nobody legitimate will ask for it."
+slug: what-is-a-seed-phrase
+pillar: wallets-and-security
+tags:
+  - wallets
+  - security
+  - beginners
+publishDate: 2026-11-20
+updatedDate: 2026-11-20
+author: Satsplain Research Desk
+readingLevel: beginner
+featuredImage: "/images/articles/what-is-a-seed-phrase.svg"
+featuredImageAlt: "A grid of twelve numbered word slots, left blank on purpose, with an arrow pointing to a key, showing that the words can rebuild a wallet's private keys."
+featuredImageWidth: 800
+featuredImageHeight: 450
+howTo:
+  name: "How to protect a seed phrase"
+  description: "A short routine for the moment a self-custody wallet shows you its secret words."
+  steps:
+    - name: "Write the words down offline"
+      text: "Copy the words in order onto paper. Do not keep them in email, a cloud account, an online document, or a photo."
+    - name: "Store the copy somewhere private"
+      text: "Keep the written copy in a private, secure place where only you can reach it."
+    - name: "Never share the words"
+      text: "Do not give the words to support staff, police, a regulator, a recovery service, or anyone you met online."
+    - name: "Stop when someone asks"
+      text: "End the contact and find the organization's real phone number or website yourself."
+keyTakeaways:
+  - "A seed phrase is a list of words, often 12 or 24, that can restore a crypto wallet."
+  - "The wallet holds keys, not coins. The words can rebuild those keys on any compatible device."
+  - "Anyone who gets the words may be able to move the crypto without your phone or device."
+  - "No real support desk, bank, police service, or regulator will ask for the words."
+  - "Write the words on paper. Do not keep them in email, the cloud, or a photo."
+faq:
+  - question: "How many words is a seed phrase?"
+    answer: "Often 12 or 24. The BIP 39 standard allows 12, 15, 18, 21, or 24 words, each taken from a fixed list of 2,048 words."
+  - question: "Is a seed phrase the same as a private key?"
+    answer: "No, but it is just as sensitive. The SEC says a seed phrase lets you restore a wallet if you lose it or its private key. BIP 39 describes turning the words into the seed a wallet uses to make its keys."
+  - question: "What happens if I lose my seed phrase?"
+    answer: "The wallet may keep working on your device, but you have lost the backup. The SEC says a self-custody wallet that is lost, stolen, damaged, or hacked may mean permanent loss of access."
+  - question: "Does an exchange account have a seed phrase?"
+    answer: "Usually not one you hold. The SEC says third-party custodians, including crypto exchanges, manage and control access to the private keys."
+  - question: "Can support help me recover my seed phrase?"
+    answer: "Treat any offer like that as a warning sign. The Canadian Anti-Fraud Centre says a legitimate wallet provider or support service will not ask you to send the words, and the FBI warns about fake crypto recovery services."
+sources:
+  - title: "Crypto Asset Custody Basics for Retail Investors"
+    url: "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/crypto-asset-custody-basics-retail-investors-investor-bulletin-0"
+    publisher: "SEC Office of Investor Education and Assistance"
+    accessed: "2026-11-20"
+  - title: "BIP 39: Mnemonic code for generating deterministic keys"
+    url: "https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki"
+    publisher: "Bitcoin Improvement Proposals repository"
+    accessed: "2026-11-20"
+  - title: "BIP 39 English wordlist"
+    url: "https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt"
+    publisher: "Bitcoin Improvement Proposals repository"
+    accessed: "2026-11-20"
+  - title: "CAFC Bulletin: Cryptocurrency Wallet Fraud"
+    url: "https://fcnb.ca/en/news-alerts/cafc-bulletin-cryptocurrency-wallet-fraud"
+    publisher: "Canadian Anti-Fraud Centre, published by the Financial and Consumer Services Commission (New Brunswick)"
+    accessed: "2026-11-20"
+  - title: "Imposter Frauds"
+    url: "https://www.cftc.gov/LearnAndProtect/imposterfrauds"
+    publisher: "U.S. Commodity Futures Trading Commission"
+    accessed: "2026-11-20"
+  - title: "Beware Imposters Posing as CFTC Officials"
+    url: "https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/Beware_Imposters"
+    publisher: "U.S. Commodity Futures Trading Commission"
+    accessed: "2026-11-20"
+  - title: "Increase in Companies Falsely Claiming an Ability to Recover Funds Lost in Cryptocurrency Investment Scams"
+    url: "https://www.ic3.gov/PSA/2023/PSA230811"
+    publisher: "FBI Internet Crime Complaint Center"
+    accessed: "2026-11-20"
+draft: false
+---
+
+import Figure from '../../components/Figure.astro';
+
+A new wallet app is open. It shows you a list of words and asks you to write them down.
+
+There is a button that says "I saved them." You have not saved them. You are not sure what they are.
+
+Do not tap the button yet. This page explains what those words do, in plain English. It does not tell you to buy anything or which wallet to use. The facts come from the [SEC's custody bulletin](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/crypto-asset-custody-basics-retail-investors-investor-bulletin-0) and the other sources listed below.
+
+## What is a seed phrase?
+
+A seed phrase is a list of words that can restore a crypto wallet. The [SEC](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/crypto-asset-custody-basics-retail-investors-investor-bulletin-0) calls it a random sequence of words that lets you restore your wallet if you lose it, lose its private key, or the hardware or software is damaged.
+
+You may also see it called a recovery phrase, a backup seed phrase, or a mnemonic phrase. Same thing.
+
+The [Canadian Anti-Fraud Centre](https://fcnb.ca/en/news-alerts/cafc-bulletin-cryptocurrency-wallet-fraud) says it works like a master key. Many wallets use 12 or 24 words.
+
+Twelve ordinary words. One very unordinary job.
+
+## What does a crypto wallet actually hold?
+
+Keys, not coins. The [SEC](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/crypto-asset-custody-basics-retail-investors-investor-bulletin-0) says crypto wallets do not store crypto assets themselves. They store the private keys.
+
+A private key is the secret that authorizes a transfer. The SEC compares it to a password, with one big difference: once created, it cannot be changed or replaced. If you lose it, you permanently lose access to the crypto in that wallet.
+
+The public key is the other half. The SEC compares it to an email address. People can use it to send you crypto. It cannot authorize a transfer out.
+
+The words sit one level above the keys. They are how the wallet rebuilds them.
+
+<Figure
+  src="/diagrams/seed-phrase-to-keys.svg"
+  width={440}
+  height={820}
+  alt="Three stacked boxes. A seed phrase of 12 or 24 words rebuilds the private keys. The private keys authorize transfers. The crypto itself is recorded on the blockchain, not stored inside the wallet."
+  caption="The words rebuild the keys. The keys move what the blockchain records."
+/>
+
+If the word "blockchain" is new, [What is Bitcoin?](/articles/what-is-bitcoin/) covers it first. The short definitions of [private key](/glossary/#private-key) and [seed phrase](/glossary/#seed-phrase) are in the glossary.
+
+## How do a few words turn into keys?
+
+A published standard turns random numbers into words, and the words back into the numbers. Most beginners never need the math. The shape helps, though.
+
+The standard is [BIP 39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki), a Bitcoin Improvement Proposal. It starts with a random number. It adds a short checksum, splits the result into chunks, and uses each chunk to pick a word.
+
+The words come from a fixed list. The [English list](https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt) has 2,048 words. BIP 39 allows phrases of 12, 15, 18, 21, or 24 words. The words then produce the seed a wallet uses to make its keys.
+
+Two details matter for you:
+
+- **Order matters.** The words encode a number. Swap two words and you have a different number.
+- **The checksum is weak.** BIP 39 itself says the checksum gives only modest odds of catching a mistake and cannot help correct one. Copy carefully.
+
+Some wallets also offer an extra passphrase on top of the words. BIP 39 describes this option. If you set one, it becomes part of the secret, and you need it to restore the wallet too.
+
+## Why is losing the words so serious?
+
+Because there is usually no one to call. With [self-custody](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/crypto-asset-custody-basics-retail-investors-investor-bulletin-0), the SEC says you have sole responsibility for keeping track of your private keys and seed phrases. If they are lost or stolen, you may lose access to your crypto.
+
+Phones break. Laptops get stolen. Cold-wallet devices get lost or damaged. The SEC says that last one can mean a permanent loss.
+
+The seed phrase is the backup for all of that.
+
+Lose the device and keep the words: you can usually restore. Lose both: the SEC's word is permanent.
+
+## Why is sharing the words worse than losing them?
+
+Because the person who has them can move the crypto. The [Canadian Anti-Fraud Centre](https://fcnb.ca/en/news-alerts/cafc-bulletin-cryptocurrency-wallet-fraud) says anyone who gets the recovery phrase may be able to access the wallet and transfer the cryptocurrency. They may not need your phone, your computer, or your device.
+
+A thief does not need to break into anything. You hand over the words, and they rebuild your wallet on their own machine.
+
+The same bulletin lists how fraudsters try to get the words: fake websites, emails, texts, phone calls, letters, QR codes, and harmful software. They often claim there is a problem with your wallet and that you must act right away.
+
+That pressure is the scam's, not ours. You can take as long as you want.
+
+## Who is allowed to ask for your seed phrase?
+
+Nobody. Not a real support desk, not your bank, not the police, not a regulator.
+
+The [Canadian Anti-Fraud Centre](https://fcnb.ca/en/news-alerts/cafc-bulletin-cryptocurrency-wallet-fraud) says a police service, government agency, financial institution, wallet provider, or legitimate support service will not ask you to send it by email, text, social media, online form, or letter.
+
+The [CFTC](https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/Beware_Imposters) says it does not audit or verify people's digital wallets and would never ask for private keys or seed phrases. Its [imposter fraud page](https://www.cftc.gov/LearnAndProtect/imposterfrauds) says to verify any call or email before you disclose a seed phrase, end the contact, and find the official website yourself.
+
+<Figure
+  src="/diagrams/seed-phrase-who-asks.svg"
+  width={440}
+  height={760}
+  alt="A list of people who might ask for your seed phrase: wallet or app support, a bank, police or a government agency, a crypto regulator, a recovery service, and a friend you met online. Each one is marked no. A note at the bottom says to stop, end the contact, and find the real number yourself."
+  caption="Every name on this list has been used as a disguise. None of them needs your words."
+/>
+
+"Recovery services" deserve their own line. The [FBI](https://www.ic3.gov/PSA/2023/PSA230811) warns about fake businesses that contact scam victims, claim they can trace and recover lost crypto, and charge up-front fees. The CFTC says never to pay an up-front fee for fraud recovery.
+
+More patterns are in [Crypto scams to avoid](/articles/crypto-scams-to-avoid/).
+
+## How should you store a seed phrase?
+
+On paper, offline, somewhere private, and never in a photo or the cloud. The [Canadian Anti-Fraud Centre](https://fcnb.ca/en/news-alerts/cafc-bulletin-cryptocurrency-wallet-fraud) says to keep the recovery phrase in a private and secure place, and not in an email, cloud account, online document, or photograph.
+
+When a wallet shows you the words:
+
+1. Write the words down, in order, on paper.
+2. Check each word against the screen. The [BIP 39 English list](https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt) has 2,048 words. If your wallet uses that list and a word is not on it, you copied it wrong.
+3. Store the paper somewhere private and secure.
+4. Do not type the words into a site, form, or chat that a message sent you to. The same bulletin says not to click links or scan QR codes in unexpected messages.
+5. If anyone asks for them, stop and end the contact.
+
+If you set an extra passphrase, store it too, because [BIP 39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) uses it to make the seed.
+
+That is the whole routine. Short, and not optional.
+
+## Do you need a seed phrase at all?
+
+Only if you hold your own keys. The [SEC](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/crypto-asset-custody-basics-retail-investors-investor-bulletin-0) says third-party custodians, including crypto exchanges, manage and control access to your private keys.
+
+So if your crypto sits in an exchange or app account, the company holds the keys. You sign in with a password and a second check instead. The [first-purchase guide](/articles/how-to-buy-crypto-safely/) covers that lock.
+
+The tradeoff runs both ways. The SEC says a custodian that is hacked, shuts down, or goes bankrupt can cost you access. Holding the words yourself means nobody else can lose them for you, and nobody else can restore them.
+
+Neither choice is safe by default. This page does not pick one. The [Wallets and security](/pillars/wallets-and-security/) hub lays out the options side by side.
+
+## What should you read next?
+
+Read Taxes and rules next. Your keys are covered. The next question on the [start-here path](/start-here/) is the records a purchase can create.
+
+<p class="next-step"><a href="/pillars/taxes-and-rules/">Next: taxes and rules</a></p>
+
+## A note on advice
+
+This page is general education, not financial advice. It is not a recommendation to buy, sell, or hold any asset, or to use any wallet or company. The [full disclaimer](/disclaimer/) explains the limit.
