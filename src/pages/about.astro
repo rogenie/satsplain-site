@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { buildGraph } from '../lib/schema';
-import { site } from '../data/site';
+import { companyLine, publisherLine, site } from '../data/site';
 import { formatDate } from '../lib/format';
 
 const crumbs = [
@@ -18,6 +18,7 @@ const description = 'Satsplain explains crypto from public sources. We plan to s
     <p class="kicker">The desk</p>
     <h1>About Satsplain</h1>
     <p class="lede">We explain crypto for people who are new to it. We do not pretend to be the expert in the room.</p>
+    <p>{companyLine}</p>
     <p class="meta">Updated <time datetime={site.policiesUpdated}>{formatDate(updated)}</time></p>
   </header>
   <div class="prose">
@@ -32,7 +33,7 @@ const description = 'Satsplain explains crypto from public sources. We plan to s
       Articles are researched and drafted with automated tools. A second pass fact-checks the draft against primary sources. The file must then pass an automated quality gate, including sources, citations, and the other checks described in the editorial policy, before it is published. Corrections are welcome on the <a href="/contact/">contact page</a>.
     </p>
     <p>
-      The domain owner is responsible for what is published at satsplain.com. A named legal publisher can be added on this page when the owner wants that stated. Until then, write to <a href={`mailto:${site.email}`}>{site.email}</a>. Please do not send account numbers, seed phrases, or copies of an ID.
+      {publisherLine}. Write to <a href={`mailto:${site.email}`}>{site.email}</a>. Please do not send account numbers, seed phrases, or copies of an ID.
     </p>
     <h2 id="funding">How we are funded</h2>
     <p>
