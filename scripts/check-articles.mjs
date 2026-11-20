@@ -152,6 +152,16 @@ function safetyKitAmazonUrl() {
   return match ? match[1] : '';
 }
 
+function safetyKitPreorderUrl() {
+  const match = readSiteSource().match(/const safetyKitPreorderUrl = '([^']*)'/);
+  return match ? match[1] : '';
+}
+
+function safetyKitPrice() {
+  const match = readSiteSource().match(/const safetyKitPrice = (\d+(?:\.\d+)?);/);
+  return match ? match[1] : '';
+}
+
 function disclosureProblems() {
   const disclosure = safetyKitDisclosureText();
   const problems = [];
@@ -629,11 +639,24 @@ function checkSafetyKitPage() {
   }
   const page = fs.readFileSync(pagePath, 'utf8');
   if (!page.includes('safetyKitDisclosure')) errors.push('safety-kit page must show safetyKitDisclosure');
-  if (/@type['"]?\s*:\s*['"]Product['"]/.test(page) || /@type['"]?\s*:\s*['"]Offer['"]/.test(page)) {
-    errors.push('safety-kit page must not use Product or Offer schema');
+  if (/aggregateRating|reviewCount|ratingValue/i.test(page)) {
+    errors.push('safety-kit page must not include ratings or reviews');
   }
-  if (!/not yet for sale/i.test(page)) errors.push('safety-kit page must include a not-yet-for-sale note');
-  if (!/coming soon/i.test(page)) errors.push('safety-kit page must include a coming-soon note');
+  const preorderUrl = safetyKitPreorderUrl();
+  const price = safetyKitPrice();
+  const amazonUrl = safetyKitAmazonUrl();
+  const listed = amazonUrl.startsWith('https://');
+  const preordering = !listed && preorderUrl.startsWith('https://');
+  if (preordering) {
+    if (!page.includes('Pre-order now:')) errors.push('safety-kit page must include the pre-order button');
+    if (!page.includes('preorderUrl')) errors.push('safety-kit page must use safetyKit.preorderUrl');
+    if (!page.includes('href="/refunds/"')) errors.push('safety-kit page must link to /refunds/');
+    if (!page.includes('safetyKitProduct')) errors.push('safety-kit page must include the product schema while pre-orders are open');
+    if (price !== '39.99') errors.push('safetyKit price must be 39.99 USD while the pre-order link is set');
+  } else if (!listed) {
+    if (!/not yet for sale/i.test(page)) errors.push('safety-kit page must include a not-yet-for-sale note');
+    if (!/coming soon/i.test(page)) errors.push('safety-kit page must include a coming-soon note');
+  }
   errors.push(...disclosureProblems());
 
   const formPath = path.join(root, 'src/components/WaitlistForm.astro');
@@ -653,17 +676,27 @@ function checkSafetyKitPage() {
     errors.push('the Amazon link must use rel="sponsored nofollow"');
   }
   if (!cta.includes('safetyKitDisclosure')) errors.push('SafetyKitCTA must render safetyKitDisclosure');
+  if (cta.includes('buy.stripe.com')) errors.push('SafetyKitCTA must link to /safety-kit/, not the Stripe checkout');
+  if (preordering && !/pre-order/i.test(cta)) errors.push('SafetyKitCTA must use pre-order wording while pre-orders are open');
 
   const footer = fs.readFileSync(path.join(root, 'src/components/Footer.astro'), 'utf8');
   const header = fs.readFileSync(path.join(root, 'src/components/Header.astro'), 'utf8');
   if (!footer.includes('/safety-kit/') && !header.includes('/safety-kit/')) {
     errors.push('Safety Kit must be linked from the site nav or the footer');
   }
+  if (!footer.includes('/refunds/')) errors.push('footer must link to /refunds/');
+  if (!fs.existsSync(path.join(root, 'src/pages/refunds.astro'))) errors.push('src/pages/refunds.astro is missing');
 
   const privacy = fs.readFileSync(path.join(root, 'src/pages/privacy.astro'), 'utf8');
-  if (!/waitlist/i.test(privacy)) errors.push('privacy page must describe the Safety Kit waitlist');
+  if (preordering) {
+    if (!/stripe/i.test(privacy)) errors.push('privacy page must say payments are processed by Stripe');
+    if (!/shipping address/i.test(privacy)) errors.push('privacy page must say Satsplain receives the shipping address');
+    if (!/name, email/i.test(privacy)) errors.push('privacy page must say Satsplain receives the name and email');
+  } else if (!/waitlist/i.test(privacy)) {
+    errors.push('privacy page must describe the Safety Kit waitlist while pre-orders are closed');
+  }
   if (/mailchimp|buttondown|convertkit|formspree|beehiiv|kit\.com/i.test(privacy)) {
-    errors.push('privacy page must not name a waitlist provider yet');
+    errors.push('privacy page must not name a waitlist provider');
   }
 
   for (const rel of ['src/pages/about.astro', 'src/pages/affiliate-disclosure.astro', 'src/pages/editorial-policy.astro']) {
@@ -686,7 +719,9 @@ function checkSafetyKitDist() {
   const errors = [];
   const disclosure = safetyKitDisclosureText();
   const amazonUrl = safetyKitAmazonUrl();
+  const preorderUrl = safetyKitPreorderUrl();
   const listed = amazonUrl.startsWith('https://');
+  const preordering = !listed && preorderUrl.startsWith('https://');
   const dist = path.join(root, 'dist');
   const kitFile = path.join(dist, 'safety-kit/index.html');
   if (!fs.existsSync(kitFile)) {
@@ -694,22 +729,66 @@ function checkSafetyKitDist() {
   } else {
     const html = fs.readFileSync(kitFile, 'utf8');
     if (disclosure && !html.includes(disclosure)) errors.push('built safety-kit page is missing the product disclosure');
-    if (/"@type"\s*:\s*"Product"/.test(html) || /"@type"\s*:\s*"Offer"/.test(html)) {
-      errors.push('built safety-kit page uses Product or Offer schema');
+    if (/aggregateRating|reviewCount|ratingValue/i.test(html)) {
+      errors.push('built safety-kit page includes a rating or review');
     }
     if (listed) {
       if (!html.includes('View on Amazon')) errors.push('built safety-kit page is missing the Amazon link');
       if (!/rel="[^"]*sponsored[^"]*"/.test(html) || !/rel="[^"]*nofollow[^"]*"/.test(html)) {
         errors.push('built Amazon link is missing rel="sponsored nofollow"');
       }
+    } else if (preordering) {
+      const button = `Pre-order now: $39.99, free US shipping`;
+      if (!html.includes(button)) errors.push(`built safety-kit page is missing the button "${button}"`);
+      if (!html.includes(`href="${preorderUrl}"`)) errors.push('built pre-order button does not use the Stripe URL');
+      if (!html.includes('ships within 4-6 weeks')) errors.push('built safety-kit page is missing the ship window');
+      if (!html.includes('Full refund anytime before it ships')) errors.push('built safety-kit page is missing the refund sentence');
+      if (!html.includes('href="/contact/"')) errors.push('built safety-kit page must link the contact URL');
+      if (!html.includes('Charges appear as 9NTH DIMENSION')) errors.push('built safety-kit page is missing the card-statement line');
+      if (!html.includes('applicable sales tax') || !html.includes('US shipping addresses only') || !html.includes('Up to 5 per order')) {
+        errors.push('built safety-kit page is missing tax, US-only, or quantity details');
+      }
+      if (html.includes('The waitlist opens soon') || html.includes('<form')) {
+        errors.push('built safety-kit page still shows the waitlist while pre-orders are open');
+      }
+      if (/not yet for sale/i.test(html)) errors.push('built safety-kit page still says the kit is not yet for sale');
+      const ldMatch = html.match(/<script type="application\/ld\+json">(.*?)<\/script>/);
+      if (!ldMatch) errors.push('built safety-kit page is missing JSON-LD');
+      else {
+        const graph = JSON.parse(ldMatch[1])['@graph'] ?? [];
+        const product = graph.find((node) => node['@type'] === 'Product');
+        const offer = product?.offers;
+        if (!product) errors.push('built safety-kit page is missing Product schema');
+        if (offer?.['@type'] !== 'Offer') errors.push('built safety-kit page is missing an Offer');
+        if (offer?.price !== '39.99' || offer?.priceCurrency !== 'USD') {
+          errors.push('built Offer must be price 39.99 USD');
+        }
+        if (offer?.availability !== 'https://schema.org/PreOrder') {
+          errors.push('built Offer availability must be https://schema.org/PreOrder');
+        }
+        if (offer?.url !== preorderUrl) errors.push('built Offer url must be the Stripe link');
+        const rate = offer?.shippingDetails?.shippingRate;
+        const country = offer?.shippingDetails?.shippingDestination?.addressCountry;
+        if (rate?.value !== '0' || rate?.currency !== 'USD' || country !== 'US') {
+          errors.push('built Offer must include free shipping to the US');
+        }
+        if (product?.brand?.name !== 'Satsplain') errors.push('built Product brand must be Satsplain');
+      }
     } else {
+      if (/"@type"\s*:\s*"Product"/.test(html) || /"@type"\s*:\s*"Offer"/.test(html)) {
+        errors.push('built safety-kit page uses Product or Offer schema before a pre-order or Amazon link is set');
+      }
       if (!/not yet for sale/i.test(html)) errors.push('built safety-kit page is missing the not-yet-for-sale note');
       if (!/coming soon/i.test(html)) errors.push('built safety-kit page is missing the coming-soon note');
-      if (!html.includes('The waitlist opens soon') && !html.includes('<form')) {
-        errors.push('built safety-kit page should show the waitlist message or a form');
+      if (!html.includes('The waitlist opens soon')) {
+        errors.push('built safety-kit page should show the waitlist message');
       }
       if (html.includes('View on Amazon')) errors.push('built safety-kit page shows an Amazon link before amazonUrl is set');
     }
+  }
+  if (preordering) {
+    const refunds = path.join(dist, 'refunds/index.html');
+    if (!fs.existsSync(refunds)) errors.push('dist/refunds/index.html is missing');
   }
 
   const sitemap = walk(dist)
@@ -717,6 +796,7 @@ function checkSafetyKitDist() {
     .map((file) => fs.readFileSync(file, 'utf8'))
     .join('\n');
   if (!sitemap.includes('https://satsplain.com/safety-kit/')) errors.push('sitemap is missing /safety-kit/');
+  if (preordering && !sitemap.includes('https://satsplain.com/refunds/')) errors.push('sitemap is missing /refunds/');
 
   const llmsPath = path.join(dist, 'llms.txt');
   if (!fs.existsSync(llmsPath) || !fs.readFileSync(llmsPath, 'utf8').includes('https://satsplain.com/safety-kit/')) {
@@ -740,6 +820,12 @@ function checkSafetyKitDist() {
     else if (ctaAt === -1 || ctaAt > noteAt) errors.push(`${file} Safety Kit callout renders after the advice note`);
     if (!listed && !html.includes('href="/safety-kit/"')) {
       errors.push(`${file} Safety Kit callout should link to /safety-kit/ while amazonUrl is empty`);
+    }
+    if (preordering && !/pre-order/i.test(html)) {
+      errors.push(`${file} Safety Kit callout should use pre-order wording`);
+    }
+    if (preordering && html.includes('buy.stripe.com')) {
+      errors.push(`${file} Safety Kit callout must not link straight to Stripe`);
     }
     if (listed && !html.includes('View on Amazon')) {
       errors.push(`${file} Safety Kit callout should show View on Amazon once amazonUrl is set`);

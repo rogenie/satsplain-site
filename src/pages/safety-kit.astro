@@ -1,21 +1,31 @@
 ---
 import Base from '../layouts/Base.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import WaitlistForm from '../components/WaitlistForm.astro';
-import { buildGraph } from '../lib/schema';
-import { cardStatementNote, companyLine, safetyKit, safetyKitDisclosure } from '../data/site';
+import { buildGraph, safetyKitProduct } from '../lib/schema';
+import { cardStatementNote, companyLine, safetyKit, safetyKitDisclosure, site } from '../data/site';
 import { formatDate } from '../lib/format';
 
 const crumbs = [
   { label: 'Home', href: '/' },
   { label: 'Safety Kit', href: '/safety-kit/' },
 ];
-const description =
-  'A blank 316L steel plate you stamp with a seed phrase, plus a punch, a pouch, and a setup card. Not for sale yet.';
 const pageName = 'Satsplain Safety Kit';
 const updated = '2026-11-20';
 const amazonUrl = safetyKit.amazonUrl.trim();
+const preorderUrl = safetyKit.preorderUrl.trim();
 const listed = safetyKit.status === 'amazon' && amazonUrl.startsWith('https://');
+const preorder = safetyKit.status === 'preorder' && preorderUrl.startsWith('https://');
+const description = listed
+  ? 'A blank 316L steel plate you stamp with a seed phrase, plus a punch, a pouch, and a setup card.'
+  : preorder
+    ? 'A blank 316L steel plate you stamp with a seed phrase, plus a punch, a pouch, and a setup card. Pre-order with free US shipping.'
+    : 'A blank 316L steel plate you stamp with a seed phrase, plus a punch, a pouch, and a setup card. Not for sale yet.';
+const product = safetyKitProduct();
+const graph = buildGraph({
+  crumbs,
+  page: { name: pageName, description, path: '/safety-kit/' },
+});
+if (product) graph.push(product);
 const secCustody =
   'https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/crypto-asset-custody-basics-retail-investors-investor-bulletin-0';
 const cafc =
@@ -24,14 +34,11 @@ const cafc =
 <Base
   title={`${pageName} · Satsplain`}
   description={description}
-  graph={buildGraph({
-    crumbs,
-    page: { name: pageName, description, path: '/safety-kit/' },
-  })}
+  graph={graph}
 >
   <Breadcrumbs items={crumbs} />
   <header class="page-header">
-    <p class="kicker">{listed ? 'Our product' : 'Coming soon'}</p>
+    <p class="kicker">{listed ? 'Our product' : preorder ? 'Pre-order' : 'Coming soon'}</p>
     <h1>{pageName}</h1>
     <p class="lede">
       A blank plate you stamp yourself, a punch, a tamper-evident pouch, and a setup card. The plate does not hold crypto.
@@ -42,7 +49,6 @@ const cafc =
   <div class="prose">
     <div class="product-disclosure" id="disclosure" role="note">
       <p>{safetyKitDisclosure}</p>
-      <p>{cardStatementNote}</p>
     </div>
     <p>
       How we keep that interest separate from the guides is on the <a href="/about/#funding">about page</a> and the <a href="/affiliate-disclosure/">affiliate disclosure</a>.
@@ -71,7 +77,7 @@ const cafc =
       The same bulletin says not to scan QR codes in unexpected messages. That advice still stands.
     </p>
 
-    <h2 id="availability">{listed ? 'Where the kit is listed' : 'Availability'}</h2>
+    <h2 id="availability">{listed ? 'Where the kit is listed' : preorder ? 'Pre-order' : 'Availability'}</h2>
     {listed ? (
       <>
         <p>The kit is listed on Amazon. This page does not show a price.</p>
@@ -79,15 +85,22 @@ const cafc =
           <a href={amazonUrl} rel="sponsored nofollow noopener noreferrer">View on Amazon</a>
         </p>
       </>
+    ) : preorder ? (
+      <>
+        <div class="preorder-offer">
+          <a class="button button-primary" href={preorderUrl}>Pre-order now: ${safetyKit.price.toFixed(2)}, free US shipping</a>
+          <p>
+            Pre-order: ships within 4-6 weeks. Full refund anytime before it ships; contact us at <a href="/contact/">{site.url}/contact/</a>.
+          </p>
+        </div>
+        <p>{cardStatementNote}</p>
+        <p>Plus applicable sales tax. US shipping addresses only. Up to 5 per order.</p>
+        <p>The <a href="/refunds/">refund policy</a> covers a refund before the order ships and a return after delivery.</p>
+      </>
     ) : (
       <>
         <p>This kit is coming soon, and it is not yet for sale. This page has no price and no buy link.</p>
-        <p>
-          If you want an email when it is available, you can join the waitlist. We use the address only to announce the kit.
-          You can unsubscribe at any time. The <a href="/privacy/#safety-kit-waitlist">privacy policy</a> describes that list.
-          Do not type a seed phrase into a form.
-        </p>
-        <WaitlistForm consent="We will email this address only to announce the Safety Kit. You can unsubscribe at any time." />
+        <p>The waitlist opens soon.</p>
       </>
     )}
 

@@ -69,7 +69,8 @@ Remove any old A or CNAME records that point the apex or `www` somewhere else. D
 
 - Search Console: add the property `https://satsplain.com`, then put the verification token in the GitHub repository variable `PUBLIC_GOOGLE_SITE_VERIFICATION`. The next deploy prints it as a meta tag. The slot is `src/layouts/Base.astro`.
 - Safety Kit waitlist: `PUBLIC_WAITLIST_FORM_ACTION` is the https form endpoint. Set that repository variable the same way, and only after a provider is chosen. The field name is `waitlist.emailField` (`email`) in `src/data/site.ts`. An empty value shows “The waitlist opens soon” and renders no form. Name the provider in the privacy policy in the same change.
-- Safety Kit on Amazon: this is not an environment variable. Set `safetyKit.amazonUrl` in `src/data/site.ts` to the https listing. `safetyKit.status` switches to `amazon`, and the page and article callouts show “View on Amazon.” See [docs/publishing.md](docs/publishing.md).
+- Safety Kit pre-orders: `safetyKit.preorderUrl`, `safetyKit.price`, and `safetyKit.currency` in `src/data/site.ts`. Article callouts link to the Safety Kit page, not to Stripe.
+- Safety Kit on Amazon: this is not an environment variable. Set `safetyKit.amazonUrl` in `src/data/site.ts` to the https listing. That URL wins over the pre-order link, `safetyKit.status` switches to `amazon`, and the page and article callouts show “View on Amazon.” See [docs/publishing.md](docs/publishing.md).
 - Analytics: nothing is installed. When you want a tag, add it in `src/components/AnalyticsSlot.astro` and update the privacy policy in the same change, before the script ships.
 - Email: the site names `hello@satsplain.com`. Create that mailbox, or change the address in `src/data/site.ts` and the pages that use it.
 - About page: Satsplain is published by 9nth Dimension. The company name is `company` in `src/data/site.ts`.

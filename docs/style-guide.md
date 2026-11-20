@@ -29,7 +29,7 @@ These rules outrank the style. If a punchy line needs a banned phrase to land, r
 - Every factual claim still has an inline link. Every `##` section needs one. The sources list repeats those links with the day we opened them.
 - The page includes the sentence "not financial advice."
 - Stories are patterns from a cited source, told in the second person. Do not invent a person, a city, or a loss amount.
-- The newsletter block is a placeholder. It is not a call to action, and it does not collect an address. The Safety Kit waitlist is a separate form, and only on the Safety Kit page.
+- The newsletter block is a placeholder. It is not a call to action, and it does not collect an address. A Safety Kit order is separate and lives on the Safety Kit page.
 
 Home, hub, glossary, and policy pages stay a little quieter than the guides. They can still be warm and direct. They do not use a sales-letter arc.
 

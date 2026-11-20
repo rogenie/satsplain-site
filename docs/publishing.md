@@ -54,15 +54,15 @@ After the fact-check and a green quality gate, the guide is published. The deplo
 
 If a fact was wrong, follow the corrections policy on the site and add a row to the corrections log in the same pull request as the fix. Update `updatedDate`.
 
-## Safety Kit waitlist and the Amazon link
+## Safety Kit pre-order and the Amazon link
 
-`src/data/site.ts` holds the switch.
+`src/data/site.ts` holds the switch. Status is derived, and an https Amazon URL wins.
 
-- `safetyKit.amazonUrl` is the Amazon product URL. Leave it empty (`''`) until the listing exists. `safetyKit.status` is `waitlist` while that string is empty, and `amazon` when it is an https URL.
-- While the URL is empty, `/safety-kit/` says the kit is coming soon and not yet for sale, and article callouts link to `/safety-kit/`.
-- When you set `safetyKit.amazonUrl` to the https listing, the page and every `SafetyKitCTA` switch to a “View on Amazon” link with `rel="sponsored nofollow"`. Keep `safetyKitDisclosure` on the page and in the callout. Do not add a price, a durability rating, or a certification in that change.
-- `waitlist.formAction` reads the environment variable `PUBLIC_WAITLIST_FORM_ACTION`. `waitlist.emailField` is `email`. The honeypot field name is `waitlist.honeypotField`.
-- Leave `PUBLIC_WAITLIST_FORM_ACTION` empty until a form host is chosen. An empty value renders no form. The page shows “The waitlist opens soon.” Set the same name as a GitHub Actions repository variable, the way `PUBLIC_GOOGLE_SITE_VERIFICATION` is set, when an https endpoint exists. In the same change, name that company in the privacy policy. Do not name a provider before one is chosen.
+- `safetyKit.preorderUrl` is the Stripe Payment Link. `safetyKit.price` is `39.99` and `safetyKit.currency` is `USD`. While that URL is https and `safetyKit.amazonUrl` is empty, `safetyKit.status` is `preorder`.
+- In that state, `/safety-kit/` shows “Pre-order now: $39.99, free US shipping,” the ship window, the refund sentence, the card-statement line, and Product / Offer schema with `availability` `https://schema.org/PreOrder`. There is no rating. Article callouts say pre-order and link to `/safety-kit/`, not to Stripe. Keep `safetyKitDisclosure`.
+- `safetyKit.amazonUrl` is the Amazon product URL. Leave it empty until the listing exists. An https value sets `safetyKit.status` to `amazon` even if the Stripe link is still present. The page and every `SafetyKitCTA` then switch to “View on Amazon” with `rel="sponsored nofollow"`.
+- If both URLs are empty, `safetyKit.status` is `waitlist`. The page says the kit is coming soon and not yet for sale, and shows “The waitlist opens soon.” It does not render `WaitlistForm`.
+- `waitlist.formAction` still reads `PUBLIC_WAITLIST_FORM_ACTION`. Leave that variable empty. The component remains in the repo and is not on the page.
 
 ## Suggested branch name
 

@@ -3,16 +3,22 @@ import { safetyKit, safetyKitDisclosure } from '../data/site';
 
 const amazonUrl = safetyKit.amazonUrl.trim();
 const listed = safetyKit.status === 'amazon' && amazonUrl.startsWith('https://');
+const preorder = safetyKit.status === 'preorder';
 ---
 <aside class="safety-kit-cta" aria-label="Satsplain Safety Kit">
   <p>
-    If you hold a seed phrase, a written copy is the backup the guides describe. Satsplain is preparing a steel plate kit for people who want one. It is optional.
+    If you hold a seed phrase, a written copy is the backup the guides describe.
+    {listed
+      ? ' Satsplain offers a steel plate kit for people who want one. It is optional.'
+      : preorder
+        ? ' Satsplain is taking pre-orders for a steel plate kit for people who want one. It is optional.'
+        : ' Satsplain is preparing a steel plate kit for people who want one. It is optional.'}
   </p>
   <p>
     {listed ? (
       <a href={amazonUrl} rel="sponsored nofollow noopener noreferrer">View on Amazon</a>
     ) : (
-      <a href="/safety-kit/">About the Safety Kit</a>
+      <a href="/safety-kit/">{preorder ? 'Safety Kit pre-order' : 'About the Safety Kit'}</a>
     )}
   </p>
   <p class="safety-kit-disclosure">{safetyKitDisclosure}</p>

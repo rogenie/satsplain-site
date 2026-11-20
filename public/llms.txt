@@ -19,7 +19,7 @@ Satsplain is an independent research desk. Articles are researched and drafted w
 - [Sourcing](https://satsplain.com/sourcing/): Which documents we trust first.
 - [Corrections](https://satsplain.com/corrections/): How to challenge a sentence, and the public log.
 - [Disclaimer](https://satsplain.com/disclaimer/): Education, not financial advice.
-- [Safety Kit](https://satsplain.com/safety-kit/): A blank steel seed-phrase plate, a punch, a pouch, and a setup card. Not for sale yet. Satsplain will sell it and says so on the page. A paper backup is enough.
+- [Safety Kit](https://satsplain.com/safety-kit/): A blank steel seed-phrase plate, a punch, a pouch, and a setup card. Pre-orders are open on the page, which states the price, the ship window, and the refund. A paper backup is enough.
 
 ## Optional
 

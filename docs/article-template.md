@@ -113,7 +113,7 @@ import SafetyKitCTA from '../../components/SafetyKitCTA.astro';
 ## A note on advice
 ```
 
-The callout is one short paragraph, one link, and the product disclosure. It does not replace the path button. While `safetyKit.amazonUrl` in `src/data/site.ts` is empty, `safetyKit.status` is `waitlist` and the link goes to `/safety-kit/`. Set `safetyKit.amazonUrl` to the https Amazon product URL when the listing exists. `status` becomes `amazon`, and the page and the callout switch to “View on Amazon” with `rel="sponsored nofollow"`. The disclosure stays. Do not add a price, a rating, a fire or flood claim, or a comparison in that swap.
+The callout is one short paragraph, one link, and the product disclosure. It does not replace the path button. It links to `/safety-kit/`, not to Stripe. While pre-orders are open, the wording says so and still says a paper backup is fine. Set `safetyKit.amazonUrl` to the https Amazon product URL when that listing exists. `status` becomes `amazon` (Amazon wins over the pre-order link), and the page and the callout switch to “View on Amazon” with `rel="sponsored nofollow"`. The disclosure stays. Do not add a rating, a fire or flood claim, or a comparison in that swap.
 
 There are no affiliate links today. If a guide ever has one, place `<AffiliateDisclosure />` (optional `subject` for the company named in the link) beside that link. Our own Safety Kit uses `safetyKitDisclosure`, not the affiliate notice.
 

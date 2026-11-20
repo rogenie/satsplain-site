@@ -1,5 +1,5 @@
 import { absoluteUrl, isoDate } from './format';
-import { site } from '../data/site';
+import { safetyKit, site } from '../data/site';
 
 export type Crumb = { label: string; href: string };
 
@@ -21,6 +21,39 @@ export function organization() {
     parentOrganization: {
       '@type': 'Organization',
       name: site.company,
+    },
+  };
+}
+
+export function safetyKitProduct() {
+  if (safetyKit.status !== 'preorder') return null;
+  return {
+    '@type': 'Product',
+    name: 'Satsplain Safety Kit',
+    description:
+      'A blank 316L stainless steel plate you stamp with a seed phrase, a punch, a tamper-evident pouch, and a setup card.',
+    brand: {
+      '@type': 'Brand',
+      name: site.name,
+    },
+    offers: {
+      '@type': 'Offer',
+      price: safetyKit.price.toFixed(2),
+      priceCurrency: safetyKit.currency,
+      availability: 'https://schema.org/PreOrder',
+      url: safetyKit.preorderUrl,
+      shippingDetails: {
+        '@type': 'OfferShippingDetails',
+        shippingRate: {
+          '@type': 'MonetaryAmount',
+          value: '0',
+          currency: safetyKit.currency,
+        },
+        shippingDestination: {
+          '@type': 'DefinedRegion',
+          addressCountry: 'US',
+        },
+      },
     },
   };
 }
