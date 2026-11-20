@@ -33,6 +33,19 @@ export function website() {
   };
 }
 
+export function webPage(page: { name: string; description: string; path: string }) {
+  return {
+    '@type': 'WebPage',
+    '@id': `${absoluteUrl(page.path)}#webpage`,
+    url: absoluteUrl(page.path),
+    name: page.name,
+    description: page.description,
+    isPartOf: { '@id': siteId },
+    publisher: { '@id': orgId },
+    inLanguage: site.locale,
+  };
+}
+
 export function breadcrumbList(crumbs: Crumb[]) {
   return {
     '@type': 'BreadcrumbList',
@@ -130,6 +143,7 @@ export function faqNode(faq: { question: string; answer: string }[]) {
 
 export function buildGraph(options: {
   crumbs?: Crumb[];
+  page?: { name: string; description: string; path: string };
   article?: Parameters<typeof articleNode>[0];
   faq?: { question: string; answer: string }[];
   howTo?: Parameters<typeof howToNode>[0];
@@ -137,6 +151,7 @@ export function buildGraph(options: {
 }) {
   const graph: Record<string, unknown>[] = [organization(), website()];
   if (options.crumbs?.length) graph.push(breadcrumbList(options.crumbs));
+  if (options.page) graph.push(webPage(options.page));
   if (options.article) graph.push(articleNode(options.article));
   if (options.faq?.length) graph.push(faqNode(options.faq));
   if (options.howTo) graph.push(howToNode(options.howTo));

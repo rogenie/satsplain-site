@@ -18,7 +18,7 @@ Other commands:
 - `npm run check:articles` runs the quality gate
 - `npm run og` regenerates the flat PNG social images (needs Pillow locally; the PNGs are already committed)
 
-Optional: copy `.env.example` to `.env` and set `PUBLIC_GOOGLE_SITE_VERIFICATION` when you are ready for Search Console. No analytics script is loaded.
+Optional: copy `.env.example` to `.env` and set `PUBLIC_GOOGLE_SITE_VERIFICATION` when you are ready for Search Console. No analytics script is loaded. Leave `PUBLIC_WAITLIST_FORM_ACTION` empty until a Safety Kit waitlist host is chosen.
 
 ## Repository map
 
@@ -68,6 +68,8 @@ Remove any old A or CNAME records that point the apex or `www` somewhere else. D
 ## Search Console, analytics, and email
 
 - Search Console: add the property `https://satsplain.com`, then put the verification token in the GitHub repository variable `PUBLIC_GOOGLE_SITE_VERIFICATION`. The next deploy prints it as a meta tag. The slot is `src/layouts/Base.astro`.
+- Safety Kit waitlist: `PUBLIC_WAITLIST_FORM_ACTION` is the https form endpoint. Set that repository variable the same way, and only after a provider is chosen. The field name is `waitlist.emailField` (`email`) in `src/data/site.ts`. An empty value shows “The waitlist opens soon” and renders no form. Name the provider in the privacy policy in the same change.
+- Safety Kit on Amazon: this is not an environment variable. Set `safetyKit.amazonUrl` in `src/data/site.ts` to the https listing. `safetyKit.status` switches to `amazon`, and the page and article callouts show “View on Amazon.” See [docs/publishing.md](docs/publishing.md).
 - Analytics: nothing is installed. When you want a tag, add it in `src/components/AnalyticsSlot.astro` and update the privacy policy in the same change, before the script ships.
 - Email: the site names `hello@satsplain.com`. Create that mailbox, or change the address in `src/data/site.ts` and the pages that use it.
 - About page: add a legal publisher name if you want one stated. The page does not invent one.

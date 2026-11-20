@@ -525,6 +525,48 @@ h1 {
 .newsletter h2 { margin: 0; font-size: 1.35rem; color: var(--heading); }
 .newsletter p { margin: 0; color: var(--muted); }
 
+.product-disclosure,
+.affiliate-notice {
+  background: var(--amber-bg);
+  border-left: 4px solid var(--amber);
+  border-radius: 0 16px 16px 0;
+  padding: 0.95rem 1rem;
+  margin: 0 0 1.2rem;
+}
+.product-disclosure p,
+.affiliate-notice p { margin: 0; }
+
+.safety-kit-cta {
+  margin: 1.6rem 0;
+  padding: 1rem 1.05rem;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+}
+.safety-kit-cta p { margin: 0.45rem 0; }
+.safety-kit-cta p:first-child { margin-top: 0; }
+.safety-kit-disclosure { color: var(--muted); font-size: 0.98rem; }
+
+.waitlist-form {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0.9rem 0 0.2rem;
+  max-width: 26rem;
+}
+.waitlist-form label { font-weight: 750; }
+.waitlist-form input[type="email"] {
+  min-height: 48px;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+}
+.waitlist-form button { font: inherit; cursor: pointer; justify-self: start; }
+.waitlist-consent,
+.waitlist-soon { color: var(--muted); margin: 0.35rem 0; }
+
 .site-footer {
   background: var(--navy);
   color: var(--on-navy-muted);

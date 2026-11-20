@@ -10,7 +10,7 @@ const crumbs = [
   { label: 'Disclaimer', href: '/disclaimer/' },
 ];
 const updated = new Date(`${site.policiesUpdated}T00:00:00.000Z`);
-const description = 'Satsplain is general education. It is not financial, investment, tax, or legal advice, and it is not an offer to buy or sell.';
+const description = 'Satsplain is general education. It is not financial, investment, tax, or legal advice, and it is not an offer to buy or sell crypto.';
 ---
 <Base title="Disclaimer · Satsplain" description={description} graph={buildGraph({ crumbs })}>
   <Breadcrumbs items={crumbs} />
@@ -21,7 +21,8 @@ const description = 'Satsplain is general education. It is not financial, invest
     <p class="meta">Updated <time datetime={site.policiesUpdated}>{formatDate(updated)}</time></p>
   </header>
   <div class="prose">
-    <p>Nothing on Satsplain is an offer to sell or a solicitation to buy any asset. Nothing here is investment, financial, tax, accounting, or legal advice. Nothing here creates an adviser, broker, attorney, or tax-preparer relationship.</p>
+    <p>Nothing on Satsplain is an offer to sell or a solicitation to buy a crypto asset. Nothing here is investment, financial, tax, accounting, or legal advice. Nothing here creates an adviser, broker, attorney, or tax-preparer relationship.</p>
+    <p>The <a href="/safety-kit/">Safety Kit</a> page describes a physical plate for writing down a seed phrase. Satsplain plans to sell that kit. It is not for sale on this site today. That page is not an offer to buy crypto, and a paper backup is a complete alternative.</p>
     <p>Crypto assets can lose some or all of their value. Transfers can be irreversible. Platforms can fail. Laws differ by country, and the sources we cite are often US sources. If you live somewhere else, your rules can differ. Consider a licensed professional for decisions about your own money or taxes.</p>
     <p>We try to quote and paraphrase sources fairly, and we date the pages we read. Those pages can change after we link them. A past description of a market is not a forecast. We do not promise any outcome from reading this site or from buying, holding, or avoiding any asset.</p>
     <p>Links to other sites are not endorsements of those sites, their products, or their safety. The <a href="https://www.fdic.gov/resources/deposit-insurance/financial-products-not-insured">FDIC</a> lists crypto assets among products that deposit insurance does not cover. Satsplain is not a bank, an exchange, or a custodian.</p>

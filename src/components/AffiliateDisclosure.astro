@@ -1,0 +1,20 @@
+---
+/**
+ * Notice for a future affiliate link. Place it beside the link it covers.
+ * Satsplain has no affiliate links today. Our own Safety Kit uses safetyKitDisclosure instead.
+ */
+interface Props {
+  subject?: string;
+}
+
+const { subject } = Astro.props;
+---
+<aside class="affiliate-notice" role="note">
+  <p>
+    <strong>Affiliate link.</strong>
+    {subject
+      ? ` If you use the link to ${subject}, Satsplain may earn a commission.`
+      : ' If you use an affiliate link on this page, Satsplain may earn a commission.'}
+    {' '}The guide does not require a purchase. Read the <a href="/affiliate-disclosure/">affiliate disclosure</a>.
+  </p>
+</aside>

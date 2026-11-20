@@ -10,28 +10,36 @@ const crumbs = [
   { label: 'Affiliate disclosure', href: '/affiliate-disclosure/' },
 ];
 const updated = new Date(`${site.policiesUpdated}T00:00:00.000Z`);
-const description = 'Satsplain has no affiliate links or paid placements today. If that changes, the relationship will be disclosed before you click.';
+const description = 'Satsplain plans to sell its own Safety Kit. No affiliate links today. If one is added, the page where it appears will say so.';
 ---
 <Base title="Affiliate disclosure · Satsplain" description={description} graph={buildGraph({ crumbs })}>
   <Breadcrumbs items={crumbs} />
   <header class="page-header">
     <p class="kicker">Money</p>
     <h1>Affiliate disclosure</h1>
-    <p class="lede">There are no affiliate links on this site today. This page exists so that fact is easy to check.</p>
+    <p class="lede">Satsplain plans to sell its own Safety Kit. Affiliate links, if we add them, will be labeled where they appear.</p>
     <p class="meta">Updated <time datetime={site.policiesUpdated}>{formatDate(updated)}</time></p>
   </header>
   <div class="prose">
     <p>
       The Federal Trade Commission's Endorsement Guides, at <a href="https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-255">16 CFR Part 255</a>, say a material connection between a marketer and someone who endorses a product should be disclosed clearly when the audience would not expect it. <a href="https://www.ecfr.gov/current/title-16/chapter-I/subchapter-B/part-255/section-255.5">Section 255.5</a> is the disclosure section. The connection has to be hard to miss, not buried.
     </p>
+    <p>
+      Satsplain plans to sell the <a href="/safety-kit/">Safety Kit</a>, a blank plate the buyer stamps with a seed phrase, together with a punch, a tamper-evident pouch, and a setup card. We have a financial interest in that kit. The product page says so at the top. A guide that mentions the kit says so in the same view. The kit is not for sale yet, and these pages do not name a price.
+    </p>
+    <p>
+      That interest stays separate from the guides. Topics are chosen because a reader needs them. Sources are cited. No article requires a purchase. A paper backup of a seed phrase is a complete alternative.
+    </p>
     <p>As of the date on this page, Satsplain has:</p>
     <ul>
-      <li>No affiliate relationships.</li>
-      <li>No paid product placements.</li>
+      <li>No affiliate links.</li>
+      <li>No paid placements of another company's product.</li>
       <li>No sponsored posts.</li>
-      <li>No commissions when a reader opens an exchange, a wallet, or any other company.</li>
+      <li>No commission when a reader opens an exchange, a wallet maker, or any other company.</li>
     </ul>
-    <p>Assume a link is not an affiliate link unless the page says, next to the link, that it is. If we add one, we will update this page first, name the relationship, and place a plain-language disclosure where the link appears, before a reader clicks. A fee would not change the rule that factual claims still need sources.</p>
+    <p>
+      Assume a link is not an affiliate link unless the page says, next to the link, that it is. If we add one, for example a link to a hardware-wallet maker, we will update this page first, name the relationship, and place a plain-language notice where the link appears, before a reader clicks. A fee would not change the rule that factual claims still need sources.
+    </p>
     <p>We do not sell personal information. See the <a href="/privacy/">privacy policy</a>.</p>
   </div>
 </Base>

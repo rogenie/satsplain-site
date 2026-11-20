@@ -32,6 +32,7 @@ const articles = defineCollection({
       )
       .min(3),
     draft: z.boolean().default(false),
+    safetyKitCta: z.boolean().default(false),
     faq: z
       .array(
         z.object({
