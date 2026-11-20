@@ -22,7 +22,7 @@ const pages = [
   [
     'Safety Kit',
     '/safety-kit/',
-    'A blank steel seed-phrase plate, a punch, a pouch, and a setup card. Not for sale yet. Satsplain will sell it and says so on the page. A paper backup is enough.',
+    'A blank steel seed-phrase plate, a punch, a pouch, and a setup card. Pre-orders are open on the page, which states the price, the ship window, and the refund. A paper backup is enough.',
   ],
 ];
 

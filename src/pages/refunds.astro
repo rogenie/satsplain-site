@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { buildGraph } from '../lib/schema';
+import { site } from '../data/site';
+import { formatDate } from '../lib/format';
+
+const crumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Refunds', href: '/refunds/' },
+];
+const updated = new Date(`${site.policiesUpdated}T00:00:00.000Z`);
+const description = 'A Safety Kit pre-order can be refunded in full before it ships. After delivery, returns are accepted for 30 days.';
+---
+<Base title="Refunds · Satsplain" description={description} graph={buildGraph({ crumbs })}>
+  <Breadcrumbs items={crumbs} />
+  <header class="page-header">
+    <p class="kicker">Orders</p>
+    <h1>Refunds</h1>
+    <p class="lede">A Safety Kit pre-order can be refunded in full before it ships. After it arrives, you have 30 days to send it back.</p>
+    <p class="meta">Updated <time datetime={site.policiesUpdated}>{formatDate(updated)}</time></p>
+  </header>
+  <div class="prose">
+    <h2>Before it ships</h2>
+    <p>You can have a full refund anytime before the order ships. The <a href="/safety-kit/">Safety Kit</a> page says pre-orders ship within 4-6 weeks.</p>
+    <h2>After delivery</h2>
+    <p>Returns are accepted within 30 days of delivery.</p>
+    <h2>How to ask</h2>
+    <p>
+      Email <a href={`mailto:${site.email}`}>{site.email}</a> from the <a href="/contact/">contact page</a>. Include the name and email used at checkout.
+      Do not send a seed phrase, a password, or a photo of an ID.
+    </p>
+    <p>This page is about the physical kit. It is not financial advice, and it is not a promise about any crypto asset.</p>
+  </div>
+</Base>

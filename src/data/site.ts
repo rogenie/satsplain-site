@@ -18,21 +18,38 @@ export const defaultAuthor = 'Satsplain Research Desk';
 
 export const companyLine = `${site.name}, a ${site.company} company`;
 export const publisherLine = `${site.name} is published by ${site.company}`;
-export const cardStatementNote = `When the kit goes on sale, charges will appear on your card statement as ${site.cardStatement}.`;
+export const cardStatementNote = `Charges appear as ${site.cardStatement} (${site.name} is a ${site.company} company).`;
 
 /**
  * Amazon product URL for the Safety Kit.
  * Leave this empty until the listing exists. An https URL sets status to
- * "amazon" and switches the page and the article callout to "View on Amazon".
+ * "amazon" and wins over the pre-order link.
  */
 const safetyKitAmazonUrl: string = '';
 
+/** Stripe Payment Link for Safety Kit pre-orders. An https Amazon URL wins over this. */
+const safetyKitPreorderUrl = 'https://buy.stripe.com/4gM3cvdAT5wheRIa589R600';
+
+const safetyKitPrice = 39.99;
+
+function safetyKitStatus(amazonUrl: string, preorderUrl: string): 'amazon' | 'preorder' | 'waitlist' {
+  if (amazonUrl.startsWith('https://')) return 'amazon';
+  if (preorderUrl.startsWith('https://')) return 'preorder';
+  return 'waitlist';
+}
+
 export const safetyKit: {
   amazonUrl: string;
-  status: 'waitlist' | 'amazon';
+  preorderUrl: string;
+  price: number;
+  currency: 'USD';
+  status: 'amazon' | 'preorder' | 'waitlist';
 } = {
   amazonUrl: safetyKitAmazonUrl,
-  status: safetyKitAmazonUrl.startsWith('https://') ? 'amazon' : 'waitlist',
+  preorderUrl: safetyKitPreorderUrl,
+  price: safetyKitPrice,
+  currency: 'USD',
+  status: safetyKitStatus(safetyKitAmazonUrl, safetyKitPreorderUrl),
 };
 
 export const safetyKitDisclosure =
