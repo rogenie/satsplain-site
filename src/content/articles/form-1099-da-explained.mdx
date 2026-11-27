@@ -1,0 +1,230 @@
+---
+title: "Form 1099-DA explained: the IRS crypto form, in plain English"
+description: "Form 1099-DA is the form a crypto broker sends you and the IRS after a sale. What the boxes mean, and why a blank cost basis box is not zero."
+slug: form-1099-da-explained
+pillar: taxes-and-rules
+tags:
+  - taxes
+  - irs
+  - beginners
+publishDate: 2026-11-27
+updatedDate: 2026-11-27
+author: Satsplain Research Desk
+readingLevel: beginner
+featuredImage: "/images/articles/form-1099-da-explained.svg"
+featuredImageAlt: "A simplified Form 1099-DA with boxes for the asset name, date sold, and proceeds. The cost basis box is empty and highlighted, with a note that says blank is not zero."
+featuredImageWidth: 800
+featuredImageHeight: 450
+keyTakeaways:
+  - "Form 1099-DA is the form a crypto broker uses to report your digital asset sales to you and to the IRS."
+  - "Brokers report proceeds for sales from January 1, 2025. For sales from January 1, 2026, they must also report cost basis on certain assets."
+  - "Basis is only required for covered assets: bought after 2025 in that broker's custodial account and held there until the sale."
+  - "If the cost basis box is blank, the IRS says to work out your basis from your own records. Blank does not mean zero."
+  - "The IRS does not run a Digital Asset Compliance Portal. A letter telling you to register your crypto there is a scam."
+faq:
+  - question: "What is Form 1099-DA?"
+    answer: "It is the IRS form titled Digital Asset Proceeds From Broker Transactions. Brokers use it to report proceeds from, and in some cases basis for, your digital asset sales to you and the IRS."
+  - question: "When will I get a Form 1099-DA?"
+    answer: "The IRS's 2026 Publication 1099 lists February 15 as the due date for furnishing Form 1099-DA to recipients, covering sales from the year before. A broker may send it earlier."
+  - question: "Why is the cost basis box blank on my 1099-DA?"
+    answer: "Brokers do not have to report basis for noncovered assets, such as crypto bought before 2026 or transferred in from somewhere else. The IRS form says that if box 1g is blank, you need to work out your basis from your own books and records."
+  - question: "Is there a minimum amount before a broker sends a 1099-DA?"
+    answer: "Not for ordinary crypto sales. The IRS instructions say brokers generally report all amounts, with small-amount exceptions for certain stablecoin sales up to $10,000 a year, certain NFT sales up to $600, and certain payment processor sales up to $600."
+  - question: "Do I have to report crypto sales if I did not get a 1099-DA?"
+    answer: "Yes, if you had digital asset transactions. The IRS says you must report them whether or not they result in a taxable gain or loss."
+  - question: "Is trading one crypto for another reported?"
+    answer: "It can be taxable. The IRS FAQ says exchanging virtual currency held as a capital asset for another virtual currency means you recognize a capital gain or loss."
+  - question: "Is moving crypto between my own wallets taxable?"
+    answer: "The IRS FAQ says a transfer between wallets or accounts that both belong to you is not a taxable event, even if an exchange sends you an information return about it."
+sources:
+  - title: "About Form 1099-DA, Digital Asset Proceeds From Broker Transactions"
+    url: "https://www.irs.gov/forms-pubs/about-form-1099-da"
+    publisher: "Internal Revenue Service"
+    accessed: "2026-11-27"
+  - title: "Instructions for Form 1099-DA (2026)"
+    url: "https://www.irs.gov/instructions/i1099da"
+    publisher: "Internal Revenue Service"
+    accessed: "2026-11-27"
+  - title: "2026 Form 1099-DA (includes Instructions for Recipient)"
+    url: "https://www.irs.gov/pub/irs-pdf/f1099da.pdf"
+    publisher: "Internal Revenue Service"
+    accessed: "2026-11-27"
+  - title: "Digital assets"
+    url: "https://www.irs.gov/filing/digital-assets"
+    publisher: "Internal Revenue Service"
+    accessed: "2026-11-27"
+  - title: "Frequently asked questions on virtual currency transactions"
+    url: "https://www.irs.gov/individuals/international-taxpayers/frequently-asked-questions-on-virtual-currency-transactions"
+    publisher: "Internal Revenue Service"
+    accessed: "2026-11-27"
+  - title: "Instructions for Form 8949 (2025)"
+    url: "https://www.irs.gov/instructions/i8949"
+    publisher: "Internal Revenue Service"
+    accessed: "2026-11-27"
+  - title: "Publication 1099 (2026), General Instructions for Certain Information Returns"
+    url: "https://www.irs.gov/pub/irs-pdf/p1099.pdf"
+    publisher: "Internal Revenue Service"
+    accessed: "2026-11-27"
+  - title: "Fraud alert: Fake IRS letters target cryptocurrency holders"
+    url: "https://www.irs.gov/compliance/criminal-investigation/fraud-alert-fake-irs-letters-target-cryptocurrency-holders"
+    publisher: "IRS Criminal Investigation"
+    accessed: "2026-11-27"
+draft: false
+---
+
+import Figure from '../../components/Figure.astro';
+
+You sold some crypto this year. Maybe a little. Maybe you swapped one coin for another.
+
+Then, early next year, a tax form shows up from the app. It has your name, a coin, a dollar amount, and a box that is empty.
+
+That empty box is the part people misread. This page explains the form, box by box, using the [IRS instructions for Form 1099-DA](https://www.irs.gov/instructions/i1099da). It is not tax advice, and it does not tell you what you owe.
+
+## What is Form 1099-DA?
+
+Form 1099-DA is the form a crypto broker uses to report your digital asset sales to you and to the IRS. Its full IRS name is [Digital Asset Proceeds From Broker Transactions](https://www.irs.gov/forms-pubs/about-form-1099-da).
+
+The recipient instructions on the [2026 form](https://www.irs.gov/pub/irs-pdf/f1099da.pdf) say brokers must report proceeds from, and in some cases basis for, digital asset dispositions to you and the IRS.
+
+So the IRS gets a copy too.
+
+"Digital asset" covers more than bitcoin. The [IRS digital assets page](https://www.irs.gov/filing/digital-assets) lists cryptocurrencies, stablecoins, and NFTs as examples, and says digital assets are treated as property for US tax purposes, not currency.
+
+## Who sends a 1099-DA, and who does not?
+
+A broker that holds your crypto for you sends it. The [IRS digital assets page](https://www.irs.gov/filing/digital-assets) says the rules apply to brokers that take possession of the digital assets their customers sell. That includes custodial trading platforms, certain hosted wallet providers, digital asset kiosks, and certain payment processors.
+
+The same page says the final rules do not include reporting requirements for decentralized or non-custodial brokers that never take possession of the assets.
+
+If you are not sure whether your app holds your keys, the [first-purchase guide](/articles/how-to-buy-crypto-safely/) explains custody, and [What is a seed phrase?](/articles/what-is-a-seed-phrase/) explains what holding your own keys means.
+
+## Why is this form new for so many people?
+
+Because it only started recently, and it is being phased in. The [IRS](https://www.irs.gov/filing/digital-assets) says brokers must report gross proceeds for transactions on or after January 1, 2025, and basis on certain transactions on or after January 1, 2026.
+
+In plain terms:
+
+- **Sales in 2025** were the first year of forms. The broker had to report what the sale brought in.
+- **Sales in 2026** are the first year a broker must also report what you paid, but only for some assets.
+
+For the 2025 forms, the IRS also said it would not impose penalties on brokers that made a good-faith effort to file and furnish them correctly and on time. That relief was for the brokers, not a change to what you report.
+
+## When does the form arrive?
+
+Usually by mid-February. The IRS's [2026 Publication 1099](https://www.irs.gov/pub/irs-pdf/p1099.pdf) lists February 15 as the due date for furnishing Form 1099-DA to the recipient. It also says a broker may send it any time before that date.
+
+If the due date falls on a weekend or legal holiday, the same publication moves it to the next business day.
+
+A broker may post the form in your account instead of mailing paper. Publication 1099 allows electronic statements when certain requirements are met.
+
+## What do the main boxes mean?
+
+Each box answers one question about one sale. The recipient instructions on the [2026 Form 1099-DA](https://www.irs.gov/pub/irs-pdf/f1099da.pdf) describe them:
+
+- **Box 1b:** the name of the digital asset.
+- **Box 1c:** how many units were sold or exchanged.
+- **Box 1d:** the date you acquired it. It may be blank.
+- **Box 1e:** the date it was sold or disposed of.
+- **Box 1f:** the total proceeds. This can include cash, the value of services, other digital assets, or other property you received.
+- **Box 1g:** the cost or other basis. In everyday words, what you paid.
+- **Box 2:** if checked, the basis in box 1g was reported to the IRS.
+- **Box 9:** if checked, the asset was a noncovered security, and several boxes, including 1d, 1g, and 2, may be blank.
+
+The [IRS instructions](https://www.irs.gov/instructions/i1099da) tell brokers to reduce proceeds by transaction costs such as fees and commissions.
+
+Box 1f is the sale. Box 1g is the cost. The tax question lives in the gap between them.
+
+## Why might the cost basis box be blank?
+
+Because brokers only have to report basis for "covered" assets. The [IRS instructions](https://www.irs.gov/instructions/i1099da) say a digital asset is covered only if it was acquired after 2025 in an account where the broker provided custodial services, and stayed in that account until the broker sold it.
+
+Everything else is noncovered. The instructions list examples:
+
+- Crypto acquired before 2026.
+- Crypto transferred in to the broker from somewhere else.
+- Crypto the broker was not holding for you when you acquired it.
+
+For noncovered assets, the broker does not have to report basis. It may do so voluntarily.
+
+<Figure
+  src="/diagrams/form-1099-da-covered-noncovered.svg"
+  width={440}
+  height={860}
+  alt="A decision path. Crypto bought after 2025 in the broker's custodial account and held there until the sale is covered, so the broker reports basis in box 1g and checks box 2. Crypto bought before 2026, transferred in, or not held there is noncovered, so box 9 may be checked and box 1g may be blank. Either way, proceeds are reported."
+  caption="Covered means the broker knows what you paid. Noncovered means it might not."
+/>
+
+So if you bought coins years ago, or moved them in from another wallet, a blank basis box is expected. It is not an error by itself.
+
+## What should you do if the basis box is blank?
+
+Work out your basis from your own records. The recipient instructions on the [2026 form](https://www.irs.gov/pub/irs-pdf/f1099da.pdf) say that if box 1g is blank, you will need to determine your basis based on your own books and records.
+
+The [Form 8949 instructions](https://www.irs.gov/instructions/i8949) say the same thing in tax-form language. For noncovered assets, you enter the correct basis in column (e) if no basis is shown on the Form 1099-DA, or if the basis shown was not reported to the IRS.
+
+Here is why it matters. The [IRS FAQ](https://www.irs.gov/individuals/international-taxpayers/frequently-asked-questions-on-virtual-currency-transactions) says your gain or loss is the difference between what you received and your adjusted basis.
+
+Leave the basis at zero, and the whole sale looks like gain.
+
+<Figure
+  src="/diagrams/form-1099-da-gain-math.svg"
+  width={440}
+  height={760}
+  alt="Two stacked equations. With your real basis, proceeds minus what you paid gives your actual gain or loss. With basis left at zero, proceeds minus zero makes the whole sale look like gain."
+  caption="The form supplies one side of the subtraction. Your records supply the other."
+/>
+
+The [IRS digital assets page](https://www.irs.gov/filing/digital-assets) says basis is generally your cost in US dollars. To work it out, it lists what you need: the type of asset, the date and time you got it, the number of units, and its fair market value in dollars when you got it.
+
+That is the list to start collecting now:
+
+1. Download the full transaction history from every app or exchange you have used, including old accounts.
+2. Keep the date, asset, amount, dollar value, and fees for each purchase.
+3. Note any transfers between your own wallets, so a later sale can be matched to its purchase.
+4. Compare each Form 1099-DA with your own records before you file.
+
+If anything does not match, or your history is long, a tax professional can help. This page cannot.
+
+## Does every crypto move show up as a sale?
+
+No. Some do, and some do not. The [IRS FAQ](https://www.irs.gov/individuals/international-taxpayers/frequently-asked-questions-on-virtual-currency-transactions) says exchanging virtual currency for other property, including another virtual currency, means you recognize a capital gain or loss.
+
+So a coin-for-coin swap can count, even if no dollars reached your bank.
+
+Moving crypto between your own wallets is different. The same FAQ says a transfer between wallets or accounts that both belong to you is not a taxable event, even if an exchange sends you an information return about it.
+
+One catch: the [IRS digital assets page](https://www.irs.gov/filing/digital-assets) says that paying the transfer fee with digital assets is itself a digital asset transaction.
+
+Buying alone is not a sale either. The [IRS digital assets page](https://www.irs.gov/filing/digital-assets) says that if your only activity was buying digital assets with dollars, you answer "No" to the digital assets question on your return.
+
+## Do you still report a sale with no form?
+
+Yes. The [IRS digital assets page](https://www.irs.gov/filing/digital-assets) says that if you had digital asset transactions, you must report them whether or not they result in a taxable gain or loss.
+
+The form is the broker's report. It is not a list of everything you did.
+
+If you sold through a non-custodial service, the IRS says these broker rules do not require it to send a form. The sale still counts.
+
+The same page says sales of digital assets held as capital assets go on Form 8949. The recipient instructions on the [2026 form](https://www.irs.gov/pub/irs-pdf/f1099da.pdf) add that if you received a Form 1099-DA, you should generally check "Yes" to the digital assets question on page 1 of Form 1040.
+
+## Is the IRS asking you to register your crypto?
+
+No. The [IRS digital assets page](https://www.irs.gov/filing/digital-assets) says it does not require registration of digital assets.
+
+[IRS Criminal Investigation](https://www.irs.gov/compliance/criminal-investigation/fraud-alert-fake-irs-letters-target-cryptocurrency-holders) warned in July 2026 that fraudsters are mailing fake IRS letters to crypto holders. The letters say you must enroll in a "Digital Asset Compliance Portal" before a deadline and tell you to scan a QR code. The IRS says it does not operate any such portal.
+
+The fake site can ask for personal details, wallet information, and exchange logins. IRS-CI says never to share wallet recovery phrases or private keys, not to scan QR codes from unsolicited letters, and to contact an agency using information from its official website.
+
+A real Form 1099-DA comes from your broker. It reports a sale. It does not ask for your seed phrase or your password.
+
+More patterns like this are in [Crypto scams to avoid](/articles/crypto-scams-to-avoid/).
+
+## What should you read next?
+
+Go back to the start-here path. Taxes and rules is its last stop, and the [Taxes and rules hub](/pillars/taxes-and-rules/) collects what the IRS says about digital assets in one place.
+
+<p class="next-step"><a href="/start-here/">Next: the start-here path</a></p>
+
+## A note on advice
+
+This page is general education, not financial advice, and not tax or legal advice. Rules depend on your facts and change over time. It is not a recommendation to buy, sell, or hold any asset, or to use any company. Read the [full disclaimer](/disclaimer/).
