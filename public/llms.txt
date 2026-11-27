@@ -7,6 +7,7 @@ Satsplain is an independent research desk. Articles are researched and drafted w
 ## Guides
 
 - [What is a seed phrase? The words that control your crypto](https://satsplain.com/articles/what-is-a-seed-phrase/): A seed phrase is the list of words that can rebuild a crypto wallet. What it does, why losing it is permanent, and why nobody legitimate will ask for it.
+- [Bitcoin ETF vs buying Bitcoin: who holds the keys?](https://satsplain.com/articles/bitcoin-etf-vs-buying-bitcoin/): A Bitcoin ETF gives you shares, not coins. Who holds the keys, what the SEC says these funds actually are, and what you give up for the convenience.
 - [Form 1099-DA explained: the IRS crypto form, in plain English](https://satsplain.com/articles/form-1099-da-explained/): Form 1099-DA is the form a crypto broker sends you and the IRS after a sale. What the boxes mean, and why a blank cost basis box is not zero.
 - [How to back up a seed phrase (and why paper still works)](https://satsplain.com/articles/how-to-back-up-a-seed-phrase/): Write the words down offline, check the copy, and store it privately. Why a photo or a cloud note is a risk, and why paper is still a complete option.
 - [Crypto scams to avoid (and how to spot them)](https://satsplain.com/articles/crypto-scams-to-avoid/): It starts as a friendly message. How crypto scams work, the flags in FBI and CFTC alerts, and where to report.

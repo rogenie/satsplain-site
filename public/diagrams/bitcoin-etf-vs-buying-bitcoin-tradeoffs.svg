@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="900" viewBox="0 0 440 900" role="img">
+  <title>What fund shares can and cannot do compared with holding coins</title>
+  <desc>Fund shares trade in a brokerage account and skip a seed phrase, but cannot be sent like bitcoin and pay a sponsor fee that slowly reduces bitcoin per share. Coins can be sent from a wallet, with no sponsor fee, but you are responsible for the keys.</desc>
+  <rect width="440" height="900" rx="28" fill="#FAF8F3"/>
+  <rect width="440" height="8" fill="#2A9D8F"/>
+  <text x="28" y="50" fill="#14213D" font-family="Georgia, serif" font-size="24">What each side can do</text>
+  <text x="28" y="78" fill="#475569" font-family="Georgia, serif" font-size="15">The sponsor fee is the cost the SEC flags.</text>
+  <g>
+    <rect x="24" y="104" width="392" height="360" rx="16" fill="#FFFFFF" stroke="#14213D" stroke-width="1.5"/>
+    <rect x="24" y="104" width="10" height="360" rx="4" fill="#F2A541"/>
+    <text x="52" y="144" fill="#14213D" font-family="Georgia, serif" font-size="22">Fund shares</text>
+    <text x="52" y="184" fill="#2A9D8F" font-family="Georgia, serif" font-size="16">Can</text>
+    <text x="52" y="212" fill="#0F172A" font-family="Georgia, serif" font-size="16">Trade in a brokerage account</text>
+    <text x="52" y="236" fill="#0F172A" font-family="Georgia, serif" font-size="16">Skip handling a seed phrase</text>
+    <text x="52" y="260" fill="#0F172A" font-family="Georgia, serif" font-size="16">Track bitcoin's price, with a gap</text>
+    <text x="52" y="304" fill="#C2410C" font-family="Georgia, serif" font-size="16">Cannot</text>
+    <text x="52" y="332" fill="#0F172A" font-family="Georgia, serif" font-size="16">Send or spend the bitcoin itself</text>
+    <text x="52" y="356" fill="#0F172A" font-family="Georgia, serif" font-size="16">Avoid the sponsor fee</text>
+    <text x="52" y="396" fill="#475569" font-family="Georgia, serif" font-size="15">Each fee payment reduces the bitcoin</text>
+    <text x="52" y="420" fill="#475569" font-family="Georgia, serif" font-size="15">represented by a share, over time.</text>
+    <text x="52" y="444" fill="#475569" font-family="Georgia, serif" font-size="15">The share price can also drift.</text>
+  </g>
+  <g>
+    <rect x="24" y="484" width="392" height="340" rx="16" fill="#FFFFFF" stroke="#14213D" stroke-width="1.5"/>
+    <rect x="24" y="484" width="10" height="340" rx="4" fill="#2A9D8F"/>
+    <text x="52" y="524" fill="#14213D" font-family="Georgia, serif" font-size="22">Holding the coins</text>
+    <text x="52" y="564" fill="#2A9D8F" font-family="Georgia, serif" font-size="16">Can</text>
+    <text x="52" y="592" fill="#0F172A" font-family="Georgia, serif" font-size="16">Send bitcoin from a wallet</text>
+    <text x="52" y="616" fill="#0F172A" font-family="Georgia, serif" font-size="16">Skip a fund sponsor fee</text>
+    <text x="52" y="640" fill="#0F172A" font-family="Georgia, serif" font-size="16">Hold the keys yourself, if you choose</text>
+    <text x="52" y="684" fill="#C2410C" font-family="Georgia, serif" font-size="16">Cannot</text>
+    <text x="52" y="712" fill="#0F172A" font-family="Georgia, serif" font-size="16">Undo a lost or shared seed phrase</text>
+    <text x="52" y="736" fill="#0F172A" font-family="Georgia, serif" font-size="16">Avoid the work of protecting keys</text>
+    <text x="52" y="776" fill="#475569" font-family="Georgia, serif" font-size="15">Lose the keys, and access can be</text>
+    <text x="52" y="800" fill="#475569" font-family="Georgia, serif" font-size="15">gone permanently.</text>
+  </g>
+  <text x="28" y="856" fill="#475569" font-family="Georgia, serif" font-size="14">This page explains the tradeoff. It does not pick one.</text>
+</svg>
