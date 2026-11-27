@@ -45,11 +45,12 @@ const verification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
     <script is:inline>
       (() => {
         try {
-          const stored = localStorage.getItem('theme');
-          const theme = stored === 'light' || stored === 'dark'
-            ? stored
-            : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-          document.documentElement.dataset.theme = theme;
+          // The toggle is gone. Drop a leftover choice so it cannot pin the theme.
+          localStorage.removeItem('theme');
+        } catch (error) {}
+        try {
+          const dark = matchMedia('(prefers-color-scheme: dark)').matches;
+          document.documentElement.dataset.theme = dark ? 'dark' : 'light';
         } catch (error) {}
       })();
     </script>
