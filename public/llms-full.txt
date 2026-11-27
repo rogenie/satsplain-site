@@ -26,6 +26,31 @@ Sources:
 - Beware Imposters Posing as CFTC Officials (U.S. Commodity Futures Trading Commission): https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/Beware_Imposters
 - Increase in Companies Falsely Claiming an Ability to Recover Funds Lost in Cryptocurrency Investment Scams (FBI Internet Crime Complaint Center): https://www.ic3.gov/PSA/2023/PSA230811
 
+## Form 1099-DA explained: the IRS crypto form, in plain English
+
+https://satsplain.com/articles/form-1099-da-explained/
+
+Form 1099-DA is the form a crypto broker sends you and the IRS after a sale. What the boxes mean, and why a blank cost basis box is not zero.
+
+Key takeaways:
+
+- Form 1099-DA is the form a crypto broker uses to report your digital asset sales to you and to the IRS.
+- Brokers report proceeds for sales from January 1, 2025. For sales from January 1, 2026, they must also report cost basis on certain assets.
+- Basis is only required for covered assets: bought after 2025 in that broker's custodial account and held there until the sale.
+- If the cost basis box is blank, the IRS says to work out your basis from your own records. Blank does not mean zero.
+- The IRS does not run a Digital Asset Compliance Portal. A letter telling you to register your crypto there is a scam.
+
+Sources:
+
+- About Form 1099-DA, Digital Asset Proceeds From Broker Transactions (Internal Revenue Service): https://www.irs.gov/forms-pubs/about-form-1099-da
+- Instructions for Form 1099-DA (2026) (Internal Revenue Service): https://www.irs.gov/instructions/i1099da
+- 2026 Form 1099-DA (includes Instructions for Recipient) (Internal Revenue Service): https://www.irs.gov/pub/irs-pdf/f1099da.pdf
+- Digital assets (Internal Revenue Service): https://www.irs.gov/filing/digital-assets
+- Frequently asked questions on virtual currency transactions (Internal Revenue Service): https://www.irs.gov/individuals/international-taxpayers/frequently-asked-questions-on-virtual-currency-transactions
+- Instructions for Form 8949 (2025) (Internal Revenue Service): https://www.irs.gov/instructions/i8949
+- Publication 1099 (2026), General Instructions for Certain Information Returns (Internal Revenue Service): https://www.irs.gov/pub/irs-pdf/p1099.pdf
+- Fraud alert: Fake IRS letters target cryptocurrency holders (IRS Criminal Investigation): https://www.irs.gov/compliance/criminal-investigation/fraud-alert-fake-irs-letters-target-cryptocurrency-holders
+
 ## Crypto scams to avoid (and how to spot them)
 
 https://satsplain.com/articles/crypto-scams-to-avoid/

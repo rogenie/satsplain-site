@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="860" viewBox="0 0 440 860" role="img">
+  <title>Covered or noncovered: does the broker report your cost basis?</title>
+  <desc>A decision path. If the crypto was bought after 2025 in the broker's custodial account and stayed there until the sale, it is covered and the broker reports basis. If it was bought before 2026, transferred in, or not held there, it is noncovered and the basis box may be blank, so you use your own records.</desc>
+  <rect width="440" height="860" rx="28" fill="#FAF8F3"/>
+  <rect width="440" height="8" fill="#2A9D8F"/>
+  <text x="32" y="52" fill="#14213D" font-family="Georgia, serif" font-size="26">Will the basis be filled in?</text>
+  <text x="32" y="80" fill="#475569" font-family="Georgia, serif" font-size="15">For sales after 2025, per the IRS instructions.</text>
+  <g font-family="Georgia, serif">
+    <rect x="28" y="108" width="384" height="156" rx="18" fill="#FFFFFF" stroke="#14213D" stroke-width="1.5"/>
+    <rect x="28" y="108" width="10" height="156" rx="4" fill="#14213D"/>
+    <text x="56" y="146" fill="#14213D" font-size="20">Was the crypto bought after 2025,</text>
+    <text x="56" y="174" fill="#14213D" font-size="20">in this broker's custodial</text>
+    <text x="56" y="202" fill="#14213D" font-size="20">account, and held there until</text>
+    <text x="56" y="230" fill="#14213D" font-size="20">the sale?</text>
+  </g>
+  <path d="M130 272 v40" stroke="#14213D" stroke-width="2.5"/><path d="M120 302 l10 12 l10 -12" stroke="#14213D" stroke-width="2.5" fill="none"/>
+  <path d="M310 272 v40" stroke="#14213D" stroke-width="2.5"/><path d="M300 302 l10 12 l10 -12" stroke="#14213D" stroke-width="2.5" fill="none"/>
+  <text x="142" y="298" fill="#14213D" font-family="Georgia, serif" font-size="16">Yes</text>
+  <text x="322" y="298" fill="#14213D" font-family="Georgia, serif" font-size="16">No</text>
+  <g font-family="Georgia, serif">
+    <rect x="28" y="324" width="186" height="300" rx="18" fill="#FFFFFF" stroke="#14213D" stroke-width="1.5"/>
+    <rect x="28" y="324" width="186" height="10" rx="4" fill="#2A9D8F"/>
+    <text x="44" y="368" fill="#14213D" font-size="20">Covered</text>
+    <text x="44" y="402" fill="#0F172A" font-size="15">The broker must</text>
+    <text x="44" y="424" fill="#0F172A" font-size="15">report your cost</text>
+    <text x="44" y="446" fill="#0F172A" font-size="15">basis in box 1g.</text>
+    <text x="44" y="480" fill="#0F172A" font-size="15">Box 2 is checked:</text>
+    <text x="44" y="502" fill="#0F172A" font-size="15">basis was sent</text>
+    <text x="44" y="524" fill="#0F172A" font-size="15">to the IRS.</text>
+    <text x="44" y="566" fill="#475569" font-size="14">Still check it against</text>
+    <text x="44" y="588" fill="#475569" font-size="14">your own records.</text>
+  </g>
+  <g font-family="Georgia, serif">
+    <rect x="226" y="324" width="186" height="300" rx="18" fill="#FFFFFF" stroke="#14213D" stroke-width="1.5"/>
+    <rect x="226" y="324" width="186" height="10" rx="4" fill="#F2A541" stroke="#14213D" stroke-width="1"/>
+    <text x="242" y="368" fill="#14213D" font-size="20">Noncovered</text>
+    <text x="242" y="402" fill="#0F172A" font-size="15">Bought before 2026,</text>
+    <text x="242" y="424" fill="#0F172A" font-size="15">transferred in, or</text>
+    <text x="242" y="446" fill="#0F172A" font-size="15">not held there.</text>
+    <text x="242" y="480" fill="#0F172A" font-size="15">Box 9 may be</text>
+    <text x="242" y="502" fill="#0F172A" font-size="15">checked. Box 1g</text>
+    <text x="242" y="524" fill="#0F172A" font-size="15">may be blank.</text>
+    <text x="242" y="566" fill="#475569" font-size="14">You work out basis</text>
+    <text x="242" y="588" fill="#475569" font-size="14">from your records.</text>
+  </g>
+  <rect x="28" y="656" width="384" height="140" rx="18" fill="#FFFFFF" stroke="#14213D" stroke-width="1.5"/>
+  <text x="48" y="694" fill="#14213D" font-family="Georgia, serif" font-size="18">Either way, the proceeds are reported.</text>
+  <text x="48" y="724" fill="#0F172A" font-family="Georgia, serif" font-size="15">The form shows what the sale brought in.</text>
+  <text x="48" y="750" fill="#0F172A" font-family="Georgia, serif" font-size="15">Only the cost side can be missing.</text>
+  <text x="48" y="776" fill="#475569" font-family="Georgia, serif" font-size="14">A blank basis box does not mean zero.</text>
+  <text x="32" y="836" fill="#475569" font-family="Georgia, serif" font-size="13">Simplified from the IRS Instructions for Form 1099-DA (2026).</text>
+</svg>
