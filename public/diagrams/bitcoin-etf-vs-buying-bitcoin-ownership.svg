@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="820" viewBox="0 0 440 820" role="img">
+  <title>Who holds the keys in a fund versus in a wallet</title>
+  <desc>Fund shares sit in a brokerage account while a custodian holds the keys. Buying bitcoin means you, or a company you chose, hold the wallet keys and possibly a seed phrase.</desc>
+  <rect width="440" height="820" rx="28" fill="#FAF8F3"/>
+  <rect width="440" height="8" fill="#2A9D8F"/>
+  <text x="28" y="50" fill="#14213D" font-family="Georgia, serif" font-size="24">What you actually hold</text>
+  <text x="28" y="78" fill="#475569" font-family="Georgia, serif" font-size="15">Shares are not the same thing as coins.</text>
+  <g>
+    <rect x="24" y="104" width="392" height="320" rx="16" fill="#FFFFFF" stroke="#14213D" stroke-width="1.5"/>
+    <rect x="24" y="104" width="10" height="320" rx="4" fill="#F2A541"/>
+    <text x="52" y="144" fill="#14213D" font-family="Georgia, serif" font-size="22">Fund shares</text>
+    <rect x="52" y="168" width="336" height="70" rx="12" fill="#FAF8F3" stroke="#14213D"/>
+    <text x="68" y="196" fill="#14213D" font-family="Georgia, serif" font-size="16">You</text>
+    <text x="68" y="220" fill="#0F172A" font-family="Georgia, serif" font-size="15">Hold shares in a brokerage account</text>
+    <path d="M220 248 v20" stroke="#14213D" stroke-width="2"/><path d="M210 258 l10 12 l10 -12" stroke="#14213D" stroke-width="2" fill="none"/>
+    <rect x="52" y="276" width="336" height="70" rx="12" fill="#FAF8F3" stroke="#14213D"/>
+    <text x="68" y="304" fill="#14213D" font-family="Georgia, serif" font-size="16">The fund's custodian</text>
+    <text x="68" y="328" fill="#0F172A" font-family="Georgia, serif" font-size="15">Holds the keys to the bitcoin</text>
+    <text x="52" y="400" fill="#475569" font-family="Georgia, serif" font-size="15">You do not directly own the coins.</text>
+  </g>
+  <g>
+    <rect x="24" y="448" width="392" height="320" rx="16" fill="#FFFFFF" stroke="#14213D" stroke-width="1.5"/>
+    <rect x="24" y="448" width="10" height="320" rx="4" fill="#2A9D8F"/>
+    <text x="52" y="488" fill="#14213D" font-family="Georgia, serif" font-size="22">Buying bitcoin</text>
+    <rect x="52" y="512" width="336" height="70" rx="12" fill="#FAF8F3" stroke="#14213D"/>
+    <text x="68" y="540" fill="#14213D" font-family="Georgia, serif" font-size="16">You, or a company you chose</text>
+    <text x="68" y="564" fill="#0F172A" font-family="Georgia, serif" font-size="15">Hold the wallet's private keys</text>
+    <path d="M220 592 v20" stroke="#14213D" stroke-width="2"/><path d="M210 602 l10 12 l10 -12" stroke="#14213D" stroke-width="2" fill="none"/>
+    <rect x="52" y="620" width="336" height="70" rx="12" fill="#FAF8F3" stroke="#14213D"/>
+    <text x="68" y="648" fill="#14213D" font-family="Georgia, serif" font-size="16">If you hold the keys</text>
+    <text x="68" y="672" fill="#0F172A" font-family="Georgia, serif" font-size="15">A seed phrase is the usual backup</text>
+    <text x="52" y="744" fill="#475569" font-family="Georgia, serif" font-size="15">You can send the coins from a wallet.</text>
+  </g>
+  <text x="28" y="798" fill="#475569" font-family="Georgia, serif" font-size="14">Both models have a way to fail. The SEC names each one.</text>
+</svg>

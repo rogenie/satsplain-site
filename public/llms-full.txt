@@ -26,6 +26,26 @@ Sources:
 - Beware Imposters Posing as CFTC Officials (U.S. Commodity Futures Trading Commission): https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/Beware_Imposters
 - Increase in Companies Falsely Claiming an Ability to Recover Funds Lost in Cryptocurrency Investment Scams (FBI Internet Crime Complaint Center): https://www.ic3.gov/PSA/2023/PSA230811
 
+## Bitcoin ETF vs buying Bitcoin: who holds the keys?
+
+https://satsplain.com/articles/bitcoin-etf-vs-buying-bitcoin/
+
+A Bitcoin ETF gives you shares, not coins. Who holds the keys, what the SEC says these funds actually are, and what you give up for the convenience.
+
+Key takeaways:
+
+- A spot bitcoin ETF, as the SEC describes it, is a fund that holds bitcoin and sells you shares. You do not directly own the coins.
+- The fund's custodian holds the keys. You do not get a seed phrase, and you cannot send the bitcoin from a wallet of your own.
+- These products are often called ETFs, but the SEC says the spot versions are not registered as Investment Company Act ETFs.
+- A sponsor fee reduces, over time, the amount of bitcoin each share represents. Coin holders do not pay that fee.
+- The SEC calls bitcoin highly speculative, including when you get exposure through one of these funds. This page does not pick a side.
+
+Sources:
+
+- Exchange-Traded Products (ETPs) Providing Exposure to Bitcoin and Ether (SEC Office of Investor Education and Advocacy): https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/ETPBulletinSeptember2024
+- Crypto Asset Custody Basics for Retail Investors (SEC Office of Investor Education and Assistance): https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/crypto-asset-custody-basics-retail-investors-investor-bulletin-0
+- Crypto Asset-Related Investments (SEC Office of Investor Education and Assistance): https://www.investor.gov/introduction-investing/investing-basics/investment-products/crypto-asset-related-investments
+
 ## Form 1099-DA explained: the IRS crypto form, in plain English
 
 https://satsplain.com/articles/form-1099-da-explained/
