@@ -51,6 +51,30 @@ Sources:
 - Publication 1099 (2026), General Instructions for Certain Information Returns (Internal Revenue Service): https://www.irs.gov/pub/irs-pdf/p1099.pdf
 - Fraud alert: Fake IRS letters target cryptocurrency holders (IRS Criminal Investigation): https://www.irs.gov/compliance/criminal-investigation/fraud-alert-fake-irs-letters-target-cryptocurrency-holders
 
+## How to back up a seed phrase (and why paper still works)
+
+https://satsplain.com/articles/how-to-back-up-a-seed-phrase/
+
+Write the words down offline, check the copy, and store it privately. Why a photo or a cloud note is a risk, and why paper is still a complete option.
+
+Key takeaways:
+
+- A seed phrase backup is a written copy of the words that can restore a self-custody wallet.
+- Write the words on paper, in order, while the wallet still shows them, then check the copy against the screen.
+- Paper is a complete, free option. Official guides describe writing the words down and storing them securely offline.
+- Do not keep the words in a photo, an email, a cloud account, or an online document.
+- Anyone who gets the words may be able to move the crypto. No legitimate support desk will ask for them.
+
+Sources:
+
+- Crypto Asset Custody Basics for Retail Investors (SEC Office of Investor Education and Assistance): https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/crypto-asset-custody-basics-retail-investors-investor-bulletin-0
+- BIP 39: Mnemonic code for generating deterministic keys (Bitcoin Improvement Proposals repository): https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki
+- BIP 39 English wordlist (Bitcoin Improvement Proposals repository): https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt
+- CAFC Bulletin: Cryptocurrency Wallet Fraud (Canadian Anti-Fraud Centre, posted by the New Brunswick Financial and Consumer Services Commission): https://fcnb.ca/en/news-alerts/cafc-bulletin-cryptocurrency-wallet-fraud
+- Securing your wallet (bitcoin.org): https://bitcoin.org/en/secure-your-wallet
+- Bitcoin FAQ (bitcoin.org): https://bitcoin.org/en/faq
+- Some things you need to know (bitcoin.org): https://bitcoin.org/en/you-need-to-know
+
 ## Crypto scams to avoid (and how to spot them)
 
 https://satsplain.com/articles/crypto-scams-to-avoid/

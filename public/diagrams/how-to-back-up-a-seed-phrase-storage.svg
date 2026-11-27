@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="860" viewBox="0 0 440 860" role="img">
+  <title>One backup location versus two private places</title>
+  <desc>One paper backup in a single place is a single point of failure. Two copies in two private places reduce that risk. Photos, email, and cloud accounts are crossed out.</desc>
+  <rect width="440" height="860" rx="28" fill="#FAF8F3"/>
+  <rect width="440" height="8" fill="#2A9D8F"/>
+  <text x="28" y="50" fill="#14213D" font-family="Georgia, serif" font-size="24">Where the paper lives</text>
+  <text x="28" y="78" fill="#475569" font-family="Georgia, serif" font-size="15">One location is a single point of failure.</text>
+  <g>
+    <rect x="24" y="104" width="392" height="250" rx="16" fill="#FFFFFF" stroke="#14213D" stroke-width="1.5"/>
+    <rect x="24" y="104" width="10" height="250" rx="4" fill="#C2410C"/>
+    <text x="52" y="144" fill="#14213D" font-family="Georgia, serif" font-size="20">One copy, one place</text>
+    <rect x="86" y="170" width="90" height="110" rx="10" fill="#FAF8F3" stroke="#14213D" stroke-width="1.5"/>
+    <text x="102" y="232" fill="#14213D" font-family="Georgia, serif" font-size="14">Paper</text>
+    <text x="200" y="214" fill="#0F172A" font-family="Georgia, serif" font-size="16">If that place is lost,</text>
+    <text x="200" y="238" fill="#0F172A" font-family="Georgia, serif" font-size="16">damaged, or found,</text>
+    <text x="200" y="262" fill="#0F172A" font-family="Georgia, serif" font-size="16">the backup is gone.</text>
+    <text x="52" y="322" fill="#C2410C" font-family="Georgia, serif" font-size="16">Single point of failure</text>
+  </g>
+  <g>
+    <rect x="24" y="374" width="392" height="250" rx="16" fill="#FFFFFF" stroke="#14213D" stroke-width="1.5"/>
+    <rect x="24" y="374" width="10" height="250" rx="4" fill="#2A9D8F"/>
+    <text x="52" y="414" fill="#14213D" font-family="Georgia, serif" font-size="20">Two copies, two places</text>
+    <rect x="60" y="440" width="90" height="100" rx="10" fill="#FAF8F3" stroke="#14213D" stroke-width="1.5"/>
+    <text x="76" y="496" fill="#14213D" font-family="Georgia, serif" font-size="14">Place A</text>
+    <rect x="174" y="440" width="90" height="100" rx="10" fill="#FAF8F3" stroke="#14213D" stroke-width="1.5"/>
+    <text x="190" y="496" fill="#14213D" font-family="Georgia, serif" font-size="14">Place B</text>
+    <text x="52" y="574" fill="#0F172A" font-family="Georgia, serif" font-size="16">One accident is less likely to destroy both.</text>
+    <text x="52" y="598" fill="#475569" font-family="Georgia, serif" font-size="15">Two places also mean two places to protect.</text>
+  </g>
+  <g>
+    <rect x="24" y="644" width="392" height="160" rx="16" fill="#FFFFFF" stroke="#14213D" stroke-width="1.5"/>
+    <text x="52" y="684" fill="#14213D" font-family="Georgia, serif" font-size="20">Keep the words offline</text>
+    <text x="52" y="716" fill="#0F172A" font-family="Georgia, serif" font-size="16">Photo</text>
+    <text x="160" y="716" fill="#0F172A" font-family="Georgia, serif" font-size="16">Email</text>
+    <text x="270" y="716" fill="#0F172A" font-family="Georgia, serif" font-size="16">Cloud file</text>
+    <path d="M48 704 l40 16" stroke="#C2410C" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M48 720 l40 -16" stroke="#C2410C" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M156 704 l40 16" stroke="#C2410C" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M156 720 l40 -16" stroke="#C2410C" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M266 704 l50 16" stroke="#C2410C" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M266 720 l50 -16" stroke="#C2410C" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="52" y="760" fill="#475569" font-family="Georgia, serif" font-size="15">Official guides say keep the words offline.</text>
+  </g>
+  <text x="28" y="832" fill="#475569" font-family="Georgia, serif" font-size="14">Durable media is optional. Paper is enough.</text>
+</svg>

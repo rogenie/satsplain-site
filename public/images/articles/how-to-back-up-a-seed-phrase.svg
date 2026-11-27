@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" role="img">
+  <title>A paper seed-phrase backup, checked and kept offline</title>
+  <desc>A numbered paper backup card with blank word slots, a check mark for a verified copy, and a crossed-out camera and cloud icon.</desc>
+  <rect width="800" height="450" rx="28" fill="#FAF8F3"/>
+  <rect width="800" height="10" fill="#2A9D8F"/>
+  <text x="40" y="62" fill="#14213D" font-family="Georgia, serif" font-size="30">Write it down. Check it. Keep it offline.</text>
+  <text x="40" y="96" fill="#475569" font-family="Georgia, serif" font-size="17">Paper is a complete backup. A photo is not.</text>
+  <g>
+    <rect x="40" y="128" width="430" height="250" rx="18" fill="#FFFFFF" stroke="#14213D" stroke-width="2"/>
+    <text x="60" y="162" fill="#14213D" font-family="Georgia, serif" font-size="18">Backup card</text>
+    <g font-family="Georgia, serif" font-size="14" fill="#475569">
+      <rect x="60" y="180" width="118" height="42" rx="8" fill="#FAF8F3" stroke="#14213D"/>
+      <text x="72" y="206">1.</text>
+      <rect x="94" y="198" width="70" height="5" rx="2" fill="#CBD5E1"/>
+      <rect x="190" y="180" width="118" height="42" rx="8" fill="#FAF8F3" stroke="#14213D"/>
+      <text x="202" y="206">2.</text>
+      <rect x="224" y="198" width="70" height="5" rx="2" fill="#CBD5E1"/>
+      <rect x="320" y="180" width="118" height="42" rx="8" fill="#FAF8F3" stroke="#14213D"/>
+      <text x="332" y="206">3.</text>
+      <rect x="354" y="198" width="70" height="5" rx="2" fill="#CBD5E1"/>
+      <rect x="60" y="232" width="118" height="42" rx="8" fill="#FAF8F3" stroke="#14213D"/>
+      <text x="72" y="258">4.</text>
+      <rect x="94" y="250" width="70" height="5" rx="2" fill="#CBD5E1"/>
+      <rect x="190" y="232" width="118" height="42" rx="8" fill="#FAF8F3" stroke="#14213D"/>
+      <text x="202" y="258">5.</text>
+      <rect x="224" y="250" width="70" height="5" rx="2" fill="#CBD5E1"/>
+      <rect x="320" y="232" width="118" height="42" rx="8" fill="#FAF8F3" stroke="#14213D"/>
+      <text x="332" y="258">6.</text>
+      <rect x="354" y="250" width="70" height="5" rx="2" fill="#CBD5E1"/>
+      <rect x="60" y="284" width="118" height="42" rx="8" fill="#FAF8F3" stroke="#14213D"/>
+      <text x="72" y="310">7.</text>
+      <rect x="94" y="302" width="70" height="5" rx="2" fill="#CBD5E1"/>
+      <rect x="190" y="284" width="118" height="42" rx="8" fill="#FAF8F3" stroke="#14213D"/>
+      <text x="202" y="310">8.</text>
+      <rect x="224" y="302" width="70" height="5" rx="2" fill="#CBD5E1"/>
+      <rect x="320" y="284" width="118" height="42" rx="8" fill="#FAF8F3" stroke="#14213D"/>
+      <text x="332" y="310">12.</text>
+      <rect x="362" y="302" width="62" height="5" rx="2" fill="#CBD5E1"/>
+    </g>
+  </g>
+  <g>
+    <circle cx="560" cy="210" r="44" fill="#2A9D8F" stroke="#14213D" stroke-width="2.5"/>
+    <path d="M540 210 l14 14 l26 -28" fill="none" stroke="#FAF8F3" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="516" y="278" fill="#14213D" font-family="Georgia, serif" font-size="16">Checked copy</text>
+  </g>
+  <g>
+    <circle cx="700" cy="210" r="44" fill="#FFFFFF" stroke="#C2410C" stroke-width="2.5"/>
+    <path d="M684 198 h12 l4 -6 h16 l4 6 h12 v24 h-48 z" fill="none" stroke="#14213D" stroke-width="2"/>
+    <circle cx="700" cy="212" r="6" fill="none" stroke="#14213D" stroke-width="2"/>
+    <path d="M678 190 l44 40" stroke="#C2410C" stroke-width="3" stroke-linecap="round"/>
+    <path d="M678 230 l44 -40" stroke="#C2410C" stroke-width="3" stroke-linecap="round"/>
+    <text x="662" y="278" fill="#14213D" font-family="Georgia, serif" font-size="16">No photo</text>
+  </g>
+  <g>
+    <circle cx="630" cy="360" r="32" fill="#FFFFFF" stroke="#C2410C" stroke-width="2.5"/>
+    <path d="M614 366 q16 -22 32 0 v8 h-32 z" fill="none" stroke="#14213D" stroke-width="2"/>
+    <path d="M608 348 l44 28" stroke="#C2410C" stroke-width="3" stroke-linecap="round"/>
+    <text x="674" y="366" fill="#14213D" font-family="Georgia, serif" font-size="16">No cloud copy</text>
+  </g>
+  <text x="40" y="422" fill="#475569" font-family="Georgia, serif" font-size="15">Slots left blank on purpose. Never write your real words into a file a stranger can see.</text>
+</svg>
