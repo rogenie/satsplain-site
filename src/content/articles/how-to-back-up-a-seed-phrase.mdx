@@ -1,0 +1,207 @@
+---
+title: "How to back up a seed phrase (and why paper still works)"
+description: "Write the words down offline, check the copy, and store it privately. Why a photo or a cloud note is a risk, and why paper is still a complete option."
+slug: how-to-back-up-a-seed-phrase
+pillar: wallets-and-security
+tags:
+  - wallets
+  - security
+  - beginners
+  - seed-phrase
+publishDate: 2026-11-27
+updatedDate: 2026-11-27
+author: Satsplain Research Desk
+readingLevel: beginner
+featuredImage: "/images/articles/how-to-back-up-a-seed-phrase.svg"
+featuredImageAlt: "A numbered paper backup card with blank word slots, a check mark for a verified copy, and a crossed-out camera and cloud icon."
+featuredImageWidth: 800
+featuredImageHeight: 450
+howTo:
+  name: "How to back up a seed phrase"
+  description: "A paper-first routine for the moment a self-custody wallet shows you its recovery words."
+  steps:
+    - name: "Write the words down offline, in order"
+      text: "Copy each word in numbered order onto paper, in a private place, while the wallet still shows them."
+    - name: "Check each word against the screen"
+      text: "Compare spelling and order to the wallet screen. If the wallet uses the BIP 39 English list, a word that is not on that list was copied wrong."
+    - name: "Finish the wallet's own confirmation step"
+      text: "If the wallet asks you to re-enter some of the words, do that from your paper, not from memory."
+    - name: "Store the paper somewhere private"
+      text: "Keep the copy in a private, secure place. Consider a second copy in another secure place so one event cannot destroy the only backup."
+    - name: "Keep the words offline"
+      text: "Do not photograph the words, email them, or put them in a cloud account or online document."
+    - name: "Never share the words"
+      text: "Do not give the words to support staff, a recovery service, or anyone who contacts you."
+keyTakeaways:
+  - "A seed phrase backup is a written copy of the words that can restore a self-custody wallet."
+  - "Write the words on paper, in order, while the wallet still shows them, then check the copy against the screen."
+  - "Paper is a complete, free option. Official guides describe writing the words down and storing them securely offline."
+  - "Do not keep the words in a photo, an email, a cloud account, or an online document."
+  - "Anyone who gets the words may be able to move the crypto. No legitimate support desk will ask for them."
+faq:
+  - question: "Can I take a photo of my seed phrase?"
+    answer: "No. bitcoin.org says never to store a recovery phrase as a photo or in a cloud service. The Canadian Anti-Fraud Centre says not to store it in an email, cloud account, online document, or photograph."
+  - question: "Is a paper backup enough?"
+    answer: "Yes. bitcoin.org says writing the recovery phrase down and storing it securely offline lets you restore the wallet if the device is lost, stolen, or broken. Paper is a complete option. The same site also suggests considering more than one physical place and durable storage media."
+  - question: "What happens if I lose my seed phrase backup?"
+    answer: "The wallet may keep working on your device, but you have lost the backup. bitcoin.org says that if you permanently lose access to a self-custodied wallet, for example by losing your recovery phrase, the funds are gone permanently. No wallet provider can restore them for you."
+  - question: "How many copies should I make?"
+    answer: "bitcoin.org says a backup that does not depend on a single location is less likely to be lost in one event, and to consider keeping copies in more than one physical place."
+  - question: "Do I need a metal plate to back up a seed phrase?"
+    answer: "No. Writing the words on paper and storing them securely offline is the backup official guides describe. bitcoin.org also says to consider durable storage media. A sturdier copy is optional, not required."
+  - question: "What if I set an extra passphrase?"
+    answer: "BIP 39 uses that passphrase, together with the words, to make the seed. A different passphrase produces a different wallet. If you set one, you have to store it too, or the words alone will not open the wallet you intended."
+sources:
+  - title: "Crypto Asset Custody Basics for Retail Investors"
+    url: "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/crypto-asset-custody-basics-retail-investors-investor-bulletin-0"
+    publisher: "SEC Office of Investor Education and Assistance"
+    accessed: "2026-11-27"
+  - title: "BIP 39: Mnemonic code for generating deterministic keys"
+    url: "https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki"
+    publisher: "Bitcoin Improvement Proposals repository"
+    accessed: "2026-11-27"
+  - title: "BIP 39 English wordlist"
+    url: "https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt"
+    publisher: "Bitcoin Improvement Proposals repository"
+    accessed: "2026-11-27"
+  - title: "CAFC Bulletin: Cryptocurrency Wallet Fraud"
+    url: "https://fcnb.ca/en/news-alerts/cafc-bulletin-cryptocurrency-wallet-fraud"
+    publisher: "Canadian Anti-Fraud Centre, posted by the New Brunswick Financial and Consumer Services Commission"
+    accessed: "2026-11-27"
+  - title: "Securing your wallet"
+    url: "https://bitcoin.org/en/secure-your-wallet"
+    publisher: "bitcoin.org"
+    accessed: "2026-11-27"
+  - title: "Bitcoin FAQ"
+    url: "https://bitcoin.org/en/faq"
+    publisher: "bitcoin.org"
+    accessed: "2026-11-27"
+  - title: "Some things you need to know"
+    url: "https://bitcoin.org/en/you-need-to-know"
+    publisher: "bitcoin.org"
+    accessed: "2026-11-27"
+draft: false
+safetyKitCta: true
+---
+
+import Figure from '../../components/Figure.astro';
+import SafetyKitCTA from '../../components/SafetyKitCTA.astro';
+
+The wallet just put a list of words on the screen.
+
+It says this is the only way to get them back. A checkbox is waiting.
+
+A photo would be faster. A notes app would be easier.
+
+Do not take the photo. This walkthrough shows how to back those words up on paper, how to check the copy, and where it should live. Paper is a complete, free option. The facts come from the [SEC's custody bulletin](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/crypto-asset-custody-basics-retail-investors-investor-bulletin-0), [bitcoin.org](https://bitcoin.org/en/faq), and the [BIP 39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) backup standard many wallets use.
+
+## What are you backing up, exactly?
+
+The list of words that can restore a self-custody wallet. The [SEC](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/crypto-asset-custody-basics-retail-investors-investor-bulletin-0) calls this a seed phrase: a random sequence of words that lets you restore the wallet if you lose it, lose its private key, or the hardware or software is damaged.
+
+You may also see it called a recovery phrase or a mnemonic. Same job.
+
+If the words themselves are still new, start with [What is a seed phrase?](/articles/what-is-a-seed-phrase/). This page is the next step: how to make a backup you can actually use.
+
+## Why does a written copy matter?
+
+Because the device is not the backup. [bitcoin.org](https://bitcoin.org/en/you-need-to-know) is blunt. If you permanently lose access to a self-custodied wallet, for example by losing your recovery phrase, the funds are gone permanently. No developer, miner, wallet provider, or exchange can get them back.
+
+The [SEC](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/crypto-asset-custody-basics-retail-investors-investor-bulletin-0) says the same thing another way. A private key cannot be changed or replaced. If you lose it, you permanently lose access. The words are how a wallet rebuilds that key.
+
+A working phone is not a plan. A checked paper copy is.
+
+## How do you write the words down safely?
+
+On paper, in order, in a private place, while the wallet still shows them. The [bitcoin.org FAQ](https://bitcoin.org/en/faq) says most modern wallets are backed up with a recovery phrase: writing it down and storing it securely offline lets you restore the entire wallet if the device is lost, stolen, or broken.
+
+Do this:
+
+1. Find a private place. No cameras over your shoulder. No screen sharing.
+2. Use paper and a pen that will still be readable later.
+3. Write each word in numbered order, exactly as the wallet shows it. [BIP 39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) treats the words as a sentence. The order is part of the backup.
+4. If you set an extra passphrase, write that down too. BIP 39 uses it, together with the words, to make the seed. Leave it blank and the wallet uses an empty one.
+
+Do not invent your own words. BIP 39 is a way to write down randomness the wallet generated. It is not a way to turn a phrase you made up into a wallet seed.
+
+<Figure
+  src="/diagrams/how-to-back-up-a-seed-phrase-steps.svg"
+  width={440}
+  height={900}
+  alt="Five numbered steps for a paper seed-phrase backup: write the words offline in order, check each word against the screen, finish the wallet's confirmation step, store the paper in a private place, and never photograph, email, or upload the words."
+  caption="The routine is short. The order of the words is part of the backup."
+/>
+
+## How do you check that you copied them correctly?
+
+By comparing the paper to the screen, word by word, before you close the wallet. The [BIP 39 English list](https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt) has 2,048 words. If your wallet uses that list and a word on your paper is not on it, you copied it wrong.
+
+Many wallets then ask you to confirm a few of the words. Do that from the paper, not from memory.
+
+The built-in checksum in [BIP 39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) can catch some mistakes. It can also miss some. The specification says the checksum is short, that some random errors get through, and that it cannot tell you which word to fix. That is why the visual check still matters.
+
+The first four letters of each English BIP 39 word are unique, according to the same specification. If your handwriting turns those letters into something that could be two words, rewrite it.
+
+## Where should the paper live?
+
+In a private, secure place, and not only in one if you can help it. The [Canadian Anti-Fraud Centre](https://fcnb.ca/en/news-alerts/cafc-bulletin-cryptocurrency-wallet-fraud) says to keep the recovery phrase in a private and secure place.
+
+[bitcoin.org](https://bitcoin.org/en/secure-your-wallet) says a backup that depends on a single location is a single point of failure. It suggests keeping copies in more than one physical place, using durable storage media.
+
+Two copies in two private places can survive one accident that would have destroyed the only copy. Two copies also mean two places someone else might find. That is the tradeoff. Official guides do not pick the furniture for you. They do say the place should be private, and that one location is a weak plan.
+
+Most modern wallets are deterministic. bitcoin.org says a single backup of the recovery phrase is usually enough to restore past and future addresses, but you should check how your own wallet handles backups.
+
+<Figure
+  src="/diagrams/how-to-back-up-a-seed-phrase-storage.svg"
+  width={440}
+  height={860}
+  alt="Two panels. The first shows one paper backup in a single place labeled a single point of failure. The second shows two paper copies in two private places, with a row of crossed-out icons for a photo, an email, and a cloud account."
+  caption="One private place is a start. A second copy in a second place is the plan bitcoin.org describes."
+/>
+
+## Can you keep a photo or a cloud copy?
+
+No. The [bitcoin.org FAQ](https://bitcoin.org/en/faq) says never to store a recovery phrase as a photo or in a cloud service, and never to share it with anyone.
+
+The [Canadian Anti-Fraud Centre](https://fcnb.ca/en/news-alerts/cafc-bulletin-cryptocurrency-wallet-fraud) says the same, in a slightly longer list: do not store it in an email, a cloud account, an online document, or a photograph.
+
+A picture in your camera roll is a copy that backups, phones, and cloud accounts can spread without you noticing. An online note is a copy a breached account can leak. The official advice is to keep the words offline.
+
+## What if you set an extra passphrase?
+
+You have to store that too, or the words alone will not open the wallet you meant to open. [BIP 39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) lets you add a passphrase to the mnemonic. If you do not set one, the method uses an empty string.
+
+Every passphrase produces a valid wallet. Only the correct one produces the wallet that holds your coins. A typo will not always show an error. It can open an empty wallet that looks real.
+
+If you did not set a passphrase, you can ignore this section.
+
+## Is paper enough, or do you need something sturdier?
+
+Paper is enough. It is the free option the official guides describe. The [bitcoin.org FAQ](https://bitcoin.org/en/faq) says writing the recovery phrase down and storing it securely offline is how you back up most modern wallets.
+
+Paper can also be damaged, lost, or found, the same way the [SEC](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/crypto-asset-custody-basics-retail-investors-investor-bulletin-0) says a physical cold-wallet device can be lost, damaged, or stolen. That is why bitcoin.org also says to consider more than one physical place and durable storage media.
+
+A sturdier copy, if you want one, is optional. Nothing in this guide requires you to buy one. A checked paper copy, stored privately, is a complete backup.
+
+## What should you do if someone asks for the words?
+
+Stop, and end the contact. The [bitcoin.org FAQ](https://bitcoin.org/en/faq) says no legitimate person, business, or support team will ever ask for your recovery phrase. The [Canadian Anti-Fraud Centre](https://fcnb.ca/en/news-alerts/cafc-bulletin-cryptocurrency-wallet-fraud) says a police service, government agency, financial institution, wallet provider, or legitimate support service will not ask you to send it by email, text, social media, online form, or letter.
+
+The [SEC](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/crypto-asset-custody-basics-retail-investors-investor-bulletin-0) is shorter: never share your private keys or seed phrases.
+
+If the message also offers to recover lost coins, treat it as a warning. The Canadian Anti-Fraud Centre describes that follow-up as recovery fraud. More of the pattern is in [Crypto scams to avoid](/articles/crypto-scams-to-avoid/).
+
+## What should you read next?
+
+Taxes and rules, if you are following the [start-here path](/start-here/). You now have a way to keep the words. The next question is the records a purchase can create.
+
+If you still want the longer explanation of what the words do, read [What is a seed phrase?](/articles/what-is-a-seed-phrase/). The [Wallets and security](/pillars/wallets-and-security/) hub sits next to both.
+
+<p class="next-step"><a href="/pillars/taxes-and-rules/">Next: taxes and rules</a></p>
+
+<SafetyKitCTA />
+
+## A note on advice
+
+This page is general education, not financial advice. It is not a recommendation to buy, sell, or hold any asset, or to use any wallet, company, or backup product. The [full disclaimer](/disclaimer/) explains the limit.

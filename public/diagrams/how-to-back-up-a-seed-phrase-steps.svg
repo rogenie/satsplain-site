@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="900" viewBox="0 0 440 900" role="img">
+  <title>Five steps for a paper seed-phrase backup</title>
+  <desc>Write the words offline in order, check each word against the screen, finish the wallet confirmation, store the paper privately, and never photograph or upload the words.</desc>
+  <rect width="440" height="900" rx="28" fill="#FAF8F3"/>
+  <rect width="440" height="8" fill="#2A9D8F"/>
+  <text x="28" y="50" fill="#14213D" font-family="Georgia, serif" font-size="24">The paper backup routine</text>
+  <text x="28" y="78" fill="#475569" font-family="Georgia, serif" font-size="15">Do this while the wallet still shows the words.</text>
+
+  <g>
+    <rect x="24" y="100" width="392" height="136" rx="16" fill="#FFFFFF" stroke="#14213D" stroke-width="1.5"/>
+    <rect x="24" y="100" width="10" height="136" rx="4" fill="#F2A541"/>
+    <text x="52" y="136" fill="#14213D" font-family="Georgia, serif" font-size="20">1. Write them down</text>
+    <text x="52" y="168" fill="#0F172A" font-family="Georgia, serif" font-size="16">Paper, in numbered order, in a</text>
+    <text x="52" y="192" fill="#0F172A" font-family="Georgia, serif" font-size="16">private place. The order is part</text>
+    <text x="52" y="216" fill="#0F172A" font-family="Georgia, serif" font-size="16">of the backup.</text>
+  </g>
+  <g>
+    <rect x="24" y="252" width="392" height="136" rx="16" fill="#FFFFFF" stroke="#14213D" stroke-width="1.5"/>
+    <rect x="24" y="252" width="10" height="136" rx="4" fill="#F2A541"/>
+    <text x="52" y="288" fill="#14213D" font-family="Georgia, serif" font-size="20">2. Check the copy</text>
+    <text x="52" y="320" fill="#0F172A" font-family="Georgia, serif" font-size="16">Compare every word to the screen.</text>
+    <text x="52" y="344" fill="#0F172A" font-family="Georgia, serif" font-size="16">If a BIP 39 English word is not</text>
+    <text x="52" y="368" fill="#0F172A" font-family="Georgia, serif" font-size="16">on the official list, recopy it.</text>
+  </g>
+  <g>
+    <rect x="24" y="404" width="392" height="136" rx="16" fill="#FFFFFF" stroke="#14213D" stroke-width="1.5"/>
+    <rect x="24" y="404" width="10" height="136" rx="4" fill="#2A9D8F"/>
+    <text x="52" y="440" fill="#14213D" font-family="Georgia, serif" font-size="20">3. Confirm in the wallet</text>
+    <text x="52" y="472" fill="#0F172A" font-family="Georgia, serif" font-size="16">If the wallet asks you to re-enter</text>
+    <text x="52" y="496" fill="#0F172A" font-family="Georgia, serif" font-size="16">some words, read them from the</text>
+    <text x="52" y="520" fill="#0F172A" font-family="Georgia, serif" font-size="16">paper, not from memory.</text>
+  </g>
+  <g>
+    <rect x="24" y="556" width="392" height="136" rx="16" fill="#FFFFFF" stroke="#14213D" stroke-width="1.5"/>
+    <rect x="24" y="556" width="10" height="136" rx="4" fill="#2A9D8F"/>
+    <text x="52" y="592" fill="#14213D" font-family="Georgia, serif" font-size="20">4. Store it privately</text>
+    <text x="52" y="624" fill="#0F172A" font-family="Georgia, serif" font-size="16">Keep the paper in a private,</text>
+    <text x="52" y="648" fill="#0F172A" font-family="Georgia, serif" font-size="16">secure place. A second copy in</text>
+    <text x="52" y="672" fill="#0F172A" font-family="Georgia, serif" font-size="16">a second place avoids one failure.</text>
+  </g>
+  <g>
+    <rect x="24" y="708" width="392" height="136" rx="16" fill="#FFFFFF" stroke="#14213D" stroke-width="1.5"/>
+    <rect x="24" y="708" width="10" height="136" rx="4" fill="#C2410C"/>
+    <text x="52" y="744" fill="#14213D" font-family="Georgia, serif" font-size="20">5. Keep it offline</text>
+    <text x="52" y="776" fill="#0F172A" font-family="Georgia, serif" font-size="16">No photo. No email. No cloud</text>
+    <text x="52" y="800" fill="#0F172A" font-family="Georgia, serif" font-size="16">account. No online document.</text>
+    <text x="52" y="824" fill="#0F172A" font-family="Georgia, serif" font-size="16">Never share the words.</text>
+  </g>
+  <text x="28" y="872" fill="#475569" font-family="Georgia, serif" font-size="14">Paper is a complete, free option.</text>
+</svg>
